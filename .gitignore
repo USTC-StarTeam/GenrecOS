@@ -1,0 +1,23 @@
+# 系统生成的文件
+__pycache__/
+.vscode/
+*.pyc
+output_*
+GEMINI.md
+CLAUDE.md
+.claude/
+.DS_Store
+Thumbs.db
+
+# 给大家留下调试空间
+temp_*
+trash_*
+
+# 敏感信息
+.env
+config.js
+secrets.json
+
+# 特定文件
+/Data/
+/FuxiCTR-data/

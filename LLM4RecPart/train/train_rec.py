@@ -1,0 +1,197 @@
+from dataclasses import dataclass
+import os
+from pathlib import Path
+import json
+import sys
+from typing import Any, Dict, List
+
+import pandas as pd
+from peft import LoraConfig, get_peft_model
+import torch
+from datasets import Dataset
+from transformers import (
+    AutoModelForCausalLM,
+    AutoTokenizer,
+    EarlyStoppingCallback,
+    HfArgumentParser,
+    Trainer,
+    TrainingArguments,
+)
+
+@dataclass
+class PathArguments:
+    align_model_path: str
+    train_data_path: str
+    val_data_path: str
+    special_tokens_path: str
+
+@dataclass
+class LoraArguments:
+    lora_r: int
+    lora_alpha: int
+    lora_dropout: float
+    lora_target_modules: List[str]
+
+def prepare_chat_dataset(data_path):
+    data_pq = pd.read_json(data_path, lines=True)
+    texts = []
+    system_message = "You are a professional recommendation expert who needs to recommend the next possible purchase for users based on their purchase history. Please predict the most likely next product that the user will purchase based on the user's historical purchase information."
+    for _, row in data_pq.iterrows():
+        assistant_content = f"<think>\n\n</think>\n{row['groundtruth'][0]}"
+        formatted_text = (
+            f"<|im_start|>system\n{system_message}<|im_end|>\n"
+            f"<|im_start|>user\n{row['description']}<|im_end|>\n"
+            f"<|im_start|>assistant\n{assistant_content}<|im_end|>"
+        )
+        texts.append(formatted_text)
+    dataset_dict = {
+        'text': texts
+    }
+    return Dataset.from_dict(dataset_dict)
+
+def tokenize_function(examples, tokenizer):
+    tokenized = tokenizer(
+        examples['text'],
+        padding='longest',
+        truncation=True,
+        max_length=4096,
+        add_special_tokens=True,
+        return_attention_mask=True,
+    )
+    return tokenized
+
+class CustomDataCollator:
+    def __init__(self, tokenizer, mlm=False):
+        self.tokenizer = tokenizer
+        self.mlm = mlm
+        
+    def __call__(self, features: List[Dict[str, Any]]) -> Dict[str, Any]:
+        input_ids = [feature["input_ids"] for feature in features]
+        attention_mask = [feature["attention_mask"] for feature in features]
+
+        max_length = max(len(ids) for ids in input_ids)
+
+        padded_input_ids = []
+        padded_attention_mask = []
+        labels = []
+
+        for i, (ids, mask) in enumerate(zip(input_ids, attention_mask)):
+            padding_length = max_length - len(ids)
+            padded_ids = ids + [self.tokenizer.pad_token_id] * padding_length
+            padded_mask = mask + [0] * padding_length
+
+            label = padded_ids.copy()
+
+            text = self.tokenizer.decode(ids, skip_special_tokens=False)
+            user_start_pos = text.find("<|im_start|>user")
+
+            if user_start_pos != -1:
+                user_start_tokens = self.tokenizer.encode("<|im_start|>user", add_special_tokens=False)
+
+                for j in range(len(ids) - len(user_start_tokens) + 1):
+                    if ids[j:j+len(user_start_tokens)] == user_start_tokens:
+                        for k in range(j):
+                            label[k] = -100
+                        break
+                else:
+                    for k in range(len(label)):
+                        label[k] = -100
+            else:
+                for k in range(len(label)):
+                    label[k] = -100
+
+            padded_input_ids.append(padded_ids)
+            padded_attention_mask.append(padded_mask)
+            labels.append(label)
+        
+        return {
+            "input_ids": torch.tensor(padded_input_ids, dtype=torch.long),
+            "attention_mask": torch.tensor(padded_attention_mask, dtype=torch.long),
+            "labels": torch.tensor(labels, dtype=torch.long),
+        }
+
+
+if __name__ == "__main__":
+    parser = HfArgumentParser((PathArguments, LoraArguments, TrainingArguments))
+    yaml_file = None
+    for arg in sys.argv:
+        if arg.endswith((".yaml", ".yml")):
+            yaml_file = arg
+            break
+
+    if yaml_file is not None:
+        path_args, lora_args, training_args = parser.parse_yaml_file(yaml_file=yaml_file)
+    else:
+        path_args, lora_args, training_args = parser.parse_args_into_dataclasses()
+
+    align_model_path = Path(path_args.align_model_path).resolve()
+    train_data_path = Path(path_args.train_data_path).resolve()
+    val_data_path = Path(path_args.val_data_path).resolve()
+    special_tokens_path = Path(path_args.special_tokens_path).resolve()
+
+    align_model = AutoModelForCausalLM.from_pretrained(str(align_model_path))
+    tokenizer = AutoTokenizer.from_pretrained(str(align_model_path))
+    if not tokenizer.pad_token:
+        tokenizer.pad_token = tokenizer.eos_token
+    
+    with open(special_tokens_path, "r") as f:
+        special_tokens = json.load(f)
+
+    tokenized_special_tokens = tokenizer.convert_tokens_to_ids(special_tokens)
+    # 进行推荐任务训练
+    training_args.label_names = ["labels"]
+
+    lora_congig = LoraConfig(
+        r=lora_args.lora_r,
+        lora_alpha=lora_args.lora_alpha,
+        target_modules=lora_args.lora_target_modules,
+        lora_dropout=lora_args.lora_dropout,
+        task_type="CAUSAL_LM",
+        bias="none",
+        trainable_token_indices={
+            "embed_tokens": tokenized_special_tokens
+        }
+    )
+    model = get_peft_model(align_model, lora_congig)
+
+    train_dataset = prepare_chat_dataset(train_data_path)
+    val_dataset = prepare_chat_dataset(val_data_path)
+
+    train_dataset = train_dataset.map(
+        lambda x: tokenize_function(x, tokenizer),
+        batched=True,
+        remove_columns=train_dataset.column_names,
+        desc="Tokenizing training data"
+    )
+
+    val_dataset = val_dataset.map(
+        lambda x: tokenize_function(x, tokenizer),
+        batched=True,
+        remove_columns=val_dataset.column_names,
+        desc="Tokenizing validation data"
+    )
+
+    data_collator = CustomDataCollator(
+        tokenizer=tokenizer,
+        mlm=False,
+    )
+
+    trainer = Trainer(
+        model=model,
+        args=training_args,
+        train_dataset=train_dataset,
+        eval_dataset=val_dataset,
+        data_collator=data_collator,
+        callbacks=[EarlyStoppingCallback(early_stopping_patience=5)],
+    )
+
+    trainer.train()
+    result = trainer.evaluate()
+    print(result)
+
+    #
+    model = model.merge_and_unload()
+    output_dir = os.path.join(training_args.output_dir, "best_model")
+    model.save_pretrained(output_dir)
+    tokenizer.save_pretrained(output_dir)
+   

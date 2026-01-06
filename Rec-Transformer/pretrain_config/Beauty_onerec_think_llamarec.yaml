@@ -1,0 +1,53 @@
+# Beauty_onerec_think_pt.yaml
+
+# --- 1. 路径配置 ---
+paths:
+  dataset_path: "Data/Beauty_onerec_think/PT_data/1_pt_data_json"
+  output_dir: "Rec-Transformer/experiment/Beauty_onerec_think"
+  tokenizer_dir: "Rec-Transformer/experiment/Beauty_onerec_think/tokenizer"
+
+# --- 2. 构建分词器配置 ---
+tokenizer_params:
+  codeword_nums: [256, 256, 256, 256]
+
+# --- 3. 模型架构配置 ---
+model_params:  
+  MODEL_TYPE : "llama-rec"
+  max_seq_length: 200
+  hidden_size: 256
+  intermediate_size: 512
+  num_hidden_layers: 4
+  num_attention_heads: 4
+  rms_norm_eps: 1.0e-6
+
+
+# --- 4. 训练过程配置 ---
+# 这些参数将直接传递给 transformers.TrainingArguments
+training_args:
+  per_device_train_batch_size: 128
+  per_device_eval_batch_size: 128
+
+  gradient_accumulation_steps: 1  
+  learning_rate: 5.0e-4  
+  num_train_epochs: 100
+  lr_scheduler_type: "cosine"
+  warmup_ratio: 0.0
+
+  fp16: true
+  report_to: "tensorboard"
+  remove_unused_columns: false
+  batch_eval_metrics: true
+
+  logging_steps: 100
+  save_strategy: "epoch"  
+  save_total_limit: 2
+  eval_strategy: "epoch" 
+
+  metric_for_best_model: "eval_NDCG@10"
+  greater_is_better: True
+  load_best_model_at_end: True
+
+# --- 5. 评估过程配置 ---
+testing_args:
+  eval_k_values: [1,5,10,20]
+  num_beams: 20

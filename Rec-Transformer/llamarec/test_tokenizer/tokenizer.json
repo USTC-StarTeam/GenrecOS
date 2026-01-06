@@ -1,0 +1,105 @@
+{
+  "version": "1.0",
+  "truncation": null,
+  "padding": {
+    "strategy": {
+      "Fixed": 20
+    },
+    "direction": "Left",
+    "pad_to_multiple_of": null,
+    "pad_id": 0,
+    "pad_type_id": 0,
+    "pad_token": "[PAD]"
+  },
+  "added_tokens": [],
+  "normalizer": null,
+  "pre_tokenizer": {
+    "type": "WhitespaceSplit"
+  },
+  "post_processor": {
+    "type": "TemplateProcessing",
+    "single": [
+      {
+        "Sequence": {
+          "id": "A",
+          "type_id": 0
+        }
+      }
+    ],
+    "pair": [
+      {
+        "Sequence": {
+          "id": "A",
+          "type_id": 0
+        }
+      },
+      {
+        "Sequence": {
+          "id": "B",
+          "type_id": 1
+        }
+      }
+    ],
+    "special_tokens": {
+      "[BOS]": {
+        "id": "[BOS]",
+        "ids": [
+          2
+        ],
+        "tokens": [
+          "[BOS]"
+        ]
+      },
+      "[EOS]": {
+        "id": "[EOS]",
+        "ids": [
+          3
+        ],
+        "tokens": [
+          "[EOS]"
+        ]
+      }
+    }
+  },
+  "decoder": null,
+  "model": {
+    "type": "WordLevel",
+    "vocab": {
+      "[PAD]": 0,
+      "[UNK]": 1,
+      "[BOS]": 2,
+      "[EOS]": 3,
+      "<a_1>": 4,
+      "<a_2>": 5,
+      "<a_3>": 6,
+      "<a_4>": 7,
+      "<a_5>": 8,
+      "<a_6>": 9,
+      "<a_7>": 10,
+      "<a_8>": 11,
+      "<a_9>": 12,
+      "<a_10>": 13,
+      "<b_1>": 14,
+      "<b_2>": 15,
+      "<b_3>": 16,
+      "<b_4>": 17,
+      "<b_5>": 18,
+      "<b_6>": 19,
+      "<b_7>": 20,
+      "<b_8>": 21,
+      "<b_9>": 22,
+      "<b_10>": 23,
+      "<c_1>": 24,
+      "<c_2>": 25,
+      "<c_3>": 26,
+      "<c_4>": 27,
+      "<c_5>": 28,
+      "<c_6>": 29,
+      "<c_7>": 30,
+      "<c_8>": 31,
+      "<c_9>": 32,
+      "<c_10>": 33
+    },
+    "unk_token": "[UNK]"
+  }
+}
