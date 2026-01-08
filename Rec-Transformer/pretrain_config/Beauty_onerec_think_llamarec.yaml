@@ -3,8 +3,8 @@
 # --- 1. 路径配置 ---
 paths:
   dataset_path: "Data/Beauty_onerec_think/PT_data/1_pt_data_json"
-  output_dir: "Rec-Transformer/experiment/Beauty_onerec_think"
-  tokenizer_dir: "Rec-Transformer/experiment/Beauty_onerec_think/tokenizer"
+  output_dir: "Rec-Transformer/temp_experiment/Beauty_onerec_think"
+  tokenizer_dir: "Rec-Transformer/temp_experiment/Beauty_onerec_think/tokenizer"
 
 # --- 2. 构建分词器配置 ---
 tokenizer_params:
@@ -51,3 +51,4 @@ training_args:
 testing_args:
   eval_k_values: [1,5,10,20]
   num_beams: 20
+  early_stopping_patience: 10

@@ -18,17 +18,23 @@ from transformers import (
     PreTrainedTokenizerFast,
     AddedToken,
     Qwen2Tokenizer,
+    LogitsProcessorList,
 )
 import transformers.utils.logging
 from datasets import load_dataset
 from tqdm import tqdm
+import numpy as np
 
 # 导入你的自定义模型代码 (假设 llamarec 包是现成的)
 from llamarec import LlamaRecForCausalLM, LlamaRecConfig
 
 # 导入同事写的工具代码 (假设 util 包是现成的)
 from util.datacollator import TrainDataCollator, EvalDataCollator
-from util.utils_evaluate import build_item_token_codebooks_dynamically, beamsearch_prefix_constraint_fn
+from util.utils_evaluate import (
+    build_item_token_codebooks_dynamically, 
+    beamsearch_prefix_constraint_fn, 
+    DynamicHierarchicalLogitsProcessor,
+)
 from util.eval import compute_hr_at_k, compute_ndcg_at_k
 
 # 忽略特定的 FutureWarning
@@ -112,7 +118,6 @@ def create_pure_id_qwen_tokenizer(
 
     return tokenizer
 
-
 # 包含生成式评估的训练流程
 class CustomTrainer(Trainer):
     def __init__(self, eval_collator, generation_config_params, **kwargs):
@@ -123,6 +128,22 @@ class CustomTrainer(Trainer):
         self.num_beams = generation_config_params['num_beams']
         self.k_values = generation_config_params['k_values']
         self.item_token_codebooks = generation_config_params['item_token_codebooks']
+
+        # --- 【极速优化】构建 NumPy 向量化查找表 ---
+        vocab = kwargs['processing_class'].get_vocab()
+        
+        # 1. 找到最大的 ID，确定数组大小
+        max_id = max(vocab.values())
+        
+        # 2. 初始化一个 object 类型的数组，默认填空字符串 ""
+        # 使用 dtype=object 是因为我们的 token 字符串长度不固定
+        self.vocab_array = np.array(["" for _ in range(max_id + 1)], dtype=object)
+        
+        # 3. 填充数组：index 就是 ID，value 就是 token 字符串
+        for k, v in vocab.items():
+            self.vocab_array[v] = k
+            
+        logging.info("✅ NumPy Vectorized Vocab Lookup Table built.")
 
     # 重写 evaluate 方法以支持生成指标 (HR/NDCG)
     def evaluate(self, eval_dataset=None, ignore_keys=None, metric_key_prefix="eval"):
@@ -153,7 +174,6 @@ class CustomTrainer(Trainer):
             for batch_idx, batch in enumerate(tqdm(eval_dataloader)): # 加个 enumerate 方便看是第几个 batch
                 # --- 计时起点 ---
                 torch.cuda.synchronize()
-                t_start = time.time()
                 
                 # 1. 数据移动
                 input_ids = batch['input_ids'].to(self.args.device)
@@ -164,19 +184,18 @@ class CustomTrainer(Trainer):
                 prompt_length = input_ids.shape[1]
 
                 torch.cuda.synchronize()
-                t_data = time.time()
 
-                # 定义约束闭包
-                def batch_beamsearch_prefix_constraint_fn(batch_id: int, input_ids_tensor: torch.Tensor) -> List[int]:
-                    return beamsearch_prefix_constraint_fn(
-                        batch_id=batch_id,
-                        input_ids_tensor=input_ids_tensor,
+                # 实例化我们新的 Processor
+                # 注意：必须放在循环里，因为 prompt_length 可能会随 batch 变化
+                logits_processor = LogitsProcessorList([
+                    DynamicHierarchicalLogitsProcessor(
                         prompt_length=prompt_length,
-                        generation_length=self.gen_len,
-                        item_token_codebooks=self.item_token_codebooks
+                        item_token_codebooks=self.item_token_codebooks,
+                        device=self.args.device
                     )
+                ])
 
-                # 2. 模型生成 (通常是最慢的部分)
+                # 2. 模型生成
                 generated_ids = model.generate(
                     input_ids=input_ids,
                     attention_mask=attention_mask,
@@ -186,18 +205,41 @@ class CustomTrainer(Trainer):
                     num_return_sequences=self.num_beams,
                     pad_token_id=self.processing_class.pad_token_id,
                     eos_token_id=self.processing_class.eos_token_id,
-                    prefix_allowed_tokens_fn=batch_beamsearch_prefix_constraint_fn,
+                    # prefix_allowed_tokens_fn=batch_beamsearch_prefix_constraint_fn,
+                    logits_processor=logits_processor, 
                     use_cache=True
                 )
                 
                 torch.cuda.synchronize() # 等待 GPU 生成完毕
-                t_generate = time.time()
 
-                # 3. 解码 (CPU 字符串操作，如果 Batch 很大这里会慢)
-                new_tokens = generated_ids[:, -self.gen_len:]
-                predicted_token_sequences = self.processing_class.batch_decode(new_tokens, skip_special_tokens=False)
+                # # 3. 解码 (CPU 字符串操作，如果 Batch 很大这里会慢)
+                # new_tokens = generated_ids[:, -self.gen_len:]
+                # predicted_token_sequences = self.processing_class.batch_decode(new_tokens, skip_special_tokens=False)
                 
-                t_decode = time.time()
+                # 1. 搬运到 CPU 并转为 numpy (O(1)耗时)
+                # shape: [Batch_Size * Num_Beams, Gen_Len]
+                new_tokens_cpu = generated_ids[:, -self.gen_len:].cpu().numpy()
+                
+                # 2. 向量化查表 (Instant Lookup)
+                # 直接用 ID 数组作为索引，瞬间得到对应的字符串数组
+                # shape: [N, Gen_Len]，内容变成了 ["<a_1>", "<b_2>", ...]
+                token_strs = self.vocab_array[new_tokens_cpu]
+                
+                # 3. 向量化拼接 (Vectorized Join)
+                # 既然 Gen_Len 通常很短（比如3或4），我们直接按列相加
+                # NumPy 的 object array 支持用 + 号进行字符串拼接，这比 Python 循环快得多
+                
+                if self.gen_len == 1:
+                    predicted_token_sequences = token_strs.flatten().tolist()
+                else:
+                    # 这是一个累加过程：Col0 + Col1 + Col2 ...
+                    # 比如 ["<a_1>"] + ["<b_1>"] = ["<a_1><b_1>"]
+                    # 这种操作是在 C 层面循环的
+                    result_array = token_strs[:, 0]
+                    for i in range(1, self.gen_len):
+                        result_array = result_array + token_strs[:, i]
+                    
+                    predicted_token_sequences = result_array.tolist()
 
                 # 4. Reshape & 指标计算 (纯 CPU 逻辑)
                 reshaped_token_sequences = [
@@ -208,23 +250,12 @@ class CustomTrainer(Trainer):
                 batch_hr = compute_hr_at_k(reshaped_token_sequences, groundtruth, self.k_values)
                 batch_ndcg = compute_ndcg_at_k(reshaped_token_sequences, groundtruth, self.k_values)
 
-                t_metrics = time.time()
-
                 # 5. 累加
                 for k_val in self.k_values:
                     total_metrics_sum[f"HR@{k_val}"] += batch_hr[f"HR@{k_val}"] * batch_size
                     total_metrics_sum[f"NDCG@{k_val}"] += batch_ndcg[f"NDCG@{k_val}"] * batch_size
                 
                 total_samples += batch_size
-                
-                # --- 打印耗时统计 (只打印前 3 个 batch 防止刷屏，或者一直打印) ---
-                # if batch_idx < 5: 
-                print(f"\n[Batch {batch_idx}] Time Report:")
-                print(f"  > Data Move: {t_data - t_start:.4f}s")
-                print(f"  > Generate : {t_generate - t_data:.4f}s  <-- 重点关注")
-                print(f"  > Decode   : {t_decode - t_generate:.4f}s")
-                print(f"  > Metrics  : {t_metrics - t_decode:.4f}s")
-                print(f"  > Total    : {t_metrics - t_start:.4f}s")
 
         # 4. 汇总指标
         metrics = {f"{metric_key_prefix}_{k}": (v / total_samples) for k, v in total_metrics_sum.items()}
@@ -413,7 +444,7 @@ def main():
         eval_collator=eval_collator,
         generation_config_params=generation_config_params,
         # 早停策略
-        callbacks=[EarlyStoppingCallback(early_stopping_patience=10)] 
+        callbacks=[EarlyStoppingCallback(early_stopping_patience=testing_args['early_stopping_patience'])] 
     )
 
     # ==========================================================

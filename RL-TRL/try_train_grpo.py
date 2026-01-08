@@ -13,7 +13,7 @@ sys.path.append("Rec-Transformer") # LlamaRec 所在
 # 还需要确保 FuxiCTR 在 path 里，如果在 site-packages 里则不需要加
 
 # 导入自定义模块
-from DIN.DIN_evaluator import DINScorer
+from temp_DIN.DIN_evaluator import DINScorer
 from llamarec import LlamaRecConfig, LlamaRecForCausalLM 
 
 # ================= 注册模型 =================
