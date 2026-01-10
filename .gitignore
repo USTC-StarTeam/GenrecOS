@@ -21,3 +21,5 @@ secrets.json
 # 特定文件
 /Data/
 /FuxiCTR-data/
+/LLM4RecPart/logs
+/LLM4RecPart/models
