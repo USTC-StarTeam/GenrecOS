@@ -1,6 +1,6 @@
-ITEM_JSON_PATH=./temp_beauty/item_detail.json
-SEQ_JSON_PATH=./temp_beauty/user_seq.json
-BASE_OUTPUT_PATH=./temp_beauty_processed
+ITEM_JSON_PATH=../../Data/Beauty/FT_data/beauty/item_detail.json
+SEQ_JSON_PATH=../../Data/Beauty/FT_data/beauty/user_seq.json
+BASE_OUTPUT_PATH=../../Data/Beauty/FT_data/beauty_processed
 
 python generate_align_data.py \
     --input_item_json ${ITEM_JSON_PATH} \
