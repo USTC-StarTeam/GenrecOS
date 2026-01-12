@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Setup conda environment for OneRec-Think training
+# Setup conda environment for GenrecOS
 # This script creates a conda environment with all dependencies needed to run the training pipeline
 
 set -e
