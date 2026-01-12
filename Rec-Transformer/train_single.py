@@ -275,7 +275,7 @@ def main():
     # 获取配置文件路径
     parser = argparse.ArgumentParser(description="Train a LlamaRec model using a YAML config file.")
     parser.add_argument("--dataset", type=str, default='Beauty')
-    parser.add_argument("--model_name", type=str, default='llama-rec')
+    parser.add_argument("--model_name", type=str, default='llamarec')
     args = parser.parse_args()
 
     # 1. 稳健的路径读取
