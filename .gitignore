@@ -12,6 +12,10 @@ Thumbs.db
 # 给大家留下调试空间
 temp_*
 trash_*
+sbatch_*
+*.log
+*.err
+*.out
 
 # 敏感信息
 .env
