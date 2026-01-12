@@ -1,10 +1,10 @@
-# Beauty_onerec_think_pt.yaml
+# Beauty_pt.yaml
 
 # --- 1. 路径配置 ---
 paths:
-  dataset_path: "Data/Beauty_onerec_think/PT_data/1_pt_data_json"
-  output_dir: "Rec-Transformer/temp_experiment/Beauty_onerec_think"
-  tokenizer_dir: "Rec-Transformer/temp_experiment/Beauty_onerec_think/tokenizer"
+  dataset_path: "../Data/Beauty/PT_data/1_pt_data_json"
+  output_dir: "temp_experiment/Beauty"
+  tokenizer_dir: "temp_experiment/Beauty/tokenizer"
 
 # --- 2. 构建分词器配置 ---
 tokenizer_params:

@@ -25,10 +25,10 @@ from datasets import load_dataset
 from tqdm import tqdm
 import numpy as np
 
-# 导入你的自定义模型代码 (假设 llamarec 包是现成的)
+# 导入你的自定义模型代码
 from llamarec import LlamaRecForCausalLM, LlamaRecConfig
 
-# 导入同事写的工具代码 (假设 util 包是现成的)
+# 导入同事写的工具代码
 from util.datacollator import TrainDataCollator, EvalDataCollator
 from util.utils_evaluate import (
     build_item_token_codebooks_dynamically, 

@@ -8,9 +8,7 @@ from transformers import AutoConfig, AutoModelForCausalLM, AutoTokenizer
 
 # ================= 配置路径 =================
 # 1. 确保能导入相关模块
-sys.path.append("Rec-Transformer") # LlamaRec 所在
-# sys.path.append("RL-TRL/DIN") # din_evaluator 所在
-# 还需要确保 FuxiCTR 在 path 里，如果在 site-packages 里则不需要加
+sys.path.append("../Rec-Transformer") # LlamaRec 所在
 
 # 导入自定义模块
 from temp_DIN.DIN_evaluator import DINScorer
@@ -23,15 +21,15 @@ AutoModelForCausalLM.register(LlamaRecConfig, LlamaRecForCausalLM)
 # ================= 加载 DIN Scorer =================
 print(">>> Initializing DIN Reward Model...")
 # 你的 DIN 数据文件夹
-DIN_fuxictr_DATA_DIR = "FuxiCTR-data/Beauty_onerec_think"
-DIN_fuxictr_cinfig_DIR = 'RL-TRL/DIN/config'
-DIN_RL_DATA_DIR = 'Data/Beauty_onerec_think/RL_data/rl_data_json'
+DIN_fuxictr_DATA_DIR = "../FuxiCTR-data/Beauty_onerec_think"
+DIN_fuxictr_cinfig_DIR = './temp_DIN/config'
+DIN_RL_DATA_DIR = '../Data/Beauty_onerec_think/RL_data/rl_data_json'
 
 din_scorer = DINScorer(
     config_dir=DIN_fuxictr_cinfig_DIR,            # DIN 训练时的 config 目录
-    experiment_id='DeepFM_test',      # 你的实验 ID
+    experiment_id='DIN_beauty_test',      # 你的实验 ID
     data_dir=DIN_fuxictr_DATA_DIR,
-    device='cuda:0'                   # 放在卡0，LLM 如果很大可能需要放在卡1
+    device='cuda:0'                   
 )
 print(">>> DIN Scorer Ready.")
 
