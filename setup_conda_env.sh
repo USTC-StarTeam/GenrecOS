@@ -35,9 +35,6 @@ conda activate ${ENV_NAME}
 
 
 
-# Install PyTorch with CUDA support (adjust CUDA version as needed)
-echo "Installing PyTorch with CUDA 12.9 ..."
-# pip install torch==2.8.0 torchvision==0.23.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cu129
 
 
 pip install -r requirements_clean.txt
@@ -52,7 +49,7 @@ pip install deepspeed
 
 # Install vLLM for fast inference
 echo "Installing vLLM..."
-pip install vllm # 安装vllm途中会重新装pytorch
+pip install vllm # when we install vllm, pytorch will be also installed
 
 
 # Install utility packages
