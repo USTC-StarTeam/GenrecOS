@@ -378,7 +378,7 @@ def main():
     # 如果没有单独的 test 文件，用 train 切分或者怎样，这里假设有
     # 同事代码里用的也是 data_files=dataset_path（可能是个包含多个json的目录？），这里按标准写法
     try:
-        eval_dataset = load_dataset("json", data_dir=dataset_path, split='valid')
+        eval_dataset = load_dataset("json", data_dir=dataset_path, split='test')
     except:
         logging.warning("Test file not found, using train set as eval (FOR DEBUG ONLY)")
         eval_dataset = train_dataset

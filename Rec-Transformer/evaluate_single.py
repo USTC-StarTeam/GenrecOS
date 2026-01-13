@@ -40,7 +40,8 @@ def main():
     testing_args = config_data['testing_args']
 
     # 使用从配置中读取的参数
-    dataset_path = os.path.join(paths_config['dataset_path'], 'train.json')
+    # dataset_path = os.path.join(paths_config['dataset_path'], 'train.json')
+    dataset_path = os.path.join(paths_config['dataset_path'], 'test.json')
     tokenizer_dir = paths_config['tokenizer_dir']
     max_seq_length = model_params['max_seq_length']
     generation_length = tokenizer_params['codebook_num']
