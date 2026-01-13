@@ -9,6 +9,7 @@ paths:
 # --- 2. 构建分词器配置 ---
 tokenizer_params:
   codeword_nums: [256, 256, 256, 256]
+  codebook_num: 4
 
 # --- 3. 模型架构配置 ---
 model_params:  

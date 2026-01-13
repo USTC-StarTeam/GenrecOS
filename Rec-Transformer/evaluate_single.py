@@ -6,21 +6,22 @@ import argparse
 from typing import List
 import torch
 from torch.utils.data import DataLoader
-# 导入你的自定义代码
+from tqdm import tqdm
+
 from llamarec import LlamaRecForCausalLM, LlamaRecConfig
-from transformers import PreTrainedTokenizerFast
+from transformers import PreTrainedTokenizerFast, AutoTokenizer
 from util.datacollator import EvalDataCollator
 from util.utils_evaluate import build_item_token_codebooks_dynamically, beamsearch_prefix_constraint_fn
 from util.eval import compute_hr_at_k, compute_ndcg_at_k
 logging.basicConfig(level=logging.INFO)
-# os.environ['CUDA_VISIBLE_DEVICES'] = '1'
 
-# Main 函数
+
+
 def main():
     # 获取配置文件路径
     parser = argparse.ArgumentParser(description="Train a LlamaRec model using a YAML config file.")
     parser.add_argument("--dataset", type=str, default='KuaiRand_27K_pt')
-    parser.add_argument("--model_name", type=str, default='llama-rec')
+    parser.add_argument("--model_name", type=str, default='llamarec')
     parser.add_argument("--checkpoint", type=str, default='experiment/KuaiRand_27K_pt/llama-rec_20251212_013006/checkpoint-20000')
     args = parser.parse_args()
 
@@ -38,7 +39,7 @@ def main():
     testing_args = config_data['testing_args']
 
     # 使用从配置中读取的参数
-    dataset_path = os.path.join(paths_config['dataset_path'], 'train_data.json')
+    dataset_path = os.path.join(paths_config['dataset_path'], 'train.json')
     tokenizer_dir = paths_config['tokenizer_dir']
     max_seq_length = model_params['max_seq_length']
     generation_length = tokenizer_params['codebook_num']
@@ -49,12 +50,30 @@ def main():
     # 直接从checkpoint加载tokenizer
     logging.info(f"Loading tokenizer from checkpoint: {checkpoint_path}")
     try:
-        tokenizer = PreTrainedTokenizerFast.from_pretrained(checkpoint_path)
+        # tokenizer = PreTrainedTokenizerFast.from_pretrained(checkpoint_path)
+        # 使用 AutoTokenizer，并显式指定 use_fast=True（如果需要）和 trust_remote_code=True（防止自定义模型报错）
+        tokenizer = AutoTokenizer.from_pretrained(checkpoint_path, use_fast=True, trust_remote_code=True)
+        logging.info("Tokenizer loaded successfully from checkpoint.")
+
     except Exception as e:
         logging.warning(f"Failed to load tokenizer from checkpoint: {e}")
         # 回退到从tokenizer_dir加载
         logging.info("Falling back to loading tokenizer from tokenizer_dir...")
-        tokenizer = PreTrainedTokenizerFast.from_pretrained(tokenizer_dir)
+        # tokenizer = PreTrainedTokenizerFast.from_pretrained(tokenizer_dir)
+        try:
+            tokenizer = AutoTokenizer.from_pretrained(tokenizer_dir, use_fast=True, trust_remote_code=True)
+            logging.info("Tokenizer loaded successfully from tokenizer_dir.")
+        except Exception as fallback_error:
+            logging.error(f"Critical Error: Failed to load tokenizer from both locations. Error: {fallback_error}")
+            raise fallback_error
+
+    tokenizer.padding_side = 'left'
+
+    # 补丁：确保 pad_token 存在 (Qwen 等模型有时默认没有 pad_token)
+    if tokenizer.pad_token_id is None:
+        tokenizer.pad_token = tokenizer.eos_token
+        tokenizer.pad_token_id = tokenizer.eos_token_id
+        logging.info(f"Pad token was None, set to EOS token id: {tokenizer.pad_token_id}")
 
     # 数据集加载
     test_dataset = load_dataset("json", data_files=dataset_path, split='train')
@@ -114,7 +133,8 @@ def main():
     logging.info(f"Starting manual evaluation with num_beams={num_beams}...")
 
     with torch.no_grad():
-        for batch in test_dataloader:
+        logging.info("Starting manual evaluation loop...")
+        for batch in tqdm(test_dataloader, desc="Evaluating"):
             # 1. 准备输入
             input_ids = batch['input_ids'].to(device)
             attention_mask = batch['attention_mask'].to(device)
