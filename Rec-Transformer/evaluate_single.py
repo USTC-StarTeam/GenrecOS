@@ -9,6 +9,7 @@ from torch.utils.data import DataLoader
 from tqdm import tqdm
 
 from llamarec import LlamaRecForCausalLM, LlamaRecConfig
+from sasrec import SasRecForCausalLM, SasRecConfig
 from transformers import PreTrainedTokenizerFast, AutoTokenizer
 from util.datacollator import EvalDataCollator
 from util.utils_evaluate import build_item_token_codebooks_dynamically, beamsearch_prefix_constraint_fn
@@ -80,28 +81,70 @@ def main():
 
     # 直接从checkpoint加载模型
     logging.info(f"Loading model from checkpoint: {checkpoint_path}")
+    
+    # 根据 model_name 决定使用哪个类
+    if args.model_name == 'sasrec':
+        model_class = SasRecForCausalLM
+        config_class = SasRecConfig
+        # SasRec 使用 layer_norm_eps
+        norm_eps_key = 'layer_norm_eps'
+        norm_eps_val = model_params.get('layer_norm_eps', 1e-12)
+    else:
+        model_class = LlamaRecForCausalLM
+        config_class = LlamaRecConfig
+        # LlamaRec 使用 rms_norm_eps
+        norm_eps_key = 'rms_norm_eps'
+        norm_eps_val = model_params.get('rms_norm_eps', 1e-6)
+
     try:
-        model = LlamaRecForCausalLM.from_pretrained(checkpoint_path)
-        logging.info(f"Model loaded successfully from checkpoint")
+        model = model_class.from_pretrained(checkpoint_path)
+        logging.info(f"Model ({args.model_name}) loaded successfully from checkpoint")
     except Exception as e:
         logging.error(f"Failed to load model from checkpoint: {e}")
         # 如果失败，回退到创建新模型（但权重不同）
         logging.warning("Creating new model architecture (weights will be random!)")
-        config = LlamaRecConfig(
-            hidden_size=model_params['hidden_size'],
-            intermediate_size=model_params['intermediate_size'],
-            num_hidden_layers=model_params['num_hidden_layers'],
-            num_attention_heads=model_params['num_attention_heads'],
-            max_position_embeddings=max_seq_length + generation_length,
-            rms_norm_eps=model_params['rms_norm_eps'],
-            model_type=model_params['MODEL_TYPE'],
-            vocab_size=len(tokenizer),
-            use_cache=False,
-            pad_token_id=tokenizer.pad_token_id,
-            bos_token_id=tokenizer.bos_token_id,
-            eos_token_id=tokenizer.eos_token_id,
-        )
-        model = LlamaRecForCausalLM(config)
+        
+        config_kwargs = {
+            "hidden_size": model_params['hidden_size'],
+            "intermediate_size": model_params['intermediate_size'],
+            "num_hidden_layers": model_params['num_hidden_layers'],
+            "num_attention_heads": model_params['num_attention_heads'],
+            "max_position_embeddings": max_seq_length + generation_length,
+            "model_type": model_params.get('MODEL_TYPE', args.model_name),
+            "vocab_size": len(tokenizer),
+            "use_cache": False,
+            "pad_token_id": tokenizer.pad_token_id,
+            "bos_token_id": tokenizer.bos_token_id,
+            "eos_token_id": tokenizer.eos_token_id,
+        }
+        # 注入特定的 Norm 参数
+        config_kwargs[norm_eps_key] = norm_eps_val
+        
+        config = config_class(**config_kwargs)
+        model = model_class(config)
+
+    # try:
+    #     model = LlamaRecForCausalLM.from_pretrained(checkpoint_path)
+    #     logging.info(f"Model loaded successfully from checkpoint")
+    # except Exception as e:
+    #     logging.error(f"Failed to load model from checkpoint: {e}")
+    #     # 如果失败，回退到创建新模型（但权重不同）
+    #     logging.warning("Creating new model architecture (weights will be random!)")
+    #     config = LlamaRecConfig(
+    #         hidden_size=model_params['hidden_size'],
+    #         intermediate_size=model_params['intermediate_size'],
+    #         num_hidden_layers=model_params['num_hidden_layers'],
+    #         num_attention_heads=model_params['num_attention_heads'],
+    #         max_position_embeddings=max_seq_length + generation_length,
+    #         rms_norm_eps=model_params['rms_norm_eps'],
+    #         model_type=model_params['MODEL_TYPE'],
+    #         vocab_size=len(tokenizer),
+    #         use_cache=False,
+    #         pad_token_id=tokenizer.pad_token_id,
+    #         bos_token_id=tokenizer.bos_token_id,
+    #         eos_token_id=tokenizer.eos_token_id,
+    #     )
+    #     model = LlamaRecForCausalLM(config)
     
     # 将模型移到GPU（如果可用）
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
