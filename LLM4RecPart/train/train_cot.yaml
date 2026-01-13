@@ -1,13 +1,14 @@
-model_dir: "../models/rec_model/best"
+rec_model_path: "../models/rec_model/best_model"
 train_data_path: "../../Data/Beauty/FT_data/beauty_processed/cot_data/train.json"
 val_data_path: "../../Data/Beauty/FT_data/beauty_processed/cot_data/val.json"
 special_tokens_path: "../../Data/Beauty/FT_data/beauty/special_tokens.json"
 
-per_device_train_batch_size: 1 
-gradient_accumulation_steps: 8 
-per_device_eval_batch_size: 1 
+# num_gpus 4
+per_device_train_batch_size: 2 
+gradient_accumulation_steps: 1 
+per_device_eval_batch_size: 2 
 
-num_train_epochs: 1 
+num_train_epochs: 6 
 gradient_checkpointing: True 
 bf16: True 
 deepspeed: ./ds_zero2.json 
@@ -17,7 +18,7 @@ logging_steps: 1
 eval_strategy: "no" 
 eval_on_start: False 
 save_strategy: "epoch" 
-save_total_limit: 1 
+save_total_limit: 6 
 
 
 load_best_model_at_end: False 
