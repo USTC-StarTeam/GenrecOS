@@ -7,13 +7,16 @@ from typing import List
 import torch
 from torch.utils.data import DataLoader
 from tqdm import tqdm
+import sys
 
 from llamarec import LlamaRecForCausalLM, LlamaRecConfig
 from sasrec import SasRecForCausalLM, SasRecConfig
 from transformers import PreTrainedTokenizerFast, AutoTokenizer
-from util.datacollator import EvalDataCollator
-from util.utils_evaluate import build_item_token_codebooks_dynamically, beamsearch_prefix_constraint_fn
-from util.eval import compute_hr_at_k, compute_ndcg_at_k
+
+sys.path.append("../")
+from utils.datacollator import EvalDataCollator
+from utils.utils_evaluate import build_item_token_codebooks_dynamically, beamsearch_prefix_constraint_fn
+from utils.eval import compute_hr_at_k, compute_ndcg_at_k
 logging.basicConfig(level=logging.INFO)
 
 

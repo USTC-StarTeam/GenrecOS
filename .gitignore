@@ -27,3 +27,5 @@ secrets.json
 /FuxiCTR-data/
 /LLM4RecPart/logs
 /LLM4RecPart/models
+/RL-TRL/CTR_models
+/RL-TRL/checkpoints

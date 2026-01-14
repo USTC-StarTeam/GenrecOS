@@ -1,0 +1,1 @@
+python try_train_grpo.py >> temp_try_GRPO_Rec_Output/logs/eval_test.log 2>&1

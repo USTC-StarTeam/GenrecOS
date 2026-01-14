@@ -29,14 +29,15 @@ import numpy as np
 from llamarec import LlamaRecForCausalLM, LlamaRecConfig
 from sasrec import SasRecForCausalLM, SasRecConfig
 
+sys.path.append("../")
 # 导入同事写的工具代码
-from util.datacollator import TrainDataCollator, EvalDataCollator
-from util.utils_evaluate import (
+from utils.datacollator import TrainDataCollator, EvalDataCollator
+from utils.utils_evaluate import (
     build_item_token_codebooks_dynamically, 
     beamsearch_prefix_constraint_fn, 
     DynamicHierarchicalLogitsProcessor,
 )
-from util.eval import compute_hr_at_k, compute_ndcg_at_k
+from utils.eval import compute_hr_at_k, compute_ndcg_at_k
 
 # 忽略特定的 FutureWarning
 warnings.filterwarnings("ignore", category=FutureWarning, module="transformers.trainer")
@@ -173,9 +174,6 @@ class CustomTrainer(Trainer):
         # 3. 循环生成
         with torch.no_grad():
             for batch_idx, batch in enumerate(tqdm(eval_dataloader)): # 加个 enumerate 方便看是第几个 batch
-                # --- 计时起点 ---
-                torch.cuda.synchronize()
-                
                 # 1. 数据移动
                 input_ids = batch['input_ids'].to(self.args.device)
                 attention_mask = batch['attention_mask'].to(self.args.device)
@@ -183,8 +181,6 @@ class CustomTrainer(Trainer):
 
                 batch_size = input_ids.shape[0]
                 prompt_length = input_ids.shape[1]
-
-                torch.cuda.synchronize()
 
                 # 实例化我们新的 Processor
                 # 注意：必须放在循环里，因为 prompt_length 可能会随 batch 变化
@@ -210,8 +206,6 @@ class CustomTrainer(Trainer):
                     logits_processor=logits_processor, 
                     use_cache=True
                 )
-                
-                torch.cuda.synchronize() # 等待 GPU 生成完毕
 
                 # # 3. 解码 (CPU 字符串操作，如果 Batch 很大这里会慢)
                 # new_tokens = generated_ids[:, -self.gen_len:]
