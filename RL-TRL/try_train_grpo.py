@@ -1,6 +1,7 @@
 # train_grpo.py
 import sys
 import os
+from datetime import datetime
 import torch
 from datasets import load_dataset
 from tqdm import tqdm
@@ -72,6 +73,7 @@ class GRPO_Eval_Trainer(GRPOTrainer_not_skip_special_token):
             padding=True, 
             truncation=True,
             padding_side='left',
+            max_length=200,
         )
         
         return {
@@ -234,10 +236,16 @@ if __name__ == '__main__':
 
     EVAL_SAVE_STEPS = 500
 
+    base_dir = "temp_try_GRPO_Rec_Output"
+    date_time = datetime.now().strftime("%Y%m%d_%H%M%S")
+    date_time_dir = 'checkpoints_' + date_time
+    output_dir = os.path.join(base_dir, date_time_dir)
+    os.makedirs(output_dir, exist_ok=True)
+
     # 3. GRPO 参数
     training_args = GRPOConfig(
-        output_dir="temp_try_GRPO_Rec_Output",
-        learning_rate=5e-7,
+        output_dir=output_dir,
+        learning_rate=5e-5,
         num_train_epochs=10,
         per_device_train_batch_size=20,
         gradient_accumulation_steps=1,
