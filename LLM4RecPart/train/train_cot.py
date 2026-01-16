@@ -185,7 +185,33 @@ if __name__ == "__main__":
     print(result)
 
     #    
+    # model = model.merge_and_unload()
+    # output_dir = os.path.join(training_args.output_dir, "best_model")
+    # tokenizer.save_pretrained(output_dir)
+    # model.save_pretrained(output_dir)
+
+    # 1. 显式等待所有进程到达此处，防止有的进程还在 eval 没跑完
+    trainer.accelerator.wait_for_everyone()
+
+    # 注意：merge_and_unload 会在每个进程的显存/内存中进行合并。
+    # 如果显存非常紧张，这里可能会 OOM。如果是 DeepSpeed Zero3，这里写法会更复杂。
+    # 既然你前面跑通了，说明显存够用。
     model = model.merge_and_unload()
+
+    # 2. 只有主进程负责保存模型和 Tokenizer，避免文件写入冲突
     output_dir = os.path.join(training_args.output_dir, "best_model")
-    tokenizer.save_pretrained(output_dir)
-    model.save_pretrained(output_dir)
+    
+    if trainer.accelerator.is_main_process:
+        print(f"Saving merged model to {output_dir} ...")
+        tokenizer.save_pretrained(output_dir)
+        model.save_pretrained(output_dir)
+        print("Model saved successfully.")
+
+    # 3. 再次等待。确保 Rank 0 保存完文件之前，其他进程不要退出。
+    # 这一步是为了防止 Rank 0 还在写文件，其他进程退出导致通信组崩溃（虽然在这里主要是 Rank 0 退出导致别人崩溃）。
+    # 主要是为了优雅退出。
+    trainer.accelerator.wait_for_everyone()
+    
+    
+
+    
