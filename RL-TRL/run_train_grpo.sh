@@ -9,4 +9,4 @@ mkdir -p "$LOG_DIR"
 
 # 3. 运行命令，日志文件名包含时间戳
 # 结果类似: eval_test_20260115_221030.log
-python -u try_train_grpo.py 2>&1 | tee -a "$LOG_DIR/rl_grpo_$TIMESTAMP.log"
+python -u try_train_grpo.py --config ./rl_configs/Beauty_llamarec_DIN.yaml 2>&1 | tee -a "$LOG_DIR/rl_grpo_$TIMESTAMP.log"

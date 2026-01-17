@@ -1,6 +1,8 @@
 # train_grpo.py
 import sys
 import os
+import yaml
+import argparse
 from datetime import datetime
 import torch
 from datasets import load_dataset
@@ -194,107 +196,128 @@ class GRPO_Eval_Trainer(GRPOTrainer_not_skip_special_token):
 
 
 if __name__ == '__main__':
+    # ================= 命令行参数解析 =================
+    parser = argparse.ArgumentParser(description="GRPO Training with YAML Config")
+    parser.add_argument("--config", type=str, default="grpo_config.yaml", help="Path to the YAML config file")
+    args_cli = parser.parse_args()
+
+    # ================= 加载 config =================
+    print(f">>> Loading configuration from {args_cli.config}...")
+    with open(args_cli.config, 'r', encoding='utf-8') as f:
+        config = yaml.safe_load(f)
+    
+    # 提取各个部分的配置
+    paths_cfg = config['paths']
+    din_cfg = config['din']
+    train_cfg = config['training']
+    eval_cfg = config['evaluation']
+
     # ================= 加载 DIN Scorer =================
     print(">>> Initializing DIN Reward Model...")
-    # 你的 DIN 数据文件夹
-    DIN_fuxictr_DATA_DIR = "../FuxiCTR-data/Beauty"
-    DIN_fuxictr_cinfig_DIR = './CTR_models/DIN/config'
-    DIN_fuxictr_model_DIR = './CTR_models/DIN/checkpoints/Beauty_onerec_think'
-    DIN_RL_DATA_DIR = '../Data/Beauty/RL_data/1_rl_data_json'
-
+    
     din_scorer = DINScorer(
-        config_dir=DIN_fuxictr_cinfig_DIR,            # DIN 训练时的 config 目录
-        model_dir=DIN_fuxictr_model_DIR,
-        experiment_id='DIN_Beauty_onerec_think',      # 你的实验 ID
-        data_dir=DIN_fuxictr_DATA_DIR,
-        device='cuda:0'                   
+        config_dir=paths_cfg['din_config_dir'],
+        model_dir=paths_cfg['din_model_dir'],
+        experiment_id=din_cfg['experiment_id'],
+        data_dir=paths_cfg['din_data_dir'],
+        device=din_cfg['device']                   
     )
     print(">>> DIN Scorer Ready.")
 
-    reward_runner = DINRewardRunner(scorer=din_scorer, weight=0.8)
+    reward_runner = DINRewardRunner(
+        scorer=din_scorer, 
+        weight=din_cfg['reward_weight'],
+        penalty=din_cfg.get('penalty', -1.0)
+    )
 
     # ================= 数据集加载 =================
+    rl_data_dir = paths_cfg['rl_data_dir']
+    
     # 1. 加载 Train
-    train_json_path = os.path.join(DIN_RL_DATA_DIR, "train.json")
+    train_json_path = os.path.join(rl_data_dir, paths_cfg['train_file'])
     print(f">>> Loading Train Dataset: {train_json_path}")
     train_dataset = load_dataset("json", data_files=train_json_path, split='train')
 
-    # 2. ⚠️ 加载 Valid (用于 evaluate 和 Early Stopping)
-    test_json_path = os.path.join(DIN_RL_DATA_DIR, "test.json")
+    # 2. 加载 Valid
+    test_json_path = os.path.join(rl_data_dir, paths_cfg['test_file'])
     print(f">>> Loading Test Dataset: {test_json_path}")
     test_dataset = load_dataset("json", data_files=test_json_path, split='train')
 
-    # ================= 训练配置 =================
-
-    # 1. 加载我们在上一步生成的 RL 数据集 (JSON)
-    train_json_path = os.path.join(DIN_RL_DATA_DIR, "train.json")
-    print(f">>> Loading Dataset from {train_json_path}...")
-    dataset = load_dataset("json", data_files=train_json_path, split="train")
-
-    # 2. LLM 模型路径
-    llm_model_path = '../Rec-Transformer/temp_experiment/Beauty/llama-rec_20260111_091208/best_model'
-
-    EVAL_SAVE_STEPS = 500
-
-    base_dir = "temp_try_GRPO_Rec_Output"
+    # ================= 训练输出路径配置 =================
+    base_dir = paths_cfg['output_root']
     date_time = datetime.now().strftime("%Y%m%d_%H%M%S")
-    date_time_dir = 'checkpoints_' + date_time
-    output_dir = os.path.join(base_dir, date_time_dir)
+    output_dir = os.path.join(base_dir, f"checkpoints_{date_time}")
     os.makedirs(output_dir, exist_ok=True)
+    print(f">>> Checkpoints will be saved to: {output_dir}")
 
-    # 3. GRPO 参数
+    # 逻辑：总日志目录 / 本次实验名称(带时间戳)
+    # 这样你在 tensorboard --logdir ./temp_try_GRPO_Rec_Output/all_tensorboard_logs 时能看到所有实验的曲线对比
+    tb_root = paths_cfg.get('tensorboard_root', './temp_try_GRPO_Rec_Output/all_tensorboard_logs')
+    tb_dir = os.path.join(tb_root, f"run_{date_time}")
+    
+    print(f">>> TensorBoard logs will be saved to: {tb_dir}")
+
+    # ================= 训练参数配置 =================
+    # 从 yaml 中提取 evaluate/save 的步数
+    eval_save_steps = train_cfg['eval_save_steps']
+
     training_args = GRPOConfig(
         output_dir=output_dir,
-        learning_rate=5e-5,
-        num_train_epochs=10,
-        per_device_train_batch_size=20,
-        gradient_accumulation_steps=1,
+        logging_dir = tb_dir,
+        report_to="tensorboard",
         
-        # --- 训练日志与保存 ---
-        logging_steps=50,
-        max_completion_length=4, # RL 训练时的长度 (Training)
-        num_generations=20,
-        use_vllm=False,
-        bf16=True,
-
-        # --- ⚠️ 评估与早停配置 ---
-        eval_strategy="steps",       # 按步数评估
-        eval_steps=EVAL_SAVE_STEPS,       # 每 EVAL_STEPS 步评估一次
-        per_device_eval_batch_size=20, # 评估时的 Batch Size
-
-        save_strategy="steps",       # 按步数保存
-        save_steps=EVAL_SAVE_STEPS,       # 保存频率 = 评估频率 (这样每次保存都有分数为据)
-        save_total_limit=20,          # 最多保留 2 个 Checkpoint
+        learning_rate=float(train_cfg['learning_rate']), # 确保 YAML 读取的是 float
+        num_train_epochs=train_cfg['num_train_epochs'],
+        per_device_train_batch_size=train_cfg['per_device_train_batch_size'],
+        gradient_accumulation_steps=train_cfg['gradient_accumulation_steps'],
         
-        load_best_model_at_end=True, # 训练结束后加载最好的模型
-        metric_for_best_model="eval_NDCG@10", # 以 NDCG@10 为标准选最好的
-        greater_is_better=True,      # 指标越大越好
+        # 日志
+        logging_steps=train_cfg['logging_steps'],
+        
+        # 生成参数 (RL Training)
+        max_completion_length=train_cfg['max_completion_length'],
+        num_generations=train_cfg['num_generations'],
+        use_vllm=train_cfg['use_vllm'],
+        bf16=train_cfg['bf16'],
+
+        # 评估与早停策略
+        eval_strategy="steps",
+        eval_steps=eval_save_steps,
+        per_device_eval_batch_size=train_cfg['per_device_train_batch_size'], # 默认和 train 一样
+
+        save_strategy="steps",
+        save_steps=eval_save_steps,
+        save_total_limit=train_cfg['save_total_limit'],
+        
+        load_best_model_at_end=True,
+        metric_for_best_model=train_cfg['metric_for_best_model'],
+        greater_is_better=True,
+        
+        # 防止删掉 prompt/ground_truth 列
+        remove_unused_columns=False
     )
 
-    # 4. 加载模型与Tokenizer
+    # ================= 加载模型与Tokenizer =================
     print(">>> Loading LLM...")
-    model = LlamaRecForCausalLM.from_pretrained(llm_model_path)
-    tokenizer = AutoTokenizer.from_pretrained(llm_model_path)
+    llm_path = paths_cfg['llm_model_path']
+    model = LlamaRecForCausalLM.from_pretrained(llm_path)
+    tokenizer = AutoTokenizer.from_pretrained(llm_path)
 
     # Tokenizer 补丁
     if tokenizer.model_input_names is not None and "token_type_ids" in tokenizer.model_input_names:
         tokenizer.model_input_names.remove("token_type_ids")
-    # 确保 padding token 存在
     if tokenizer.pad_token is None:
         tokenizer.pad_token = tokenizer.eos_token
 
     # ================= 准备评估用的 Codebook =================
-    # 假设每个 Item ID 由 4 个 token 组成 (根据你的 max_completion_length 推测)
-    # 如果你的 max_completion_length=4 是刚好生成完，那么 generation_length 应该是 4
-    generation_length = 4 
-    
-    # 动态构建 codebook
+    generation_length = eval_cfg['generation_length']
     item_token_codebooks = build_item_token_codebooks_dynamically(tokenizer, generation_length)
     
-    eval_config = {
+    # 组装评估配置字典
+    eval_config_dict = {
         "generation_length": generation_length,
-        "num_beams": 20,   # 评估时使用 Beam Search (通常比 greedy 好)
-        "k_values": [1, 5, 10, 20],
+        "num_beams": eval_cfg['num_beams'],
+        "k_values": eval_cfg['k_values'],
         "item_token_codebooks": item_token_codebooks
     }
 
@@ -304,21 +327,57 @@ if __name__ == '__main__':
         reward_funcs=[reward_runner],
         args=training_args,
         train_dataset=train_dataset,
-        eval_dataset=test_dataset,      # 传入验证集
-        generation_config_params=eval_config, # 传入评估配置
+        eval_dataset=test_dataset,
+        generation_config_params=eval_config_dict,
         processing_class=tokenizer,
         
-        # ⚠️ 添加早停回调
+        # 早停回调
         callbacks=[EarlyStoppingCallback(
-            early_stopping_patience=10  # 如果 HR@10 连续 3 次(3*500 step)不上升就停止
+            early_stopping_patience=train_cfg['early_stopping_patience']
         )]
     )
 
-    # 6. 开始训练
+    # ================= 开始训练 =================
     print(">>> Starting GRPO Training with Live Evaluation...")
     trainer.train()
 
-    # 7. 保存最终模型
-    # 由于开启了 load_best_model_at_end，此时内存里的 model 就是最好的
-    trainer.save_model("temp_try_GRPO_Rec_Output/final_best_grpo_model")
-    print(">>> Training Finished & Best Model Saved.")
+    # ================= 打印最佳模型结果 =================
+    # 获取最佳 Checkpoint 的路径
+    best_ckpt_path = trainer.state.best_model_checkpoint
+    
+    if best_ckpt_path:
+        print(f"\n" + "="*50)
+        print(f"🏆 TRAINING FINISHED. BEST MODEL FOUND.")
+        print(f"="*50)
+        print(f"📍 Best Checkpoint Path: {best_ckpt_path}")
+        print(f"🌟 Best Metric Value:    {trainer.state.best_metric}")
+        
+        # --- 核心逻辑：从日志历史中捞出最佳那一步的完整指标 ---
+        # 1. 从路径中提取最佳步数 (例如 "xxx/checkpoint-500" -> 500)
+        try:
+            best_step = int(best_ckpt_path.split('-')[-1])
+            
+            # 2. 遍历日志历史找到那一刻的详细数据
+            best_log_entry = None
+            for log in trainer.state.log_history:
+                # 必须同时满足：是这一步，且包含评估指标(比如有 eval_loss 或 eval_NDCG@10)
+                if log.get("step") == best_step and "eval_NDCG@10" in log:
+                    best_log_entry = log
+                    break
+            
+            if best_log_entry:
+                print(f"\n📊 Detailed Metrics for Best Model (Step {best_step}):")
+                # 格式化打印字典
+                for k, v in best_log_entry.items():
+                    if k.startswith("eval_"):
+                        print(f"   - {k}: {v}")
+            else:
+                print(f"⚠️ Could not find detailed logs for step {best_step} in history.")
+
+        except Exception as e:
+            print(f"⚠️ Error parsing best step info: {e}")
+
+    # ================= 保存最终模型 =================
+    final_save_path = os.path.join(output_dir, "final_best_grpo_model")
+    trainer.save_model(final_save_path)
+    print(f">>> Training Finished & Best Model Saved to {final_save_path}")
