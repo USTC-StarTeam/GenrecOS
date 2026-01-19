@@ -1,13 +1,13 @@
 
 # --- 1. 路径配置 ---
 paths:
-  dataset_path: "../Data/Beauty/PT_data/1_pt_data_json"
-  output_dir: "temp_experiment/Beauty_sasrec"
-  tokenizer_dir: "temp_experiment/Beauty_sasrec/tokenizer"
+  dataset_path: "../Data/KuaiRec/big_matrix"
+  output_dir: "temp_experiment/KuaiRec_big"
+  tokenizer_dir: "temp_experiment/KuaiRec_big/tokenizer"
 
 # --- 2. 构建分词器配置 ---
 tokenizer_params:
-  codeword_nums: [256, 256, 256, 256]
+  codeword_nums: [256, 256, 256, 32]
   codebook_num: 4
 
 # --- 3. 模型架构配置 ---
