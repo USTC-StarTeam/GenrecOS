@@ -279,7 +279,7 @@ def main():
 
     # 1. 稳健的路径读取
     current_script_dir = os.path.dirname(os.path.abspath(__file__))
-    config_path = os.path.join(current_script_dir, "pretrain_config", f"{args.dataset}_{args.model_name}.yaml")
+    config_path = os.path.join(current_script_dir, "pretrain_config", args.dataset, f"{args.model_name}.yaml")
     
     logging.info(f"Loading configuration from: {config_path}")
     with open(config_path, 'r') as f:
@@ -378,7 +378,7 @@ def main():
     try:
         eval_dataset = load_dataset("json", data_dir=dataset_path, split='test')
     except:
-        logging.warning("Test file not found, using train set as eval (FOR DEBUG ONLY)")
+        logging.warning("Test file not found, using train set as eval!")
         eval_dataset = train_dataset
 
     # ==========================================================
@@ -389,29 +389,18 @@ def main():
     if args.model_name == 'sasrec':
         config_class = SasRecConfig
         model_class = SasRecForCausalLM
-        # SasRec 使用 layer_norm_eps
-        norm_eps_key = 'layer_norm_eps'
-        norm_eps_val = model_params.get('layer_norm_eps', 1e-12)
     elif args.model_name == 'llama':
         # 默认为 llamarec
         config_class = LlamaConfig
         model_class = LlamaForCausalLM
-        norm_eps_key = 'rms_norm_eps'
-        norm_eps_val = model_params.get('rms_norm_eps', 1e-6)
     elif args.model_name.startswith('qwen'):  # 支持 qwen, qwen2, qwen2.5
         # === 新增 Qwen 分支 ===
         config_class = Qwen2Config
         model_class = Qwen2ForCausalLM
-        norm_eps_key = 'rms_norm_eps'
-        # Qwen 的 norm eps 默认通常也是 1e-6
-        norm_eps_val = model_params.get('rms_norm_eps', 1e-6)
     else:
         # 默认为 llamarec
         config_class = LlamaRecConfig
         model_class = LlamaRecForCausalLM
-        # LlamaRec 使用 rms_norm_eps
-        norm_eps_key = 'rms_norm_eps'
-        norm_eps_val = model_params.get('rms_norm_eps', 1e-6)
 
     # 构建config
     dynamic_args = {
@@ -422,7 +411,6 @@ def main():
         "pad_token_id": tokenizer.pad_token_id,
         "bos_token_id": tokenizer.bos_token_id,
         "eos_token_id": tokenizer.eos_token_id,
-        norm_eps_key: norm_eps_val
     }
     config_kwargs = model_params.copy()
     config_kwargs.update(dynamic_args)
