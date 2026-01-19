@@ -19,6 +19,10 @@ from transformers import (
     AddedToken,
     Qwen2Tokenizer,
     LogitsProcessorList,
+    LlamaForCausalLM, 
+    LlamaConfig,
+    Qwen2ForCausalLM,
+    Qwen2Config,
 )
 import transformers.utils.logging
 from datasets import load_dataset
@@ -388,6 +392,19 @@ def main():
         # SasRec 使用 layer_norm_eps
         norm_eps_key = 'layer_norm_eps'
         norm_eps_val = model_params.get('layer_norm_eps', 1e-12)
+    elif args.model_name == 'llama':
+        # 默认为 llamarec
+        config_class = LlamaConfig
+        model_class = LlamaForCausalLM
+        norm_eps_key = 'rms_norm_eps'
+        norm_eps_val = model_params.get('rms_norm_eps', 1e-6)
+    elif args.model_name.startswith('qwen'):  # 支持 qwen, qwen2, qwen2.5
+        # === 新增 Qwen 分支 ===
+        config_class = Qwen2Config
+        model_class = Qwen2ForCausalLM
+        norm_eps_key = 'rms_norm_eps'
+        # Qwen 的 norm eps 默认通常也是 1e-6
+        norm_eps_val = model_params.get('rms_norm_eps', 1e-6)
     else:
         # 默认为 llamarec
         config_class = LlamaRecConfig
@@ -396,47 +413,24 @@ def main():
         norm_eps_key = 'rms_norm_eps'
         norm_eps_val = model_params.get('rms_norm_eps', 1e-6)
 
-    config_kwargs = {
+    # 构建config
+    dynamic_args = {
         "vocab_size": len(tokenizer),
-        "hidden_size": model_params['hidden_size'],
-        "intermediate_size": model_params['intermediate_size'],
-        "num_hidden_layers": model_params['num_hidden_layers'],
-        "num_attention_heads": model_params['num_attention_heads'],
         "max_position_embeddings": max_seq_length + generation_length,
         "model_type": model_params.get('MODEL_TYPE', args.model_name),
         "use_cache": False,
         "pad_token_id": tokenizer.pad_token_id,
         "bos_token_id": tokenizer.bos_token_id,
         "eos_token_id": tokenizer.eos_token_id,
+        norm_eps_key: norm_eps_val
     }
-    
-    # 注入特定的 Norm 参数
-    config_kwargs[norm_eps_key] = norm_eps_val
-    
+    config_kwargs = model_params.copy()
+    config_kwargs.update(dynamic_args)
+    config_kwargs.pop('MODEL_TYPE', None) 
+
     config = config_class(**config_kwargs)
     model = model_class(config)
 
-    # config = LlamaRecConfig(
-    #     # 核心：将 Tokenizer 的实际大小传给 Config
-    #     vocab_size=len(tokenizer),
-    #     
-    #     hidden_size=model_params['hidden_size'],
-    #     intermediate_size=model_params['intermediate_size'],
-    #     num_hidden_layers=model_params['num_hidden_layers'],
-    #     num_attention_heads=model_params['num_attention_heads'],
-    #     # 序列长度 = Prompt 长度 + 生成长度
-    #     max_position_embeddings=max_seq_length + generation_length,
-    #     rms_norm_eps=model_params['rms_norm_eps'],
-    #     model_type=model_params.get('MODEL_TYPE', 'llama-rec'),
-    #     use_cache=False,
-    #     pad_token_id=tokenizer.pad_token_id,
-    #     bos_token_id=tokenizer.bos_token_id,
-    #     eos_token_id=tokenizer.eos_token_id,
-    #     
-    #     # 这些是 LlamaRec 特有的参数，如果 config 里有就传
-    #     # num_levels=len(codeword_nums), 
-    # )
-    # model = LlamaRecForCausalLM(config)
     logging.info(f"Model created with {model.num_parameters() / 1e6:.2f} M parameters.")
 
     # ==========================================================
