@@ -6,7 +6,8 @@ import argparse
 import sys
 import tempfile
 import warnings
-from typing import List, Dict, Union
+from typing import List
+import random
 from datetime import datetime
 
 import torch
@@ -124,6 +125,17 @@ def create_pure_id_qwen_tokenizer(
 
     return tokenizer
 
+# 定义预处理函数：只做 Encode，不做 Padding
+def preprocess_function(examples, tokenizer, max_seq_length):
+    # 这里我们只生成 input_ids，不生成 Tensor，也不 Padding
+    return tokenizer(
+        examples["prompt"], # 替换为你 json 里的真实文本字段名
+        truncation=True,
+        max_length=max_seq_length,
+        padding=False, # 关键：千万别在这里 Padding，太占空间且不灵活
+        return_attention_mask=True
+    )
+
 # 包含生成式评估的训练流程
 class CustomTrainer(Trainer):
     def __init__(self, eval_collator, generation_config_params, **kwargs):
@@ -153,41 +165,60 @@ class CustomTrainer(Trainer):
 
     # 重写 evaluate 方法以支持生成指标 (HR/NDCG)
     def evaluate(self, eval_dataset=None, ignore_keys=None, metric_key_prefix="eval"):
-        eval_dataset = self.eval_dataset if eval_dataset is None else eval_dataset
+        # 1. 获取目标数据集
+        # 如果调用时没传 dataset，就用 Trainer 自带的验证集
+        target_dataset = eval_dataset if eval_dataset is not None else self.eval_dataset
         
-        # 1. 准备 DataLoader
+        # 2. 【关键修改】判断是否需要采样
+        # 逻辑：只有当 metric_key_prefix 为 "eval" (训练中的验证) 且数据量大于 1000 时才采样
+        # 如果是 "test" (最后的主函数调用)，则不采样，跑全量
+        eval_sample_num = 1000  # 你想要的采样数量
+        
+        if metric_key_prefix == "eval" and target_dataset is not None:
+            total_size = len(target_dataset)
+            if total_size > eval_sample_num:
+                logging.info(f"⚡ [SpeedUp] Sampling {eval_sample_num} random examples from {total_size} for validation.")
+                
+                # 随机选取索引
+                # 注意：这里每次验证都会重新随机，导致验证指标会有波动，但能更全面地监控模型
+                random_indices = random.sample(range(total_size), eval_sample_num)
+                
+                # 使用 HuggingFace dataset 的 select 方法创建子集
+                target_dataset = target_dataset.select(random_indices)
+            else:
+                logging.info(f"Dataset size ({total_size}) <= {eval_sample_num}, running full evaluation.")
+
+        # 3. 准备 DataLoader (注意这里要把 dataset 换成 target_dataset)
         eval_dataloader = DataLoader(
-            eval_dataset,
+            target_dataset,  # 使用处理后的数据集
             batch_size=self.args.eval_batch_size,
             collate_fn=self.eval_collator, 
             shuffle=False,
             drop_last=False
         )
 
-        # 2. 准备模型
+        # 4. 准备模型
         model = self._wrap_model(self.model, training=False, dataloader=eval_dataloader)
         model.eval()
         
-        logging.info(f"***** Running Custom Evaluation (Generation) *****")
+        logging.info(f"***** Running Custom Evaluation ({metric_key_prefix}) *****")
+        logging.info(f"  Num examples = {len(target_dataset)}")
+        logging.info(f"  Batch size = {self.args.eval_batch_size}")
         
         total_metrics_sum = {f"HR@{k}": 0.0 for k in self.k_values}
         total_metrics_sum.update({f"NDCG@{k}": 0.0 for k in self.k_values})
         total_samples = 0
 
-        
-        # 3. 循环生成
+        # 5. 循环生成 (保持不变)
         with torch.no_grad():
-            for batch_idx, batch in enumerate(tqdm(eval_dataloader)): # 加个 enumerate 方便看是第几个 batch
-                # 1. 数据移动
+            for batch_idx, batch in enumerate(tqdm(eval_dataloader, desc=f"Evaluating ({metric_key_prefix})")):
                 input_ids = batch['input_ids'].to(self.args.device)
                 attention_mask = batch['attention_mask'].to(self.args.device)
-                groundtruth = batch['groundtruth'] # List[str]
+                groundtruth = batch['groundtruth']
 
                 batch_size = input_ids.shape[0]
                 prompt_length = input_ids.shape[1]
 
-                # 实例化我们新的 Processor
-                # 注意：必须放在循环里，因为 prompt_length 可能会随 batch 变化
                 logits_processor = LogitsProcessorList([
                     DynamicHierarchicalLogitsProcessor(
                         prompt_length=prompt_length,
@@ -196,7 +227,6 @@ class CustomTrainer(Trainer):
                     )
                 ])
 
-                # 2. 模型生成
                 generated_ids = model.generate(
                     input_ids=input_ids,
                     attention_mask=attention_mask,
@@ -206,41 +236,22 @@ class CustomTrainer(Trainer):
                     num_return_sequences=self.num_beams,
                     pad_token_id=self.processing_class.pad_token_id,
                     eos_token_id=self.processing_class.eos_token_id,
-                    # prefix_allowed_tokens_fn=batch_beamsearch_prefix_constraint_fn,
                     logits_processor=logits_processor, 
                     use_cache=True
                 )
-
-                # # 3. 解码 (CPU 字符串操作，如果 Batch 很大这里会慢)
-                # new_tokens = generated_ids[:, -self.gen_len:]
-                # predicted_token_sequences = self.processing_class.batch_decode(new_tokens, skip_special_tokens=False)
                 
-                # 1. 搬运到 CPU 并转为 numpy (O(1)耗时)
-                # shape: [Batch_Size * Num_Beams, Gen_Len]
+                # 向量化解码与拼接
                 new_tokens_cpu = generated_ids[:, -self.gen_len:].cpu().numpy()
-                
-                # 2. 向量化查表 (Instant Lookup)
-                # 直接用 ID 数组作为索引，瞬间得到对应的字符串数组
-                # shape: [N, Gen_Len]，内容变成了 ["<a_1>", "<b_2>", ...]
                 token_strs = self.vocab_array[new_tokens_cpu]
-                
-                # 3. 向量化拼接 (Vectorized Join)
-                # 既然 Gen_Len 通常很短（比如3或4），我们直接按列相加
-                # NumPy 的 object array 支持用 + 号进行字符串拼接，这比 Python 循环快得多
                 
                 if self.gen_len == 1:
                     predicted_token_sequences = token_strs.flatten().tolist()
                 else:
-                    # 这是一个累加过程：Col0 + Col1 + Col2 ...
-                    # 比如 ["<a_1>"] + ["<b_1>"] = ["<a_1><b_1>"]
-                    # 这种操作是在 C 层面循环的
                     result_array = token_strs[:, 0]
                     for i in range(1, self.gen_len):
                         result_array = result_array + token_strs[:, i]
-                    
                     predicted_token_sequences = result_array.tolist()
 
-                # 4. Reshape & 指标计算 (纯 CPU 逻辑)
                 reshaped_token_sequences = [
                     predicted_token_sequences[i : i + self.num_beams]
                     for i in range(0, len(predicted_token_sequences), self.num_beams)
@@ -249,18 +260,21 @@ class CustomTrainer(Trainer):
                 batch_hr = compute_hr_at_k(reshaped_token_sequences, groundtruth, self.k_values)
                 batch_ndcg = compute_ndcg_at_k(reshaped_token_sequences, groundtruth, self.k_values)
 
-                # 5. 累加
                 for k_val in self.k_values:
                     total_metrics_sum[f"HR@{k_val}"] += batch_hr[f"HR@{k_val}"] * batch_size
                     total_metrics_sum[f"NDCG@{k_val}"] += batch_ndcg[f"NDCG@{k_val}"] * batch_size
                 
                 total_samples += batch_size
 
-        # 4. 汇总指标
-        metrics = {f"{metric_key_prefix}_{k}": (v / total_samples) for k, v in total_metrics_sum.items()}
+        # 6. 汇总指标
+        # 防止除以0
+        if total_samples == 0:
+            metrics = {f"{metric_key_prefix}_{k}": 0.0 for k in total_metrics_sum.keys()}
+        else:
+            metrics = {f"{metric_key_prefix}_{k}": (v / total_samples) for k, v in total_metrics_sum.items()}
         
-        # 5. 记录日志
         self.log(metrics)
+        # 触发 Trainer 的回调（比如 EarlyStopping）
         self.control = self.callback_handler.on_evaluate(self.args, self.state, self.control, metrics)
         
         logging.info(f"Evaluation metrics: {metrics}")
@@ -373,6 +387,7 @@ def main():
     
     # 使用 data_files 参数加载指定文件
     train_dataset = load_dataset("json", data_dir=dataset_path, split='train')
+    valid_dataset = train_dataset
     # 如果没有单独的 test 文件，用 train 切分或者怎样，这里假设有
     # 同事代码里用的也是 data_files=dataset_path（可能是个包含多个json的目录？），这里按标准写法
     try:
@@ -428,6 +443,43 @@ def main():
     training_args_dict['logging_dir'] = os.path.join(output_dir, 'logs')
     training_args = TrainingArguments(**training_args_dict)
 
+    logging.info("⏳ Pre-tokenizing dataset (this happens only once)...")
+    # 使用多进程预处理，速度飞快
+    # load_from_cache_file=True 会自动缓存结果，第二次运行直接读硬盘，无需等待
+    train_dataset = train_dataset.map(
+        preprocess_function,
+        batched=True,
+        num_proc=training_args_dict['dataloader_num_workers'], # 使用 8 个核并行处理
+        load_from_cache_file=True,    
+        fn_kwargs={
+            "tokenizer": tokenizer, 
+            "max_seq_length": max_seq_length
+        },
+        remove_columns=["prompt", 'ground_truth'],   # 保留 groundtruth 等你需要用的列！
+        desc="Running tokenizer on train dataset",
+    )
+    valid_dataset = valid_dataset.map(
+        preprocess_function,
+        batched=True,
+        num_proc=training_args_dict['dataloader_num_workers'],
+        load_from_cache_file=True,    
+        remove_columns=['prompt'],
+        fn_kwargs={"tokenizer": tokenizer, "max_seq_length": max_seq_length},
+        desc="Tokenizing valid set"
+    )
+    
+    # 对 eval_dataset 也做同样的操作
+    if eval_dataset:
+        eval_dataset = eval_dataset.map(
+            preprocess_function,
+            batched=True,
+            num_proc=training_args_dict['dataloader_num_workers'],
+            load_from_cache_file=True,      
+            remove_columns=['prompt'],
+            fn_kwargs={"tokenizer": tokenizer, "max_seq_length": max_seq_length},
+            desc="Tokenizing eval set"
+        )
+
     # DataCollator
     # 注意：确保 Collator 里的 tokenizer 调用参数是正确的（is_split_into_words=False）
     train_collator = TrainDataCollator(tokenizer=tokenizer, max_length=max_seq_length)
@@ -449,7 +501,7 @@ def main():
         model=model,
         args=training_args,
         train_dataset=train_dataset,
-        eval_dataset=eval_dataset,
+        eval_dataset=valid_dataset,
         processing_class=tokenizer, # 传入 tokenizer 对象
         data_collator=train_collator,
         eval_collator=eval_collator,
@@ -472,6 +524,27 @@ def main():
         logging.info(f"Best Metric ({best_metric}): {trainer.state.best_metric}")
         logging.info("=" * 40)
     
+    # ==========================================================
+    # 4. 最终测试 (Final Evaluation on Test Set)
+    # ==========================================================
+    logging.info("Starting Final Evaluation on the Test Set (using Best Model)...")
+
+    # 显式调用 evaluate，传入 eval_dataset (即加载的 test split)
+    # metric_key_prefix="test" 会让输出的指标变成 "test_HR@10" 而不是 "eval_HR@10"，方便区分
+    test_metrics = trainer.evaluate(eval_dataset=eval_dataset, metric_key_prefix="test")
+    
+    # 打印测试结果
+    logging.info("=" * 40)
+    logging.info(f"🧪 Final Test Metrics: {test_metrics}")
+    logging.info("=" * 40)
+
+    # 将测试结果保存到单独的 JSON 文件，方便后续读取
+    test_results_path = os.path.join(output_dir, "test_results.json")
+    with open(test_results_path, "w") as f:
+        json.dump(test_metrics, f, indent=4)
+    
+    logging.info(f"Test results saved to {test_results_path}")
+
     # 保存最终模型 (Best Model)
     # 如果 load_best_model_at_end=True，此时 model 已经是最好的了
     final_model_path = os.path.join(output_dir, "best_model")

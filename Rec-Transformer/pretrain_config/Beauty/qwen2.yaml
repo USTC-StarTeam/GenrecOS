@@ -26,6 +26,7 @@ model_params:
   tie_word_embeddings: true
   _attn_implementation: "eager"
   sliding_window: null
+  rope_theta: 10000.0
 
 # --- 4. 训练过程配置 ---
 # 这些参数将直接传递给 transformers.TrainingArguments
