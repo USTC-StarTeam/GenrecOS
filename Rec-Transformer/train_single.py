@@ -172,7 +172,7 @@ class CustomTrainer(Trainer):
         # 2. 【关键修改】判断是否需要采样
         # 逻辑：只有当 metric_key_prefix 为 "eval" (训练中的验证) 且数据量大于 1000 时才采样
         # 如果是 "test" (最后的主函数调用)，则不采样，跑全量
-        eval_sample_num = 1000  # 你想要的采样数量
+        eval_sample_num = 2000  # 你想要的采样数量
         
         if metric_key_prefix == "eval" and target_dataset is not None:
             total_size = len(target_dataset)
@@ -532,11 +532,6 @@ def main():
     # 显式调用 evaluate，传入 eval_dataset (即加载的 test split)
     # metric_key_prefix="test" 会让输出的指标变成 "test_HR@10" 而不是 "eval_HR@10"，方便区分
     test_metrics = trainer.evaluate(eval_dataset=eval_dataset, metric_key_prefix="test")
-    
-    # 打印测试结果
-    logging.info("=" * 40)
-    logging.info(f"🧪 Final Test Metrics: {test_metrics}")
-    logging.info("=" * 40)
 
     # 将测试结果保存到单独的 JSON 文件，方便后续读取
     test_results_path = os.path.join(output_dir, "test_results.json")

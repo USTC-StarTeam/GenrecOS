@@ -28,7 +28,7 @@ training_args:
   per_device_eval_batch_size: 1
 
   gradient_accumulation_steps: 1  
-  learning_rate: 5.0e-4  
+  learning_rate: 1.0e-4  
   num_train_epochs: 100
   lr_scheduler_type: "cosine"
   warmup_ratio: 0.0
