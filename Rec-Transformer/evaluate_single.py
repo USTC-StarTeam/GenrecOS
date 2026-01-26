@@ -14,7 +14,7 @@ from sasrec import SasRecForCausalLM, SasRecConfig
 from transformers import PreTrainedTokenizerFast, AutoTokenizer
 
 sys.path.append("../")
-from utils.datacollator import EvalDataCollator
+from utils.datacollator import EvalDataCollator, preprocess_function
 from utils.utils_evaluate import build_item_token_codebooks_dynamically, beamsearch_prefix_constraint_fn
 from utils.eval import compute_hr_at_k, compute_ndcg_at_k
 logging.basicConfig(level=logging.INFO)
@@ -31,7 +31,7 @@ def main():
 
     # 读取并解析 YAML 配置文件
     logging.info(f"Loading configuration from: {args.dataset}_{args.model_name}")
-    config_path = os.path.join("pretrain_config", args.dataset+'_'+ args.model_name + '.yaml')
+    config_path = os.path.join("pretrain_config", args.dataset, args.model_name + '.yaml')
     with open(config_path, 'r') as f:
         config_data = yaml.safe_load(f)
 
@@ -82,6 +82,15 @@ def main():
 
     # 数据集加载
     test_dataset = load_dataset("json", data_files=dataset_path, split='train')
+    test_dataset = test_dataset.map(
+        preprocess_function,
+        batched=True,
+        num_proc=training_args_dict['dataloader_num_workers'],
+        load_from_cache_file=True,      
+        remove_columns=['prompt'],
+        fn_kwargs={"tokenizer": tokenizer, "max_seq_length": max_seq_length},
+        desc="Tokenizing eval set"
+    )
 
     # 直接从checkpoint加载模型
     logging.info(f"Loading model from checkpoint: {checkpoint_path}")

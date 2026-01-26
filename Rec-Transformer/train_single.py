@@ -36,7 +36,7 @@ from sasrec import SasRecForCausalLM, SasRecConfig
 
 sys.path.append("../")
 # 导入同事写的工具代码
-from utils.datacollator import TrainDataCollator, EvalDataCollator
+from utils.datacollator import TrainDataCollator, EvalDataCollator, preprocess_function
 from utils.utils_evaluate import (
     build_item_token_codebooks_dynamically, 
     beamsearch_prefix_constraint_fn, 
@@ -125,17 +125,6 @@ def create_pure_id_qwen_tokenizer(
 
     return tokenizer
 
-# 定义预处理函数：只做 Encode，不做 Padding
-def preprocess_function(examples, tokenizer, max_seq_length):
-    # 这里我们只生成 input_ids，不生成 Tensor，也不 Padding
-    return tokenizer(
-        examples["prompt"], # 替换为你 json 里的真实文本字段名
-        truncation=True,
-        max_length=max_seq_length,
-        padding=False, # 关键：千万别在这里 Padding，太占空间且不灵活
-        return_attention_mask=True
-    )
-
 # 包含生成式评估的训练流程
 class CustomTrainer(Trainer):
     def __init__(self, eval_collator, generation_config_params, **kwargs):
@@ -172,7 +161,7 @@ class CustomTrainer(Trainer):
         # 2. 【关键修改】判断是否需要采样
         # 逻辑：只有当 metric_key_prefix 为 "eval" (训练中的验证) 且数据量大于 1000 时才采样
         # 如果是 "test" (最后的主函数调用)，则不采样，跑全量
-        eval_sample_num = 2000  # 你想要的采样数量
+        eval_sample_num = 8000  # 你想要的采样数量
         
         if metric_key_prefix == "eval" and target_dataset is not None:
             total_size = len(target_dataset)
@@ -462,7 +451,7 @@ def main():
         preprocess_function,
         batched=True,
         num_proc=training_args_dict['dataloader_num_workers'],
-        load_from_cache_file=True,    
+        load_from_cache_file=True,
         remove_columns=['prompt'],
         fn_kwargs={"tokenizer": tokenizer, "max_seq_length": max_seq_length},
         desc="Tokenizing valid set"

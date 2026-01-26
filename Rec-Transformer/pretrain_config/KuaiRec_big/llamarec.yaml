@@ -42,7 +42,7 @@ training_args:
 
   logging_steps: 100
   save_strategy: "epoch"
-  save_total_limit: 10
+  save_total_limit: 11
   eval_strategy: "epoch"
 
   # logging_steps: 100
