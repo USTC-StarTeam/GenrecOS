@@ -290,8 +290,8 @@ class GRPOTrainer_not_skip_special_token(GRPOTrainer):
                 ref_per_token_logps = None
 
         # Decode
-        prompts_text = self.processing_class.batch_decode(prompt_ids, skip_special_tokens=True)
-        completions_text = self.processing_class.batch_decode(completion_ids, skip_special_tokens=True)
+        prompts_text = self.processing_class.batch_decode(prompt_ids, skip_special_tokens=False)
+        completions_text = self.processing_class.batch_decode(completion_ids, skip_special_tokens=False)
 
         # Merge extra_fields from rollout_func into inputs for reward functions
         if extra_fields:
@@ -446,7 +446,8 @@ class DINRewardRunner:
         实现 __call__ 方法，让实例可以像函数一样被调用。
         TRL 会通过 inspect 检测这里的参数，所以参数名要和 dataset 列名对应。
         """
-        history = kwargs['history']
+        # history = kwargs['history']
+        history = prompts
         rewards = []
         
         # 收集需要 DIN 打分的索引
@@ -468,6 +469,73 @@ class DINRewardRunner:
             if c == gt:
                 temp_scores[i] = 1.0 
                 continue
+                
+            # 3. 准备 DIN 打分
+            to_score_indices.append(i)
+            to_score_history.append(history[i])
+            to_score_completions.append(c)
+            to_score_uids.append(user_id[i])
+
+        # 4. 批量调用 DIN (使用 self.scorer)
+        if to_score_indices:
+            try:
+                # 调用内部存储的 scorer
+                model_scores = self.scorer.predict_batch(
+                    user_ids=to_score_uids,
+                    history=to_score_history,
+                    completions=to_score_completions
+                )
+                
+                for idx, score in zip(to_score_indices, model_scores):
+                    final_score = max(-0.1, score) 
+                    temp_scores[idx] = final_score * self.weight # 使用成员变量
+                    
+            except Exception as e:
+                print(f"Error in DIN Scorer: {e}")
+                
+        return temp_scores
+    
+class DINRewardRunner_wo_gt:
+    def __init__(self, scorer, weight=0.8, penalty=-1.0, name="reward_din_score"):
+        """
+        :param scorer: 你的 DINScorer 实例
+        :param weight: DIN 分数的权重系数 (默认 0.8)
+        :param penalty: 格式错误的惩罚分 (默认 -1.0)
+        """
+        self.scorer = scorer
+        self.weight = weight
+        self.penalty = penalty
+        self.__name__ = name
+
+    def __call__(self, prompts, completions, ground_truth, user_id, **kwargs):
+        """
+        实现 __call__ 方法，让实例可以像函数一样被调用。
+        TRL 会通过 inspect 检测这里的参数，所以参数名要和 dataset 列名对应。
+        """
+        # history = kwargs['history']
+        history = prompts
+        rewards = []
+        
+        # 收集需要 DIN 打分的索引
+        to_score_indices = []
+        to_score_history = []
+        to_score_completions = []
+        to_score_uids = []
+        
+        temp_scores = [0.0] * len(history)
+        
+        # for i, (c, gt) in enumerate(zip(completions, ground_truth)):
+        for i, c in enumerate(completions):
+            # 1. Format Reward
+            c = c.strip()
+            if not c.startswith("<") or not c.endswith(">"):
+                temp_scores[i] = self.penalty  # 使用成员变量
+                continue
+                
+            # # 2. Ground Truth Reward
+            # if c == gt:
+            #     temp_scores[i] = 1.0 
+            #     continue
                 
             # 3. 准备 DIN 打分
             to_score_indices.append(i)

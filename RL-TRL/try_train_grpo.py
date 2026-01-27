@@ -24,17 +24,19 @@ import numpy as np
 sys.path.append("../Rec-Transformer") # LlamaRec 所在
 sys.path.append("../")
 
+
 # 导入自定义模块
 from CTR_models.DIN.DIN_evaluator import DINScorer
 from llamarec import LlamaRecConfig, LlamaRecForCausalLM 
-from utils.RL_utils import GRPOTrainer_not_skip_special_token, DINRewardRunner
+from utils.RL_utils import GRPOTrainer_not_skip_special_token, DINRewardRunner, DINRewardRunner_wo_gt
 from utils.utils_evaluate import DynamicHierarchicalLogitsProcessor, build_item_token_codebooks_dynamically
 from utils.eval import compute_hr_at_k, compute_ndcg_at_k
+from utils.utils import *
 
 # ================= 注册模型 =================
 AutoConfig.register("llama-rec", LlamaRecConfig)
 AutoModelForCausalLM.register(LlamaRecConfig, LlamaRecForCausalLM)
-
+os.environ['CUDA_VISIBLE_DEVICES'] = '7'
 
 class GRPO_Eval_Trainer(GRPOTrainer_not_skip_special_token):
     def __init__(self, eval_dataset, generation_config_params, **kwargs):
@@ -75,7 +77,7 @@ class GRPO_Eval_Trainer(GRPOTrainer_not_skip_special_token):
             padding=True, 
             truncation=True,
             padding_side='left',
-            max_length=200,
+            max_length=2000,
         )
         
         return {
@@ -198,7 +200,7 @@ class GRPO_Eval_Trainer(GRPOTrainer_not_skip_special_token):
 if __name__ == '__main__':
     # ================= 命令行参数解析 =================
     parser = argparse.ArgumentParser(description="GRPO Training with YAML Config")
-    parser.add_argument("--config", type=str, default="grpo_config.yaml", help="Path to the YAML config file")
+    parser.add_argument("--config", type=str, default="./rl_configs/KuaiRec_big_llamarec_DIN.yaml", help="Path to the YAML config file")
     args_cli = parser.parse_args()
 
     # ================= 加载 config =================
@@ -224,7 +226,7 @@ if __name__ == '__main__':
     )
     print(">>> DIN Scorer Ready.")
 
-    reward_runner = DINRewardRunner(
+    reward_runner = DINRewardRunner_wo_gt(
         scorer=din_scorer, 
         weight=din_cfg['reward_weight'],
         penalty=din_cfg.get('penalty', -1.0)
@@ -279,6 +281,10 @@ if __name__ == '__main__':
         num_generations=train_cfg['num_generations'],
         use_vllm=train_cfg['use_vllm'],
         bf16=train_cfg['bf16'],
+        mask_truncated_completions=train_cfg.get('mask_truncated_completions', False),
+        temperature=0.7,        # 稍微降一点，避免生成完全乱码的 Item ID
+        top_k=50,               # 限制采样范围，避免采样到极其冷门的 Item
+        top_p=0.95,
 
         # 评估与早停策略
         eval_strategy="steps",
