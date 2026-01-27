@@ -1,0 +1,1 @@
+python RL-TRL/DIN/run_expid.py --config ./config/ --expid DIN_Beauty_onerec_think --gpu 7

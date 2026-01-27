@@ -74,6 +74,17 @@ from transformers import PreTrainedTokenizerFast
 #         # 因此 'labels' 字段不是必须的
 #         return batch_dict
 
+# 定义预处理函数：只做 Encode，不做 Padding
+def preprocess_function(examples, tokenizer, max_seq_length):
+    # 这里我们只生成 input_ids，不生成 Tensor，也不 Padding
+    return tokenizer(
+        examples["prompt"], # 替换为你 json 里的真实文本字段名
+        truncation=True,
+        max_length=max_seq_length,
+        padding=False, # 关键：千万别在这里 Padding，太占空间且不灵活
+        return_attention_mask=True
+    )
+
 class TrainDataCollator:
     def __init__(self, tokenizer: PreTrainedTokenizerFast, max_length: int):
         self.tokenizer = tokenizer
