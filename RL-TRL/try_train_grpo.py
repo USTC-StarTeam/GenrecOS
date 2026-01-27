@@ -36,7 +36,6 @@ from utils.utils import *
 # ================= 注册模型 =================
 AutoConfig.register("llama-rec", LlamaRecConfig)
 AutoModelForCausalLM.register(LlamaRecConfig, LlamaRecForCausalLM)
-os.environ['CUDA_VISIBLE_DEVICES'] = '7'
 
 class GRPO_Eval_Trainer(GRPOTrainer_not_skip_special_token):
     def __init__(self, eval_dataset, generation_config_params, **kwargs):
