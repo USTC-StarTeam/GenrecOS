@@ -4,9 +4,7 @@ import logging
 import yaml
 import argparse
 import sys
-import tempfile
 import warnings
-from typing import List
 import random
 from datetime import datetime
 
@@ -16,9 +14,6 @@ from transformers import (
     Trainer,
     TrainingArguments,
     EarlyStoppingCallback,
-    PreTrainedTokenizerFast,
-    AddedToken,
-    Qwen2Tokenizer,
     LogitsProcessorList,
     LlamaForCausalLM, 
     LlamaConfig,
@@ -275,22 +270,6 @@ def main():
         output_dir=tokenizer_dir,
         codeword_nums=codeword_nums
     )
-
-    # 修改一下tokenizer的padding位置
-    tokenizer.padding_side = "left"   # 强制设为左填充
-    tokenizer.truncation_side = "left" # (可选) 截断通常也设为左侧，保留最新的历史
-
-    # 健壮性检查
-    if tokenizer.pad_token_id is None: tokenizer.pad_token_id = tokenizer.convert_tokens_to_ids("[PAD]")
-    # Qwen 默认无 BOS/EOS，这里用 <|endoftext|> 或者我们刚加的 [PAD] 兜底，或者根据模型逻辑指定
-    # 如果你的模型依赖 BOS/EOS 启动/结束，确保它们存在
-    if tokenizer.bos_token_id is None: 
-         # 如果词表里没 [BOS]，用 <|endoftext|> 顶替
-        tokenizer.bos_token_id = tokenizer.convert_tokens_to_ids("<|endoftext|>")
-    if tokenizer.eos_token_id is None: 
-        tokenizer.eos_token_id = tokenizer.convert_tokens_to_ids("<|endoftext|>")
-
-    logging.info(f"Final check - vocab: {len(tokenizer)}, pad: {tokenizer.pad_token_id}, bos: {tokenizer.bos_token_id}, eos: {tokenizer.eos_token_id}")
 
     # ==========================================================
     # 数据集加载

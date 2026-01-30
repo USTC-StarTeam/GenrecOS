@@ -1,3 +1,14 @@
+import tempfile
+from typing import List
+import os
+import json
+import logging
+from transformers import (
+    PreTrainedTokenizerFast,
+    AddedToken,
+    Qwen2Tokenizer,
+)
+
 # 纯净版 Qwen Tokenizer 构建函数
 def create_pure_id_qwen_tokenizer(
     output_dir: str, 
@@ -65,6 +76,23 @@ def create_pure_id_qwen_tokenizer(
     # 更新 pad_token_id
     if "[PAD]" in tokenizer.get_vocab():
         tokenizer.pad_token_id = tokenizer.convert_tokens_to_ids("[PAD]")
+
+
+    # 修改一下tokenizer的padding位置
+    tokenizer.padding_side = "left"   # 强制设为左填充
+    tokenizer.truncation_side = "left" # (可选) 截断通常也设为左侧，保留最新的历史
+
+    # 健壮性检查
+    if tokenizer.pad_token_id is None: tokenizer.pad_token_id = tokenizer.convert_tokens_to_ids("[PAD]")
+    # Qwen 默认无 BOS/EOS，这里用 <|endoftext|> 或者我们刚加的 [PAD] 兜底，或者根据模型逻辑指定
+    # 如果你的模型依赖 BOS/EOS 启动/结束，确保它们存在
+    if tokenizer.bos_token_id is None: 
+         # 如果词表里没 [BOS]，用 <|endoftext|> 顶替
+        tokenizer.bos_token_id = tokenizer.convert_tokens_to_ids("<|endoftext|>")
+    if tokenizer.eos_token_id is None: 
+        tokenizer.eos_token_id = tokenizer.convert_tokens_to_ids("<|endoftext|>")
+
+    logging.info(f"Final check - vocab: {len(tokenizer)}, pad: {tokenizer.pad_token_id}, bos: {tokenizer.bos_token_id}, eos: {tokenizer.eos_token_id}")
 
     # step 5: 保存结果
     if not os.path.exists(output_dir):
