@@ -40,6 +40,8 @@ def create_pure_id_qwen_tokenizer(
             pad_token="<|endoftext|>",
             bos_token=None, 
             eos_token="<|endoftext|>",
+            padding_side="left",
+            truncation_side="left"
         )
 
     # step 3: 构建你的语义 ID (AddedToken)
@@ -94,12 +96,12 @@ def create_pure_id_qwen_tokenizer(
 
     logging.info(f"Final check - vocab: {len(tokenizer)}, pad: {tokenizer.pad_token_id}, bos: {tokenizer.bos_token_id}, eos: {tokenizer.eos_token_id}")
 
-    # step 5: 保存结果
-    if not os.path.exists(output_dir):
-        os.makedirs(output_dir, exist_ok=True)
+    # # step 5: 保存结果
+    # if not os.path.exists(output_dir):
+    #     os.makedirs(output_dir, exist_ok=True)
         
-    tokenizer.save_pretrained(output_dir)
-    logging.info(f"Tokenizer saved to: {output_dir}")
+    # tokenizer.save_pretrained(output_dir)
+    # logging.info(f"Tokenizer saved to: {output_dir}")
     logging.info(f"Final vocab size: {len(tokenizer)}")
 
     return tokenizer

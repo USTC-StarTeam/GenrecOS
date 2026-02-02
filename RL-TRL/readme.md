@@ -1,1 +1,1 @@
-现在的train和test用同一个数据集，这是有原因的，我们训练的时候，完全不使用ground truth，因此不会数据泄露✌️
+ori_train_grpo.py是我们已经验证过正常的grpo，temp是我们的魔改。

@@ -1,0 +1,221 @@
+Base:
+    model_root: './checkpoints/'
+    num_workers: 24
+    verbose: 1
+    early_stop_patience: 8
+    pickle_feature_encoder: True
+    save_best_only: True
+    eval_steps: null
+    debug_mode: False
+    group_id: null
+    use_features: null
+    feature_specs: null
+    feature_config: null
+
+DIN_test:
+    model: DIN
+    dataset_id: tiny_seq
+    loss: 'binary_crossentropy'
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    learning_rate: 1.0e-3
+    embedding_regularizer: 0
+    net_regularizer: 0
+    batch_size: 128
+    embedding_dim: 4
+    dnn_hidden_units: [64, 32]
+    dnn_activations: relu
+    attention_hidden_units: [64]
+    attention_hidden_activations: "Dice"
+    attention_output_activation: null
+    attention_dropout: 0
+    din_target_field: adgroup_id
+    din_sequence_field: click_sequence
+    net_dropout: 0
+    batch_norm: False
+    epochs: 1
+    shuffle: True
+    seed: 2019
+    monitor: 'AUC'
+    monitor_mode: 'max'
+
+DIN_test2:
+    model: DIN
+    dataset_id: tiny_seq2
+    loss: 'binary_crossentropy'
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    learning_rate: 1.0e-3
+    embedding_regularizer: 0
+    net_regularizer: 0
+    batch_size: 128
+    embedding_dim: 4
+    dnn_hidden_units: [64, 32]
+    dnn_activations: relu
+    attention_hidden_units: [64]
+    attention_hidden_activations: "Dice"
+    attention_output_activation: null
+    attention_dropout: 0
+    din_target_field: adgroup_id
+    din_sequence_field: click_sequence
+    net_dropout: 0
+    batch_norm: False
+    epochs: 1
+    shuffle: True
+    seed: 2019
+    monitor: 'AUC'
+    monitor_mode: 'max'
+
+DIN_default: # This is a config template
+    model: DIN
+    dataset_id: TBD
+    loss: 'binary_crossentropy'
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    learning_rate: 1.0e-3
+    embedding_regularizer: 0
+    net_regularizer: 0
+    batch_size: 10000
+    embedding_dim: 40
+    dnn_hidden_units: [500, 500, 500]
+    dnn_activations: relu
+    attention_hidden_units: [64]
+    attention_hidden_activations: "Dice"
+    attention_output_activation: null
+    attention_dropout: 0
+    din_target_field: item_id
+    din_sequence_field: click_history
+    din_use_softmax: False
+    net_dropout: 0
+    batch_norm: False
+    epochs: 100
+    shuffle: True
+    seed: 2019
+    monitor: {'AUC': 1, 'logloss': -1}
+    monitor_mode: 'max'
+
+DIN_KuaiRand_0501: # This is a config template
+    model: DIN
+    dataset_id: KuaiRand_0501
+    loss: 'binary_crossentropy'
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    learning_rate: 1.0e-3
+    embedding_regularizer: 0
+    net_regularizer: 0
+    batch_size: 10000
+    embedding_dim: 20
+    dnn_hidden_units: [500, 500, 500]
+    dnn_activations: relu
+    attention_hidden_units: [64]
+    attention_hidden_activations: "Dice"
+    attention_output_activation: null
+    attention_dropout: 0
+    din_target_field: target_item_id
+    din_sequence_field: click_sequence
+    din_use_softmax: False
+    net_dropout: 0
+    batch_norm: False
+    epochs: 100
+    shuffle: True
+    seed: 42
+    monitor: {'AUC': 1, 'logloss': -1}
+    monitor_mode: 'max'
+
+DIN_Beauty_onerec_think: # This is a config template
+    model: DIN
+    dataset_id: Beauty_onerec_think
+    loss: 'binary_crossentropy'
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    learning_rate: 1.0e-3
+    embedding_regularizer: 0
+    net_regularizer: 0
+    batch_size: 10000
+    embedding_dim: 20
+    dnn_hidden_units: [500, 500, 500]
+    dnn_activations: relu
+    attention_hidden_units: [64]
+    attention_hidden_activations: "Dice"
+    attention_output_activation: null
+    attention_dropout: 0
+    din_target_field: [target_item_id, target_cate_1, target_cate_2]
+    din_sequence_field: [click_sequence, cate_1_sequence, cate_2_sequence]
+    din_use_softmax: False
+    net_dropout: 0
+    batch_norm: False
+    epochs: 100
+    shuffle: True
+    seed: 42
+    monitor: {'AUC': 1, 'logloss': -1}
+    monitor_mode: 'max'
+
+DIN_KuaiRec_big: # This is a config template
+    model: DIN
+    dataset_id: KuaiRec_big
+    loss: 'binary_crossentropy'
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    learning_rate: 5.0e-5
+    embedding_regularizer: 1.0e-6
+    net_regularizer: 1.0e-6
+    batch_size: 512
+    embedding_dim: 128
+    dnn_hidden_units: [1024, 512, 256]
+    dnn_activations: relu
+    attention_hidden_units: [128, 128]
+    attention_hidden_activations: "Dice"
+    attention_output_activation: null
+    attention_dropout: 0.1
+    din_target_field: [target_item_id, target_cate_1, target_cate_2, target_cate_3]
+    din_sequence_field: [click_sequence, cate_1_sequence, cate_2_sequence, cate_3_sequence]
+    din_use_softmax: False
+    net_dropout: 0.1
+    batch_norm: True
+    epochs: 100
+    shuffle: True
+    seed: 42
+    monitor: {'AUC': 1, 'logloss': -1}
+    monitor_mode: 'max'
+    early_stop_patience: 8
+
+TransAct_KuaiRec_big:
+    model: TransAct
+    dataset_id: KuaiRec_big
+    loss: 'binary_crossentropy'
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    learning_rate: 1.0e-4   # 建议比 DIN 稍大一点，Transformer 结构通常需要更大的 LR 来跳出局部最优
+    embedding_regularizer: 1.0e-6
+    net_regularizer: 1.0e-6
+    batch_size: 400
+    embedding_dim: 128
+    hidden_activations: relu
+    dcn_cross_layers: 3
+    dcn_hidden_units: [1024, 512, 256] 
+    mlp_hidden_units: [512, 256] # 增加显式的 MLP 层以增强非线性能力
+    num_heads: 4    # 128维 / 4头 = 32维/头，比单头更能捕捉 ID 和 Category 之间的不同子空间关系
+    transformer_layers: 2   # 增加到 2 层，捕捉长序列中 Item 之间的二阶交互
+    dim_feedforward: 512    # 与 Embedding 维度 (128) 对应的 FFN 维度，通常是 4倍，即 512
+    transformer_dropout: 0.1 # 长序列极易过拟合，必须开启 Dropout
+    net_dropout: 0.1 
+    target_item_field: [target_item_id, target_cate_1, target_cate_2, target_cate_3]
+    sequence_item_field: [click_sequence, cate_1_sequence, cate_2_sequence, cate_3_sequence]
+    first_k_cols: 1  # 你的 Target 有 4 列，通常 TransAct 关注第 1 列 (Item ID) 用于主要交互，这里设为 1 即可
+    use_time_window_mask: False 
+    time_window_ms: 86400000    # 一周
+    concat_max_pool: True # 长序列中，Max Pooling 能有效提取最显著特征，保留 True
+    batch_norm: True
+    epochs: 100
+    shuffle: True
+    seed: 42
+    monitor: {'AUC': 1, 'logloss': -1}
+    monitor_mode: 'max'
+    early_stop_patience: 8

@@ -1,0 +1,1 @@
+ 20260201-065215,[command] python run_expid.py --expid TransAct_KuaiRec_big --gpu 3,[exp_id] TransAct_KuaiRec_big,[dataset_id] KuaiRec_big,[train] N.A.,[val] logloss: 0.225345 - AUC: 0.966546,[test] logloss: 0.221174 - AUC: 0.967837

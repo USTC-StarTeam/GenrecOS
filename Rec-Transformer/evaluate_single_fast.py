@@ -195,6 +195,7 @@ def main():
 
     # 再次确认关键配置（双重保险）
     tokenizer.padding_side = "left"
+    tokenizer.truncation_side = "left"
     if tokenizer.pad_token_id is None: 
         # 如果读取出来的 tokenizer 没记录 pad_token，尝试手动修复
         # 注意：这里需要小心，不要覆盖了正确的 ID，通常重建时才需要这步

@@ -1,0 +1,55 @@
+# ================= 路径配置 (Paths) =================
+paths:
+  # 相对路径通常相对于运行脚本的目录
+  din_data_dir: "../FuxiCTR-data/KuaiRec_big"
+  din_config_dir: "./CTR_models/config"
+  din_model_dir: "./CTR_models/checkpoints/KuaiRec_big"
+  
+  rl_data_dir: "../Data/KuaiRec/big_RL_data"
+  train_file: "train.json"
+  test_file: "test.json"
+  
+  llm_model_path: "../Rec-Transformer/temp_experiment/KuaiRec_big/llama_20260130_215508/best_model"
+  
+  # 输出的主目录 (脚本会自动在下面创建带时间戳的子目录)
+  output_root: "temp_try_GRPO_Rec_Output"
+  tensorboard_root: "./temp_try_GRPO_Rec_Output/all_tensorboard_logs" 
+
+# ================= DIN Reward 配置 =================
+din:
+  experiment_id: "DIN_KuaiRec_big"
+  device: "cuda:0"
+  reward_weight: 0.8
+  penalty: -1.0 # 格式错误惩罚
+
+# ================= 训练参数 (对应 GRPOConfig) =================
+training:
+  learning_rate: 5e-7
+  num_train_epochs: 10
+  per_device_train_batch_size: 20
+  per_device_eval_batch_size: 20
+  gradient_accumulation_steps: 1
+  logging_steps: 50
+  max_seq_length: 2000
+  max_completion_length: 4
+  num_generations: 20
+  use_vllm: false
+  fp16: true
+
+  model_name: "qwen2"
+  mask_truncated_completions: false
+  
+  # 评估与保存策略
+  # 注意：脚本里会让 save_steps = eval_steps
+  eval_save_steps: 100
+  save_total_limit: 51
+  
+  # 早停配置
+  early_stopping_patience: 50
+  metric_for_best_model: "eval_NDCG@10"
+
+# ================= 评测生成配置 =================
+evaluation:
+  generation_length: 4
+  num_beams: 20
+  k_values: [1, 5, 10, 20]

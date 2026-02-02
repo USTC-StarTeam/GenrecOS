@@ -24,6 +24,7 @@ from transformers import (
 from typing import Any
 
 class GRPOTrainer_not_skip_special_token(GRPOTrainer):
+    # 这个函数只修改skip_special_tokens=False
     def _generate(self, prompts: list):
         device = self.accelerator.device
         mode = "train" if self.model.training else "eval"
@@ -114,6 +115,7 @@ class GRPOTrainer_not_skip_special_token(GRPOTrainer):
             extra_fields,
         )
 
+    # 这个函数只修改skip_special_tokens=False
     def _generate_and_score_completions(
         self, inputs: list[dict[str, torch.Tensor | Any]]
     ) -> dict[str, torch.Tensor | Any]:
@@ -429,7 +431,198 @@ class GRPOTrainer_not_skip_special_token(GRPOTrainer):
             output["tool_mask"] = tool_mask
         return output
 
-class DINRewardRunner:
+    # 主要传入token_pos_weights
+    def _compute_loss(self, model, inputs):
+        # Compute the per-token log probabilities for the model
+        prompt_ids, prompt_mask = inputs["prompt_ids"], inputs["prompt_mask"]
+        completion_ids, completion_mask = inputs["completion_ids"], inputs["completion_mask"]
+        input_ids = torch.cat([prompt_ids, completion_ids], dim=1)
+        attention_mask = torch.cat([prompt_mask, completion_mask], dim=1)
+        logits_to_keep = completion_ids.size(1)  # we only need to compute the logits for the completion tokens
+
+        # Compute the per_token_logps and the entropy at each position in the completion
+        per_token_logps, entropies = self._get_per_token_logps_and_entropies(
+            model,
+            input_ids,
+            attention_mask,
+            logits_to_keep,
+            compute_entropy=True,
+            pixel_values=inputs.get("pixel_values"),
+            image_grid_thw=inputs.get("image_grid_thw"),
+            num_images=inputs.get("num_images"),
+            pixel_attention_mask=inputs.get("pixel_attention_mask"),
+            image_sizes=inputs.get("image_sizes"),
+            token_type_ids=inputs.get("token_type_ids"),
+        )
+
+        if self.top_entropy_quantile < 1.0:
+            mask = completion_mask if not self.tools else completion_mask * inputs["tool_mask"]
+            entropy_mask = self.get_high_entropy_mask(entropies, mask, 1 - self.top_entropy_quantile)
+        else:
+            entropy_mask = None
+
+        # Compute the loss
+        advantages = inputs["advantages"]
+        # In the base GRPO implementation, advantages are expected to have shape (B,). To support subclasses that
+        # provide advantages with shape (B, T) (e.g., MiniLLM), we *conditionally* unsqueeze the tensor.
+        if advantages.dim() == 1:
+            advantages = advantages.unsqueeze(1)
+        # When num_iterations == 1 and steps_per_generation <= gradient_accumulation_steps,
+        # old_per_token_logps == per_token_logps. In this case we can skip its computation
+        # (see _generate_and_score_completions) and instead use per_token_logps.detach().
+        # The exception is when using vLLM, where we always compute old_per_token_logps
+        # for importance sampling
+        old_per_token_logps = inputs.get("old_per_token_logps")
+        old_per_token_logps = per_token_logps.detach() if old_per_token_logps is None else old_per_token_logps
+
+        log_ratio = per_token_logps - old_per_token_logps
+        if self.importance_sampling_level == "token":
+            log_importance_weights = log_ratio
+        elif self.importance_sampling_level == "sequence":
+            mask = completion_mask if not self.tools else completion_mask * inputs["tool_mask"]
+            log_importance_weights = (log_ratio * mask).sum(-1) / mask.sum(-1).clamp(min=1.0)
+            log_importance_weights = log_importance_weights.unsqueeze(-1)
+        else:
+            raise ValueError(
+                f"Unknown importance sampling level: {self.importance_sampling_level}. Possible values are 'token' "
+                "and 'sequence'."
+            )
+
+        coef_1 = torch.exp(log_importance_weights)
+
+        # Compute the KL divergence between the model and the reference model
+        if self.beta != 0.0:
+            ref_per_token_logps = inputs["ref_per_token_logps"]
+            per_token_kl = (
+                torch.exp(ref_per_token_logps - per_token_logps) - (ref_per_token_logps - per_token_logps) - 1
+            )
+            # Importance sampling correction for the KL divergence
+            if self.args.use_bias_correction_kl:
+                per_token_kl = per_token_kl * coef_1
+
+        # From here, log_importance_weights (and all subsequent tensors, coef_1, coef_2, etc.) shape depends on
+        # importance_sampling_level: "token" level: (B, T); "sequence" level: (B, 1)
+        if self.loss_type == "cispo":
+            clamped_ratios = torch.clamp(coef_1, max=self.epsilon_high).detach()
+            per_token_loss = -clamped_ratios * advantages * per_token_logps
+        elif self.loss_type in ["grpo", "bnpo", "dr_grpo", "dapo"]:
+            coef_2 = torch.clamp(coef_1, 1 - self.epsilon_low, 1 + self.epsilon_high)
+            # Two-sided clipping
+            if self.args.delta is not None:
+                coef_1 = torch.clamp(coef_1, max=self.args.delta)
+
+            per_token_loss1 = coef_1 * advantages
+            per_token_loss2 = coef_2 * advantages
+            per_token_loss = -torch.min(per_token_loss1, per_token_loss2)
+        elif self.loss_type == "sapo":
+            per_token_loss = torch.empty_like(coef_1)
+            positive_advantages_mask = advantages.repeat([1, coef_1.shape[1]]) > 0
+            per_token_loss[positive_advantages_mask] = self.get_sapo_token_loss(
+                coef_1[positive_advantages_mask], self.args.sapo_temperature_pos
+            )
+            per_token_loss[~positive_advantages_mask] = self.get_sapo_token_loss(
+                coef_1[~positive_advantages_mask], self.args.sapo_temperature_neg
+            )
+            per_token_loss = -per_token_loss * advantages
+        else:
+            raise ValueError(f"Unknown loss type: {self.loss_type}")
+
+        if entropy_mask is not None:
+            per_token_loss = per_token_loss * entropy_mask
+
+        if self.use_vllm and self.vllm_importance_sampling_correction:
+            per_token_loss = per_token_loss * inputs["importance_sampling_ratio"]
+
+        if self.beta != 0.0:
+            per_token_loss = per_token_loss + self.beta * per_token_kl
+
+        mask = completion_mask if not self.tools else completion_mask * inputs["tool_mask"]
+
+        # 创建一个专门用于计算 Loss 的 mask，避免污染用于记录日志的原始 mask
+        loss_mask = mask.clone().float()
+        # 检查是否存在 token_pos_weights (在 __init__ 中定义的)
+        if hasattr(self, "token_pos_weights") and self.token_pos_weights is not None:
+            # 1. 转换设备和精度以匹配 loss
+            pos_weights = self.token_pos_weights.to(device=per_token_loss.device, dtype=per_token_loss.dtype)
+            
+            # 2. 将权重应用到 loss_mask 的末尾
+            # 假设生成长度固定为 4，我们对齐序列的最后 gen_len 位
+            gen_len = len(pos_weights)
+            seq_len = loss_mask.shape[1]
+            
+            if seq_len >= gen_len:
+                # 广播乘法：(Batch, gen_len) *= (gen_len,)
+                loss_mask[:, -gen_len:] *= pos_weights
+            else:
+                # 容错处理：如果实际序列比权重短，截取权重的后半部分
+                loss_mask *= pos_weights[-seq_len:]
+
+        # ➕ [Modified] Use 'loss_mask' instead of 'mask' for loss calculation
+        # 注意：分母也要变成 weighted sum，这样才是加权平均
+        loss1 = ((per_token_loss * loss_mask).sum(-1) / loss_mask.sum(-1).clamp(min=1.0)).mean()
+        loss1 = loss1 / self.current_gradient_accumulation_steps
+        
+        if self.loss_type in ["grpo", "sapo"]:
+            loss = ((per_token_loss * loss_mask).sum(-1) / loss_mask.sum(-1).clamp(min=1.0)).mean()
+            loss = loss / self.current_gradient_accumulation_steps
+        elif self.loss_type == "bnpo":
+            loss = (per_token_loss * loss_mask).sum() / loss_mask.sum().clamp(min=1.0)
+            loss = loss / self.current_gradient_accumulation_steps
+        elif self.loss_type == "dr_grpo":
+            # DR_GRPO 通常分母是固定长度，这里暂时保持 mask，或者你也想加权？
+            # 建议 DR_GRPO 也用加权后的 loss_mask，保持逻辑一致
+            loss = (per_token_loss * loss_mask).sum() / (per_token_loss.size(0) * self.max_completion_length)
+            loss = loss / self.current_gradient_accumulation_steps
+        elif self.loss_type in ["cispo", "dapo"]:
+            normalizer = inputs["num_items_in_batch"] / self.accelerator.num_processes
+            loss = (per_token_loss * loss_mask).sum() / normalizer
+        else:
+            raise ValueError(f"Unknown loss type: {self.loss_type}")
+
+        # Log the metrics
+        mode = "train" if self.model.training else "eval"
+
+        completion_token_count = mask.sum().clamp(min=1.0)
+
+        def masked_batch_mean(x):
+            if x.shape[1] == 1:  # when importance_sampling_level == "sequence"
+                return x.mean()
+            else:
+                return (x * mask).sum() / completion_token_count
+
+        if self.beta != 0.0:
+            mean_kl = masked_batch_mean(per_token_kl)
+            self._metrics[mode]["kl"].append(self.accelerator.gather(mean_kl).nanmean().item())
+
+        mean_entropy = masked_batch_mean(entropies)
+        self._metrics[mode]["entropy"].append(self.accelerator.gather(mean_entropy).nanmean().item())
+
+        if self.loss_type in ["grpo", "bnpo", "dr_grpo", "dapo"]:
+            # Compute the clipped probability ratios
+            is_low_clipped = (coef_1 < 1 - self.epsilon_low) & (advantages < 0)
+            is_high_clipped = (coef_1 > 1 + self.epsilon_high) & (advantages > 0)
+            is_region_clipped = is_low_clipped | is_high_clipped
+
+            low_clip = masked_batch_mean(is_low_clipped.float())
+            high_clip = masked_batch_mean(is_high_clipped.float())
+            clip_ratio = masked_batch_mean(is_region_clipped.float())
+
+            gathered_low_clip = self.accelerator.gather(low_clip)
+            self._metrics[mode]["clip_ratio/low_mean"].append(gathered_low_clip.nanmean().item())
+            self._metrics[mode]["clip_ratio/low_min"].append(nanmin(gathered_low_clip).item())
+            gathered_high_clip = self.accelerator.gather(high_clip)
+            self._metrics[mode]["clip_ratio/high_mean"].append(gathered_high_clip.nanmean().item())
+            self._metrics[mode]["clip_ratio/high_max"].append(nanmax(gathered_high_clip).item())
+            gathered_clip_ratio = self.accelerator.gather(clip_ratio)
+            self._metrics[mode]["clip_ratio/region_mean"].append(gathered_clip_ratio.nanmean().item())
+        elif self.loss_type == "cispo":
+            is_cispo_clipped = (coef_1 > self.epsilon_high) & (advantages > 0)
+            cispo_clip_ratio = masked_batch_mean(is_cispo_clipped.float())
+            gathered_cispo_clip_ratio = self.accelerator.gather(cispo_clip_ratio)
+            self._metrics[mode]["cispo_clip_ratio"].append(gathered_cispo_clip_ratio.nanmean().item())
+        return loss
+
+class RewardRunner:
     def __init__(self, scorer, weight=0.8, penalty=-1.0, name="reward_din_score"):
         """
         :param scorer: 你的 DINScorer 实例
@@ -466,7 +659,7 @@ class DINRewardRunner:
                 continue
                 
             # 2. Ground Truth Reward
-            if c == gt:
+            if c in gt:
                 temp_scores[i] = 1.0 
                 continue
                 
@@ -495,7 +688,7 @@ class DINRewardRunner:
                 
         return temp_scores
     
-class DINRewardRunner_wo_gt:
+class RewardRunner_wo_gt:
     def __init__(self, scorer, weight=0.8, penalty=-1.0, name="reward_din_score"):
         """
         :param scorer: 你的 DINScorer 实例
