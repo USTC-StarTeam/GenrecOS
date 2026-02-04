@@ -1,1 +1,8 @@
  20260201-065215,[command] python run_expid.py --expid TransAct_KuaiRec_big --gpu 3,[exp_id] TransAct_KuaiRec_big,[dataset_id] KuaiRec_big,[train] N.A.,[val] logloss: 0.225345 - AUC: 0.966546,[test] logloss: 0.221174 - AUC: 0.967837
+ 20260202-171003,[command] python run_expid.py --expid DIN_Beauty --gpu 0,[exp_id] DIN_Beauty,[dataset_id] Beauty,[train] N.A.,[val] logloss: 0.656819 - AUC: 0.682057,[test] logloss: 0.658284 - AUC: 0.681046
+ 20260202-171224,[command] python run_expid.py --expid DIN_Beauty --gpu 0,[exp_id] DIN_Beauty,[dataset_id] Beauty,[train] N.A.,[val] logloss: 0.659949 - AUC: 0.673222,[test] logloss: 0.660233 - AUC: 0.673350
+ 20260202-171355,[command] python run_expid.py --expid DIN_Beauty --gpu 0,[exp_id] DIN_Beauty,[dataset_id] Beauty,[train] N.A.,[val] logloss: 0.665869 - AUC: 0.656120,[test] logloss: 0.665645 - AUC: 0.656590
+ 20260202-171516,[command] python run_expid.py --expid DIN_Beauty --gpu 0,[exp_id] DIN_Beauty,[dataset_id] Beauty,[train] N.A.,[val] logloss: 0.674917 - AUC: 0.699650,[test] logloss: 0.678474 - AUC: 0.697288
+ 20260202-171618,[command] python run_expid.py --expid DIN_Beauty --gpu 0,[exp_id] DIN_Beauty,[dataset_id] Beauty,[train] N.A.,[val] logloss: 0.689212 - AUC: 0.693877,[test] logloss: 0.688987 - AUC: 0.694221
+ 20260202-171717,[command] python run_expid.py --expid DIN_Beauty --gpu 0,[exp_id] DIN_Beauty,[dataset_id] Beauty,[train] N.A.,[val] logloss: 0.674917 - AUC: 0.699650,[test] logloss: 0.678474 - AUC: 0.697288
+ 20260202-171915,[command] python run_expid.py --expid DIN_Beauty --gpu 0,[exp_id] DIN_Beauty,[dataset_id] Beauty,[train] N.A.,[val] logloss: 0.674917 - AUC: 0.699650,[test] logloss: 0.678474 - AUC: 0.697288

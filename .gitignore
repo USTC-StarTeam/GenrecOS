@@ -8,6 +8,7 @@ CLAUDE.md
 .claude/
 .DS_Store
 Thumbs.db
+.nfs*
 
 # 给大家留下调试空间
 temp_*

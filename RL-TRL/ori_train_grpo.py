@@ -32,7 +32,7 @@ sys.path.append("../")
 from CTR_models.src.DIN_evaluator import DINScorer
 from llamarec import LlamaRecConfig, LlamaRecForCausalLM 
 from sasrec import SasRecForCausalLM
-from utils.RL_utils import GRPOTrainer_not_skip_special_token, RewardRunner, RewardRunner_wo_gt
+from utils.RL_utils import GRPOTrainer_not_skip_special_token, RewardRunner
 from utils.datacollator import EvalDataCollator, preprocess_function
 from utils.utils_evaluate import DynamicHierarchicalLogitsProcessor, build_item_token_codebooks_dynamically
 from utils.eval import compute_hr_at_k, compute_ndcg_at_k
@@ -55,6 +55,7 @@ class GRPO_Eval_Trainer(GRPOTrainer_not_skip_special_token):
         self.num_beams = generation_config_params.get('num_beams', 1)
         self.k_values = generation_config_params.get('k_values', [1, 5, 10])
         self.item_token_codebooks = generation_config_params.get('item_token_codebooks', None)
+        self.eval_sample_num = generation_config_params.get('eval_sample_num', 2000)
 
         # --- 构建 NumPy 向量化查找表 ---
         print(">>> Building NumPy Vectorized Vocab Table for Evaluation...")
@@ -78,22 +79,20 @@ class GRPO_Eval_Trainer(GRPOTrainer_not_skip_special_token):
         if eval_ds is None:
             print(">>> Warning: No eval dataset provided, skipping evaluation.")
             return {}
-
-        eval_sample_num = 2000  # 你想要的采样数量
         
         if metric_key_prefix == "eval" and eval_ds is not None:
             total_size = len(eval_ds)
-            if total_size > eval_sample_num:
-                print(f"⚡ [SpeedUp] Sampling {eval_sample_num} random examples from {total_size} for validation.")
+            if total_size > self.eval_sample_num:
+                print(f"⚡ [SpeedUp] Sampling {self.eval_sample_num} random examples from {total_size} for validation.")
                 
                 # 随机选取索引
                 # 注意：这里每次验证都会重新随机，导致验证指标会有波动，但能更全面地监控模型
-                random_indices = random.sample(range(total_size), eval_sample_num)
+                random_indices = random.sample(range(total_size), self.eval_sample_num)
                 
                 # 使用 HuggingFace dataset 的 select 方法创建子集
                 eval_ds = eval_ds.select(random_indices)
             else:
-                print(f"Dataset size ({total_size}) <= {eval_sample_num}, running full evaluation.")
+                print(f"Dataset size ({total_size}) <= {self.eval_sample_num}, running full evaluation.")
 
         # 1. 准备 DataLoader
         # 确保数据经过了 preprocess_function 处理
@@ -363,7 +362,8 @@ if __name__ == '__main__':
         "generation_length": generation_length,
         "num_beams": eval_cfg['num_beams'],
         "k_values": eval_cfg['k_values'],
-        "item_token_codebooks": item_token_codebooks
+        "item_token_codebooks": item_token_codebooks,
+        "eval_sample_num": eval_cfg.get('eval_sample_num', 2000)
     }
 
     # ================= 初始化 Trainer =================

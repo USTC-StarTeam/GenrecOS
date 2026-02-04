@@ -53,3 +53,4 @@ evaluation:
   generation_length: 4
   num_beams: 20
   k_values: [1, 5, 10, 20]
+  eval_sample_num: 2000

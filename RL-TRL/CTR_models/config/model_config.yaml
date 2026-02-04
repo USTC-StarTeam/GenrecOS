@@ -219,3 +219,33 @@ TransAct_KuaiRec_big:
     monitor: {'AUC': 1, 'logloss': -1}
     monitor_mode: 'max'
     early_stop_patience: 8
+
+DIN_Beauty:
+    model: DIN
+    dataset_id: Beauty  # 确保这里对应你的dataset_id
+    loss: 'binary_crossentropy'
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    learning_rate: 1.0e-3
+    embedding_regularizer: 1.0e-6
+    net_regularizer: 1.0e-6
+    batch_size: 2048  # 如果显存允许，甚至可以开到 4096
+    embedding_dim: 64
+    dnn_hidden_units: [1024, 512, 256] # 去掉了 1024 层
+    dnn_activations: relu
+    attention_hidden_units: [64, 32] 
+    attention_hidden_activations: "Dice"
+    attention_output_activation: null
+    attention_dropout: 0.3
+    net_dropout: 0.3
+    batch_norm: True
+    din_target_field: [target_item_id, target_cate_1, target_cate_2]
+    din_sequence_field: [click_sequence, cate_1_sequence, cate_2_sequence]
+    din_use_softmax: False
+    epochs: 100
+    shuffle: True
+    seed: 42
+    monitor: {'AUC': 1, 'logloss': -1}
+    monitor_mode: 'max'
+    early_stop_patience: 10 # 数据集小，patience 可以稍微调小一点

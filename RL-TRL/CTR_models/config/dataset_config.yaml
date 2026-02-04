@@ -18,3 +18,10 @@ KuaiRec_big:
     train_data: ../../FuxiCTR-data/KuaiRec_big/train.npz
     valid_data: ../../FuxiCTR-data/KuaiRec_big/valid.npz
     test_data: ../../FuxiCTR-data/KuaiRec_big/test.npz
+
+Beauty:
+    data_root: ../../FuxiCTR-data
+    data_format: npz
+    train_data: ../../FuxiCTR-data/Beauty/train.npz
+    valid_data: ../../FuxiCTR-data/Beauty/valid.npz
+    test_data: ../../FuxiCTR-data/Beauty/test.npz

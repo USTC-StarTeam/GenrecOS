@@ -726,7 +726,7 @@ class RewardRunner_wo_gt:
                 continue
                 
             # # 2. Ground Truth Reward
-            # if c == gt:
+            # if c in gt:
             #     temp_scores[i] = 1.0 
             #     continue
                 
