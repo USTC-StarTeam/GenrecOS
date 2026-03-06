@@ -1,0 +1,229 @@
+temp_LLM_Agent_try 快速结论
+============================
+
+一、先记住结果不能乱比
+- vanilla_sasrec: test=5312
+- LLM_baseline_Prediction: test=5397
+- LLM_Rec_Data_Preparation / 4_finetune_to_upgrade_LLM: test=4548
+- 1_vanilla_LLM_sasrec_combine / 2_find_time / 3_gate: test=4385
+
+补充:
+- 现在如果要把“所有方法”放在同一张表里，只能用 4385 这个公共对齐测试集
+- 4385 = 4548 条 LLM/SFT 测试样本中，能通过 item_mapping 对齐到 SASRec test 的那部分交集
+- 也就是说，4385 不是新造数据，而是为了让 SASRec/LLM/fusion/SFT 真正可比而取的公共子集
+
+二、每个阶段最有代表性的结果
+
+1. SASRec 基线
+- HR@1 = 9.22%
+- HR@10 = 13.03%
+
+2. LLM + 原始标题
+- HR@1 = 5.13%
+- HR@10 = 7.65%
+- 结论: 原始标题太冗长，zero-shot 很差
+
+3. LLM + 浓缩标题
+- HR@1 = 9.26%
+- HR@10 = 12.18%
+- 结论: 标题压缩是关键增益点
+
+4. Prompt Augmentation
+- 最好配置 k=20
+- HR@1 = 5.56%
+- HR@10 = 7.73%
+- 结论: 失败，候选塞进 prompt 会干扰生成
+
+5. 固定权重 Score Fusion
+- 早期首次验证有效的配置是 alpha=0.7
+- 但在 3_gate 修复数据与生成切片 bug 后，重算得到更强固定融合
+- 当前可信的 fixed fusion: alpha=0.55
+- HR@1 = 11.27%
+- HR@10 = 15.62%
+- NDCG@10 = 13.70%
+- 结论: 当前最稳的融合方案仍然是固定权重融合
+
+6. Perplexity Adaptive Fusion
+- 最有代表性的提升体现在 HR@10，小幅高于固定 alpha
+- 代表结果: HR@1 = 10.90%, HR@10 = 13.36%
+- 结论: 有边际收益，但没有形成稳定新优势
+
+7. 早期 Gate Network
+- test HR@1 约 9.22%
+- avg_gate 约 0.999
+- 结论: gate 基本塌成“永远相信 SASRec”，而且旧实现后来确认有 bug，不能再当最终结论
+
+8. Context-Adaptive Fusion
+- SASRec baseline: HR@1 = 9.97%, HR@10 = 14.00%
+- LLM semantic retrieval: HR@1 = 11.24%, HR@10 = 14.07%
+- fixed fusion: HR@1 = 11.27%, HR@10 = 15.62%, NDCG@10 = 13.70%
+- dynamic fusion: HR@1 = 10.92%, HR@10 = 15.85%, NDCG@10 = 13.64%
+- 结论: 修复 bug 后固定融合明显变强；动态融合在 HR@10 上略升，但 HR@1 仍不如 fixed fusion
+
+9. Corrected Full SFT
+- HR@1 = 12.82%
+- HR@10 = 16.42%
+- HR@20 = 17.06%
+- exact_title_match = 15.74%
+- 结论: 当前整个 temp_LLM_Agent_try 里最强结果
+
+10. SFT + SASRec 融合
+- 固定融合使用的是 SFT 模型，不再是 base Qwen
+- 验证集最优权重: alpha = 0.05
+- SASRec: HR@1 = 9.97%, HR@10 = 14.00%, NDCG@10 = 12.03%
+- SFT semantic: HR@1 = 13.11%, HR@10 = 16.78%, NDCG@10 = 15.05%
+- SFT + SASRec fixed fusion: HR@1 = 14.69%, HR@10 = 17.17%, NDCG@10 = 15.99%
+- gate_default: HR@1 = 11.47%, HR@10 = 17.79%, NDCG@10 = 15.03%
+- gate_hr1: HR@1 = 11.70%, HR@10 = 17.70%, NDCG@10 = 15.07%
+- gate_topk: HR@1 = 11.38%, HR@10 = 17.79%, NDCG@10 = 14.98%
+- 结论: 用 SFT 再做固定融合非常有效；三个 gate 都出现了 top-k 变好但 top-1 明显退化的问题
+
+11. Tool-Call Routing 融合
+- 文件夹: 6_tool_call_to_add_sasrec_score_into_LLM
+- 思路: 给 tokenizer 增加 [tool:seqscore]，让模型自己决定何时引入 SASRec score
+- 同时跑了两条轨道:
+  - pre_sft: 用 base Qwen 做 teacher，再从 base Qwen 继续训练
+  - post_sft: 用 current best full SFT 做 teacher，再从 full SFT 继续训练
+- pre_sft teacher 打标签:
+  - train tool 比例 = 92.70%
+  - test tool 比例 = 9.74%
+  - teacher LLM(test): HR@1 = 0.00%, HR@10 = 0.00%
+  - 结论: teacher 太弱，训练集几乎全被打成“应调用工具”
+- post_sft teacher 打标签:
+  - train tool 比例 = 86.06%
+  - test tool 比例 = 2.08%
+  - teacher LLM(test): HR@1 = 12.79%, HR@10 = 16.90%
+  - 结论: 真正需要工具的样本在 test 上极少，是极端不平衡路由问题
+- pre_sft 最终结果:
+  - semantic_only: HR@1 = 10.03%, HR@10 = 12.73%, NDCG@10 = 11.43%
+  - routed_fusion: HR@1 = 11.22%, HR@10 = 14.37%, NDCG@10 = 13.01%
+  - generated tool rate = 99.89%
+  - 结论: 几乎对所有样本都输出 tool token，已经退化成“总是融合”
+- post_sft 最终结果:
+  - semantic_only: HR@1 = 12.52%, HR@10 = 15.51%, NDCG@10 = 14.06%
+  - routed_fusion: HR@1 = 12.54%, HR@10 = 16.37%, NDCG@10 = 14.52%
+  - generated tool rate = 84.17%
+  - 结论: top-10 有一定恢复，但仍低于强 SFT，也明显低于 SFT + SASRec fixed fusion
+- 总结:
+  - 这条路当前没有超过现有最优
+  - 关键问题不是“融合不会做”，而是“tool token 触发时机学不好，严重过触发”
+
+12. Review Retrieval 增强（7_）+ 保守版补跑
+- 文件夹: 7_retrieve_other_users_review_to_enhance_sft
+- 默认版(历史结果):
+  - base_init: HR@1 = 11.68%, HR@10 = 15.04%, NDCG@10 = 13.49%
+  - strong_init: HR@1 = 12.58%, HR@10 = 15.92%, NDCG@10 = 14.37%
+  - test 平均额外 review 数 = 1.266
+- 保守版(本次补跑完成):
+  - 配置: short_history_threshold=2, max_aug_reviews_per_sample=1, recent_item_window=1,
+    require_same_rating_bucket=true, min_review_chars=40, min_review_quality=45
+  - test 平均额外 review 数 = 0.278
+  - base_init: HR@1 = 12.69%, HR@10 = 15.66%, NDCG@10 = 14.28%
+  - strong_init: HR@1 = 12.84%, HR@10 = 16.27%, NDCG@10 = 14.67%
+- 对比:
+  - 相对 7_ 默认 strong_init: +0.26pt / +0.35pt / +0.30pt (HR@1/HR@10/NDCG@10)
+  - 相对 4_ corrected full SFT: HR@1 略高 +0.02pt, 但 HR@10/NDCG@10 仍低 -0.15pt/-0.10pt
+- 结论:
+  - “降低召回噪声”的方向有效，能显著修复默认版退化
+  - 但目前还没有在 4548 主口径上全面超过 4_ corrected full SFT
+
+12.1 按要求统一到 4385 公共口径后的重算
+- 两套 7_ 测试集都重算到公共对齐子集:
+  - data/test_common_4385.jsonl: 4548 -> 4385 (drop 163)
+  - data_conservative/test_common_4385.jsonl: 4548 -> 4385 (drop 163)
+- 公共口径结果:
+  - default + base_init: HR@1 = 12.09%, HR@10 = 15.44%, NDCG@10 = 13.88%
+  - default + strong_init: HR@1 = 12.91%, HR@10 = 16.15%, NDCG@10 = 14.66%
+  - conservative + base_init: HR@1 = 13.07%, HR@10 = 16.05%, NDCG@10 = 14.68%
+  - conservative + strong_init: HR@1 = 13.14%, HR@10 = 16.72%, NDCG@10 = 15.03%
+- 对比 4385 口径的 corrected full SFT (13.09 / 16.85 / 15.12):
+  - conservative + strong_init: HR@1 +0.05pt, HR@10 -0.14pt, NDCG@10 -0.09pt
+- 结论:
+  - 公共口径下，保守版仍然明显优于默认版
+  - 但仍未在 HR@10/NDCG@10 上全面超过 corrected full SFT
+
+13. 在SFT阶段直接引入兴趣总结（9_）
+- 文件夹: 9_sft_with_interest_summary
+- 设计: train/val/test 都引入外部兴趣总结；prompt 汇总 history + review + item metadata
+- test=4548:
+  - raw: HR@1 = 12.77%, HR@10 = 16.45%, NDCG@10 = 14.71%
+  - interest: HR@1 = 12.55%, HR@10 = 16.12%, NDCG@10 = 14.45%
+  - delta(interest - raw): -0.22pt / -0.33pt / -0.26pt
+- test=4385:
+  - raw: HR@1 = 13.11%, HR@10 = 16.76%, NDCG@10 = 15.06%
+  - interest: HR@1 = 12.84%, HR@10 = 16.47%, NDCG@10 = 14.77%
+  - delta(interest - raw): -0.27pt / -0.30pt / -0.28pt
+- 结论:
+  - 这轮里，直接把兴趣总结作为SFT阶段的常驻输入没有带来收益
+  - 同一训练管线下，raw 输入稳定优于 interest 输入
+
+14. Oracle反馈重生成验证（10_，统一口径重跑）
+- 文件夹: 10_feedback_regeneration_oracle
+- 按最新统一要求:
+  - checkpoint = 4_finetune_to_upgrade_LLM/outputs/qwen3_title_sft/best_model
+  - 只测 raw_common4385（不再测4548，不使用interest）
+  - 规则: round0生成后若top5不含target，则反馈重生成；最多3轮反馈
+- 结果(4385):
+  - round0 baseline: HR@1 = 13.09%, HR@10 = 16.76%, NDCG@10 = 15.04%
+  - final after feedback: HR@1 = 13.11%, HR@10 = 16.58%, NDCG@10 = 15.01%
+  - delta(final - baseline): +0.02pt / -0.18pt / -0.03pt
+- 诊断:
+  - feedback trigger rate = 83.76%
+  - avg generation calls per sample = 3.51
+- 结论:
+  - 在oracle设定下仅有极小top1增益，但top10与ndcg下降，整体未形成净提升
+
+15. Seq2Pat Pattern Memory Prompt（11_）
+- 文件夹: 11_seq2pat_memory_prompt
+- 方法:
+  - 先用 `sequential.seq2pat` 在训练可见历史（每个用户去掉最后一个测试交互）上挖掘全局 pattern
+  - 推理时只做“子序列匹配”（不看用户身份），将匹配到的 pattern 作为辅助文本拼到 prompt
+  - 从原始 Qwen 重新 SFT，再分别评测 `4548` 与 `4385` 口径
+- pattern挖掘与匹配统计:
+  - mined_pattern_count = 332
+  - test 平均匹配数 = 0.10，test 非零匹配占比 = 5.91%
+- 结果(4548):
+  - pattern: HR@1 = 12.99%, HR@10 = 16.20%, NDCG@10 = 14.68%
+  - 对比 4_ corrected full SFT: +0.18pt / -0.22pt / -0.09pt
+- 结果(4385):
+  - pattern: HR@1 = 13.30%, HR@10 = 16.51%, NDCG@10 = 14.97%
+  - 对比 common_4385 corrected full SFT: +0.21pt / -0.34pt / -0.15pt
+- 结论:
+  - 与强 SFT 基线相比，HR@1 小幅上升，但 HR@10/NDCG@10 在两个口径都下降，未形成净提升
+
+三、4385 公共测试集统一总表
+- SFT + SASRec fixed fusion(alpha=0.05): HR@1 = 14.69%, HR@10 = 17.17%, NDCG@10 = 15.99%
+- Corrected Full SFT: HR@1 = 13.09%, HR@10 = 16.85%, NDCG@10 = 15.12%
+- Feedback Regen Oracle(10_, round0): HR@1 = 13.09%, HR@10 = 16.76%, NDCG@10 = 15.04%
+- SFT Interest In-Train(9_, raw): HR@1 = 13.11%, HR@10 = 16.76%, NDCG@10 = 15.06%
+- Feedback Regen Oracle(10_, final): HR@1 = 13.11%, HR@10 = 16.58%, NDCG@10 = 15.01%
+- Seq2Pat Pattern Memory Prompt(11_): HR@1 = 13.30%, HR@10 = 16.51%, NDCG@10 = 14.97%
+- Review Retrieval(conservative, strong_init): HR@1 = 13.14%, HR@10 = 16.72%, NDCG@10 = 15.03%
+- SFT Interest In-Train(9_, interest): HR@1 = 12.84%, HR@10 = 16.47%, NDCG@10 = 14.77%
+- Review Retrieval(conservative, base_init): HR@1 = 13.07%, HR@10 = 16.05%, NDCG@10 = 14.68%
+- Review Retrieval(default, strong_init): HR@1 = 12.91%, HR@10 = 16.15%, NDCG@10 = 14.66%
+- Review Retrieval(default, base_init): HR@1 = 12.09%, HR@10 = 15.44%, NDCG@10 = 13.88%
+- Tool-Call Routed Fusion(post_sft teacher): HR@1 = 12.54%, HR@10 = 16.37%, NDCG@10 = 14.52%
+- Tool-Call Routed Fusion(pre_sft teacher): HR@1 = 11.22%, HR@10 = 14.37%, NDCG@10 = 13.01%
+- Fixed Fusion alpha=0.55: HR@1 = 11.27%, HR@10 = 15.62%, NDCG@10 = 13.70%
+- LLM semantic retrieval: HR@1 = 11.24%, HR@10 = 14.07%, NDCG@10 = 12.71%
+- Dynamic Fusion: HR@1 = 10.92%, HR@10 = 15.85%, NDCG@10 = 13.64%
+- SASRec: HR@1 = 9.97%, HR@10 = 14.00%, NDCG@10 = 12.03%
+- LLM zero-shot with original titles: HR@1 = 5.72%, HR@10 = 8.42%, NDCG@10 = 7.01%
+- Prompt Augment best(k=20): HR@1 = 5.56%, HR@10 = 7.73%, NDCG@10 = 6.57%
+- 结论: 如果只看统一口径，当前最强已经变成 SFT + SASRec fixed fusion
+
+四、整个实验线的最终判断
+- 已经证明有效: 浓缩标题、固定权重融合、正确数据构建后的全参数 SFT
+- 已经证明有效: 在强 SFT 基础上，再加少量 SASRec 的固定融合
+- 已经证明效果差: 原始标题 zero-shot、Prompt Augment、早期 Gate
+- 当前新增结论1: tool-call routing 还没有学会“只在少数需要时调用工具”
+- 当前新增结论2: review retrieval 的保守增强在公共4385口径下也明显优于默认增强，但仍未在HR@10/NDCG@10上全面超过 corrected full SFT
+- 当前新增结论3: 9_ 的“从SFT阶段注入兴趣总结”在4548与4385两个口径都小幅退化，raw输入稳定优于interest输入
+- 当前新增结论4: 10_ 的oracle反馈重生成在统一口径下仅提升HR@1(+0.02pt)，但HR@10/NDCG@10下降，未形成净收益
+- 当前新增结论5: 11_ 的Seq2Pat memory prompt在4548与4385上都表现为“HR@1小幅上升、HR@10/NDCG@10下降”，暂无净收益
+- 目前最佳路线: 正确数据构建 + 全参数 SFT + 轻量固定融合
+- 如果只看 4385 公共测试集里的全部方法: 当前最好是 SFT + SASRec fixed fusion(alpha=0.05)
+- 如果只看 4385 公共测试集里的融合方法: 当前最好也是 SFT + SASRec fixed fusion(alpha=0.05)
+
+详细版见 README.md

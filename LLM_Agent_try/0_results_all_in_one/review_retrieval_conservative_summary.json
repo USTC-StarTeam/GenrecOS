@@ -1,0 +1,113 @@
+{
+  "experiment": "7_retrieve_other_users_review_to_enhance_sft_conservative_rerun",
+  "date": "2026-03-05",
+  "test_size": 4548,
+  "source_paths": {
+    "default_base": "../7_retrieve_other_users_review_to_enhance_sft/results/base_init_evaluation_metrics.json",
+    "default_strong": "../7_retrieve_other_users_review_to_enhance_sft/results/strong_init_evaluation_metrics.json",
+    "conservative_base": "../7_retrieve_other_users_review_to_enhance_sft/results_conservative/base_init_evaluation_metrics.json",
+    "conservative_strong": "../7_retrieve_other_users_review_to_enhance_sft/results_conservative/strong_init_evaluation_metrics.json",
+    "conservative_dataset_summary": "../7_retrieve_other_users_review_to_enhance_sft/data_conservative/dataset_summary.json",
+    "baseline_4_corrected_sft": "../4_finetune_to_upgrade_LLM/results/evaluation_metrics.json",
+    "default_base_common4385": "../7_retrieve_other_users_review_to_enhance_sft/results/base_init_common4385_evaluation_metrics.json",
+    "default_strong_common4385": "../7_retrieve_other_users_review_to_enhance_sft/results/strong_init_common4385_evaluation_metrics.json",
+    "conservative_base_common4385": "../7_retrieve_other_users_review_to_enhance_sft/results_conservative/base_init_common4385_evaluation_metrics.json",
+    "conservative_strong_common4385": "../7_retrieve_other_users_review_to_enhance_sft/results_conservative/strong_init_common4385_evaluation_metrics.json"
+  },
+  "conservative_config": {
+    "short_history_threshold": 2,
+    "max_aug_reviews_per_sample": 1,
+    "max_aug_reviews_per_item": 1,
+    "retrieved_review_max_len": 80,
+    "pool_size_per_item": 4,
+    "recent_first": true,
+    "recent_item_window": 1,
+    "require_same_rating_bucket": true,
+    "min_review_chars": 40,
+    "min_review_quality": 45.0
+  },
+  "retrieval_intensity": {
+    "default_test_retrieved_reviews_avg": 1.266,
+    "conservative_test_retrieved_reviews_avg": 0.278
+  },
+  "metrics": {
+    "default_base_init": {
+      "HR@1": 0.11675461741424802,
+      "HR@10": 0.1503957783641161,
+      "NDCG@10": 0.13489086162676583
+    },
+    "default_strong_init": {
+      "HR@1": 0.12576956904133685,
+      "HR@10": 0.15919085312225154,
+      "NDCG@10": 0.14370644055449425
+    },
+    "conservative_base_init": {
+      "HR@1": 0.1268689533861038,
+      "HR@10": 0.1565523306948109,
+      "NDCG@10": 0.14281202883455224
+    },
+    "conservative_strong_init": {
+      "HR@1": 0.1284080914687775,
+      "HR@10": 0.1627088830255057,
+      "NDCG@10": 0.146678491919851
+    },
+    "baseline_4_corrected_sft": {
+      "HR@1": 0.1281882145998241,
+      "HR@10": 0.16424802110817943,
+      "NDCG@10": 0.14769259747601718
+    }
+  },
+  "delta": {
+    "conservative_strong_minus_default_strong": {
+      "HR@1": 0.0026385224274406526,
+      "HR@10": 0.003518029903254156,
+      "NDCG@10": 0.0029720513653567454
+    },
+    "conservative_strong_minus_4_corrected_sft": {
+      "HR@1": 0.00021987686895340512,
+      "HR@10": -0.0015391380826737166,
+      "NDCG@10": -0.0010141055561661728
+    }
+  },
+  "common_4385_recomputed": {
+    "test_size": 4385,
+    "default_base_init": {
+      "HR@1": 0.12086659064994298,
+      "HR@10": 0.15438996579247435,
+      "NDCG@10": 0.13881972819113217
+    },
+    "default_strong_init": {
+      "HR@1": 0.1290763968072976,
+      "HR@10": 0.16145952109464082,
+      "NDCG@10": 0.14660760594538058
+    },
+    "conservative_base_init": {
+      "HR@1": 0.130672748004561,
+      "HR@10": 0.1605473204104903,
+      "NDCG@10": 0.14682540711389974
+    },
+    "conservative_strong_init": {
+      "HR@1": 0.13135689851767388,
+      "HR@10": 0.16716077537058152,
+      "NDCG@10": 0.15031483972179918
+    },
+    "corrected_full_sft_common4385": {
+      "HR@1": 0.13090079817559863,
+      "HR@10": 0.1685290763968073,
+      "NDCG@10": 0.15122189391292995
+    },
+    "delta": {
+      "conservative_strong_minus_default_strong": {
+        "HR@1": 0.002280501710376282,
+        "HR@10": 0.005701254275940705,
+        "NDCG@10": 0.0037072337764186002
+      },
+      "conservative_strong_minus_corrected_full_sft_common4385": {
+        "HR@1": 0.000456100342075249,
+        "HR@10": -0.0013683010262257848,
+        "NDCG@10": -0.0009070541911307656
+      }
+    }
+  },
+  "conclusion": "保守版review召回显著优于7_默认版，并在HR@1上略高于4_ corrected full SFT，但HR@10和NDCG@10仍略低。"
+}

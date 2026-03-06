@@ -1,0 +1,21 @@
+{
+  "total_interactions": 701528,
+  "total_users": 631986,
+  "total_items": 115709,
+  "seq_length_stats": {
+    "min": 1,
+    "max": 165,
+    "mean": 1.1100372476605493,
+    "median": 1.0,
+    "std": 0.7532017440580624,
+    "p90": 1,
+    "p95": 2
+  },
+  "item_freq_stats": {
+    "min": 1,
+    "max": 1962,
+    "mean": 6.0628645999879005,
+    "median": 2.0
+  },
+  "recommended_max_seq_length": 1
+}

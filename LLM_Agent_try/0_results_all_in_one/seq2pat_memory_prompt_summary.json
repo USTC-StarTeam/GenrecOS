@@ -1,0 +1,47 @@
+{
+  "experiment": "11_seq2pat_memory_prompt",
+  "source_summary": "../11_seq2pat_memory_prompt/results/summary.json",
+  "method": "global seq2pat pattern memory + subsequence-only matching + prompt injection",
+  "training_checkpoint": "../11_seq2pat_memory_prompt/outputs/qwen3_pattern_sft/best_model",
+  "pattern_memory_stats": {
+    "mined_pattern_count": 332,
+    "mining_sequence_count": 4548,
+    "train_pattern_matches_avg": 0.609,
+    "val_pattern_matches_avg": 0.082,
+    "test_pattern_matches_avg": 0.1,
+    "test_pattern_matches_nonzero_ratio": 0.0591
+  },
+  "results": {
+    "test4548": {
+      "num_test_samples": 4548,
+      "HR@1": 0.1299472295514512,
+      "HR@10": 0.16204925241864557,
+      "NDCG@10": 0.1467522104598321,
+      "exact_title_match": 0.1565523306948109
+    },
+    "common4385": {
+      "num_test_samples": 4385,
+      "HR@1": 0.1329532497149373,
+      "HR@10": 0.16510832383124288,
+      "NDCG@10": 0.14972322686575681,
+      "exact_title_match": 0.16009122006841506
+    }
+  },
+  "comparison_to_sft_baseline_same_split": {
+    "baseline_4548": "../4_finetune_to_upgrade_LLM/results/evaluation_metrics.json",
+    "baseline_common4385": "./common_4385_sft_metrics.json",
+    "delta_test4548_minus_sft": {
+      "HR@1": 0.0017590149516270859,
+      "HR@10": -0.0021987686895338643,
+      "NDCG@10": -0.000940387016185068,
+      "exact_title_match": -0.0008795074758135568
+    },
+    "delta_common4385_minus_sft": {
+      "HR@1": 0.0020524515393386678,
+      "HR@10": -0.0034207525655644277,
+      "NDCG@10": -0.0014986670471731356,
+      "exact_title_match": -0.001596351197263396
+    }
+  },
+  "conclusion": "No net gain versus strong SFT baseline: HR@1 rises slightly, but HR@10/NDCG@10 decrease on both 4548 and common4385."
+}

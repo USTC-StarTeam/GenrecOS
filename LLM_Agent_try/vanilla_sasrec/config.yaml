@@ -1,0 +1,101 @@
+# SASRec Training Configuration for Beauty Dataset (Amazon)
+# Using vanilla item IDs (not semantic IDs)
+
+# --- 1. Path Configuration ---
+paths:
+  # Processed data directory (contains train.json, val.json, test.json)
+  dataset_path: "./processed_data/splits"
+  # Output directory for checkpoints
+  output_dir: "./checkpoints"
+  # Tokenizer directory (will be created if not exists)
+  tokenizer_dir: "./tokenizer"
+
+# --- 2. Tokenizer Configuration ---
+# For vanilla SASRec with item IDs, we use simple tokenization
+tokenizer_params:
+  # Number of items in vocabulary (will be auto-detected from data)
+  vocab_size: null  # null = auto-detect from item_mapping.json
+  # Special tokens
+  pad_token: "[PAD]"
+  unk_token: "[UNK]"
+  bos_token: "[BOS]"
+  eos_token: "[EOS]"
+
+# --- 3. Model Architecture Configuration ---
+model_params:
+  MODEL_TYPE: "sasrec"
+
+  # Maximum sequence length (input prompt length)
+  # Most users have short sequences, but max is 165
+  # Set to accommodate users with longer histories
+  max_seq_length: 100
+
+  # Transformer architecture (smaller for this sparse dataset)
+  hidden_size: 128
+  intermediate_size: 256
+  num_hidden_layers: 2
+  num_attention_heads: 4
+  layer_norm_eps: 1.0e-6
+
+  # Dropout
+  hidden_dropout_prob: 0.3
+  attention_probs_dropout_prob: 0.3
+
+# --- 4. Training Arguments ---
+training_args:
+  # Batch settings
+  per_device_train_batch_size: 32
+  per_device_eval_batch_size: 32
+  gradient_accumulation_steps: 1
+
+  # Optimizer settings
+  learning_rate: 5.0e-4
+  weight_decay: 0.01
+  adam_beta1: 0.9
+  adam_beta2: 0.999
+  adam_epsilon: 1.0e-8
+  max_grad_norm: 5.0
+
+  # Scheduler
+  lr_scheduler_type: "cosine"
+  warmup_ratio: 0.1
+  num_train_epochs: 30
+
+  # Precision and performance
+  fp16: true
+  dataloader_num_workers: 4
+
+  # Logging
+  logging_steps: 100
+  report_to: "tensorboard"
+
+  # Evaluation
+  eval_strategy: "epoch"
+  eval_on_start: false
+  save_strategy: "epoch"
+  save_total_limit: 5
+  load_best_model_at_end: true
+  metric_for_best_model: "eval_NDCG@10"
+  greater_is_better: true
+
+  # Other
+  remove_unused_columns: false
+
+# --- 5. Evaluation/Testing Arguments ---
+testing_args:
+  # K values for HR@K and NDCG@K
+  eval_k_values: [1, 5, 10, 20]
+
+  # Generation settings
+  generation_length: 1  # Predict single item ID
+  num_beams: 1  # Not used, we use top-k from logits
+
+  # Early stopping
+  early_stopping_patience: 10
+
+# --- 6. Data Configuration ---
+data_args:
+  # Minimum item frequency filter (applied during preprocessing)
+  min_item_freq: 5
+  # Minimum sequence length
+  min_seq_length: 3

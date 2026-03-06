@@ -1,0 +1,57 @@
+{
+  "task": "retrieve_other_users_review_to_enhance_sft_conservative_rerun",
+  "date": "2026-03-05",
+  "test_size": 4548,
+  "status": "completed",
+  "config": {
+    "config_path": "experiment_config_conservative.yaml",
+    "short_history_threshold": 2,
+    "max_aug_reviews_per_sample": 1,
+    "max_aug_reviews_per_item": 1,
+    "retrieved_review_max_len": 80,
+    "pool_size_per_item": 4,
+    "recent_first": true,
+    "recent_item_window": 1,
+    "require_same_rating_bucket": true,
+    "min_review_chars": 40,
+    "min_review_quality": 45.0
+  },
+  "dataset_summary": {
+    "summary_path": "data_conservative/dataset_summary.json",
+    "num_users_after_filtering": 4548,
+    "train_retrieved_reviews_avg": 0.247,
+    "val_retrieved_reviews_avg": 0.375,
+    "test_retrieved_reviews_avg": 0.278
+  },
+  "tracks": {
+    "base_init": {
+      "metrics_path": "results_conservative/base_init_evaluation_metrics.json",
+      "HR@1": 0.1268689533861038,
+      "HR@5": 0.1536939313984169,
+      "HR@10": 0.1565523306948109,
+      "HR@20": 0.1629287598944591,
+      "NDCG@10": 0.14281202883455224
+    },
+    "strong_init": {
+      "metrics_path": "results_conservative/strong_init_evaluation_metrics.json",
+      "HR@1": 0.1284080914687775,
+      "HR@5": 0.15765171503957784,
+      "HR@10": 0.1627088830255057,
+      "HR@20": 0.1677660510114336,
+      "NDCG@10": 0.146678491919851
+    }
+  },
+  "comparison": {
+    "vs_default_7_strong_init": {
+      "HR@1": 0.0026385224274406526,
+      "HR@10": 0.003518029903254156,
+      "NDCG@10": 0.0029720513653567454
+    },
+    "vs_4_corrected_full_sft": {
+      "HR@1": 0.00021987686895340512,
+      "HR@10": -0.0015391380826737166,
+      "NDCG@10": -0.0010141055561661728
+    }
+  },
+  "conclusion": "保守版召回显著降低了噪声并改善了7_默认版本，但仍未在HR@10/NDCG@10上超过4_ corrected full SFT。"
+}

@@ -1,0 +1,76 @@
+paths:
+  raw_data_path: "../../Data/Amazons/data/All_Beauty.jsonl"
+  item_titles_path: "../use_Qwen3-1-7B_to_generate_title/item_titles_unique.json"
+  base_model_path: "../../LLM4RecPart/models/Qwen3-1-7B"
+  sasrec_test_path: "../vanilla_sasrec/processed_data/test.json"
+  item_mapping_path: "../vanilla_sasrec/processed_data/item_mapping.json"
+  data_dir: "data"
+  patterns_dir: "patterns"
+  cache_dir: "cache"
+  output_dir: "outputs/qwen3_pattern_sft"
+  logging_dir: "logs/qwen3_pattern_sft"
+  results_dir: "results"
+  jobs_dir: "jobs"
+
+data:
+  min_item_freq: 5
+  min_seq_length: 3
+  max_history: 20
+  max_review_len: 150
+
+pattern_memory:
+  trim_last_for_mining: 1
+  min_frequency: 3
+  min_pattern_len: 2
+  max_pattern_len: 5
+  max_patterns: 8000
+  max_span: 20
+  n_jobs: 8
+  seed: 42
+  partial_min_ratio: 0.5
+  partial_min_matched: 2
+  max_matches_per_sample: 5
+  max_patterns_in_prompt: 3
+
+training:
+  seed: 42
+  max_length: 1536
+  preprocess_num_proc: 4
+  per_device_train_batch_size: 4
+  per_device_eval_batch_size: 4
+  gradient_accumulation_steps: 4
+  num_train_epochs: 5
+  learning_rate: 1.0e-5
+  weight_decay: 0.01
+  warmup_ratio: 0.05
+  lr_scheduler_type: "cosine"
+  logging_steps: 10
+  eval_steps: 100
+  save_steps: 100
+  save_total_limit: 2
+  dataloader_num_workers: 8
+  gradient_checkpointing: true
+  bf16: true
+  fp16: false
+  tf32: true
+  optimizer: "adamw_torch_fused"
+  attn_implementation: "sdpa"
+  auto_find_batch_size: false
+  early_stopping_patience: 4
+  resume_from_checkpoint: null
+
+evaluation:
+  checkpoint_path: "outputs/qwen3_pattern_sft/best_model"
+  batch_size: 8
+  embedding_batch_size: 64
+  title_max_length: 64
+  max_new_tokens: 24
+  num_beams: 1
+  k_values: [1, 5, 10, 20]
+  datasets:
+    - name: "test4548"
+      test_path: "data/test.jsonl"
+      output_prefix: "pattern_test4548"
+    - name: "common4385"
+      test_path: "data/test_common_4385.jsonl"
+      output_prefix: "pattern_common4385"

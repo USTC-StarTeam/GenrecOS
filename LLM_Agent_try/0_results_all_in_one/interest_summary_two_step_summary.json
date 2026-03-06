@@ -1,0 +1,48 @@
+{
+  "experiment": "8_interest_summary_before_generate",
+  "test_set": "common_4385_aligned",
+  "metrics": {
+    "base_raw": {
+      "HR@1": 0.0,
+      "HR@10": 0.0006841505131128849,
+      "NDCG@10": 0.0002841827673566982
+    },
+    "base_interest": {
+      "HR@1": 0.0,
+      "HR@10": 0.00045610034207525655,
+      "NDCG@10": 0.00017944897267535125
+    },
+    "strong_raw": {
+      "HR@1": 0.0011402508551881414,
+      "HR@10": 0.002508551881413911,
+      "NDCG@10": 0.0015505482846497381
+    },
+    "strong_interest": {
+      "HR@1": 0.00022805017103762827,
+      "HR@10": 0.0018244013683010262,
+      "NDCG@10": 0.0008695060069791833
+    }
+  },
+  "delta_interest_minus_raw": {
+    "base": {
+      "HR@1": 0.0,
+      "HR@10": -0.00022805017103762833,
+      "NDCG@10": -0.00010473379468134696
+    },
+    "strong": {
+      "HR@1": -0.0009122006841505131,
+      "HR@10": -0.0006841505131128848,
+      "NDCG@10": -0.0006810422776705548
+    }
+  },
+  "summary_generation": {
+    "primary_model": "gpt-5-mini",
+    "fallback_model": "gpt-4o-mini",
+    "total_rows": 4548,
+    "primary_count": 0,
+    "fallback_count": 4547,
+    "unavailable_count": 0,
+    "error_count": 1
+  },
+  "notes": "Post-fix rerun. In this proxy endpoint, gpt-5-mini often returns empty message.content; script falls back to gpt-4o-mini."
+}

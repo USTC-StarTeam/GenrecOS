@@ -1,0 +1,83 @@
+{
+  "experiment": "10_feedback_regeneration_oracle",
+  "dataset_name": "raw_common4385",
+  "num_samples": 4385,
+  "checkpoint_path": "/zhdd/home/kfwang/20250813Reproduct_Onerec/Fuxi-OneRec-new/temp_LLM_Agent_try/10_feedback_regeneration_oracle/../4_finetune_to_upgrade_LLM/outputs/qwen3_title_sft/best_model",
+  "dataset_path": "/zhdd/home/kfwang/20250813Reproduct_Onerec/Fuxi-OneRec-new/temp_LLM_Agent_try/10_feedback_regeneration_oracle/data/eval_raw_common4385_feedback.jsonl",
+  "feedback_trigger_top_k": 5,
+  "max_feedback_rounds": 3,
+  "baseline_round0_metrics": {
+    "HR@1": 0.13090079817559863,
+    "NDCG@1": 0.13090079817559863,
+    "HR@5": 0.16237172177879133,
+    "NDCG@5": 0.148708924800591,
+    "HR@10": 0.1676168757126568,
+    "NDCG@10": 0.15040902188733246,
+    "HR@20": 0.174230330672748,
+    "NDCG@20": 0.15207963972509186,
+    "exact_title_match": 0.16123147092360318
+  },
+  "final_after_feedback_metrics": {
+    "HR@1": 0.13112884834663627,
+    "NDCG@1": 0.13112884834663627,
+    "HR@5": 0.16328392246294185,
+    "NDCG@5": 0.14925324699152248,
+    "HR@10": 0.16579247434435576,
+    "NDCG@10": 0.150075935270695,
+    "HR@20": 0.1703534777651083,
+    "NDCG@20": 0.1512092818091962,
+    "exact_title_match": 0.15917901938426454
+  },
+  "delta_final_minus_baseline": {
+    "HR@1": 0.00022805017103763592,
+    "NDCG@1": 0.00022805017103763592,
+    "HR@5": 0.0009122006841505159,
+    "NDCG@5": 0.0005443221909314788,
+    "HR@10": -0.0018244013683010318,
+    "NDCG@10": -0.0003330866166374735,
+    "HR@20": -0.0038768529076396996,
+    "NDCG@20": -0.0008703579158956531,
+    "exact_title_match": -0.00205245153933864
+  },
+  "feedback_diagnostics": {
+    "feedback_trigger_count": 3673,
+    "feedback_trigger_rate": 0.8376282782212087,
+    "avg_generation_round_index": 2.511060433295325,
+    "avg_generation_calls_per_sample": 3.511060433295325,
+    "final_round_distribution": {
+      "0": 712,
+      "1": 4,
+      "3": 3669
+    },
+    "round_stats": [
+      {
+        "round": 0,
+        "entered": 4385,
+        "resolved_hit_top5": 712,
+        "forced_stop_max_round": 0,
+        "remaining": 3673
+      },
+      {
+        "round": 1,
+        "entered": 3673,
+        "resolved_hit_top5": 4,
+        "forced_stop_max_round": 0,
+        "remaining": 3669
+      },
+      {
+        "round": 2,
+        "entered": 3669,
+        "resolved_hit_top5": 0,
+        "forced_stop_max_round": 0,
+        "remaining": 3669
+      },
+      {
+        "round": 3,
+        "entered": 3669,
+        "resolved_hit_top5": 0,
+        "forced_stop_max_round": 3669,
+        "remaining": 0
+      }
+    ]
+  }
+}

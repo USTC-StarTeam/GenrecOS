@@ -1,0 +1,15 @@
+{
+  "HR@1": 0.13135689851767388,
+  "NDCG@1": 0.13135689851767388,
+  "HR@5": 0.16168757126567845,
+  "NDCG@5": 0.14855275172534935,
+  "HR@10": 0.16716077537058152,
+  "NDCG@10": 0.15031483972179918,
+  "HR@20": 0.1717217787913341,
+  "NDCG@20": 0.15148447121275394,
+  "exact_title_match": 0.16009122006841506,
+  "num_test_samples": 4385,
+  "track_name": "strong_init",
+  "checkpoint_path": "/zhdd/home/kfwang/20250813Reproduct_Onerec/Fuxi-OneRec-new/temp_LLM_Agent_try/7_retrieve_other_users_review_to_enhance_sft/outputs_conservative/strong_init/best_model",
+  "test_path": "/zhdd/home/kfwang/20250813Reproduct_Onerec/Fuxi-OneRec-new/temp_LLM_Agent_try/7_retrieve_other_users_review_to_enhance_sft/data_conservative/test_common_4385.jsonl"
+}

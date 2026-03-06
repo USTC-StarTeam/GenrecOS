@@ -1,0 +1,69 @@
+{
+  "experiment": "9_sft_with_interest_summary",
+  "date": "2026-03-05",
+  "test_sets": {
+    "test4548": 4548,
+    "common4385": 4385
+  },
+  "source_paths": {
+    "summary": "../9_sft_with_interest_summary/results/summary.json",
+    "interest_test4548": "../9_sft_with_interest_summary/results/interest_test4548_metrics.json",
+    "raw_test4548": "../9_sft_with_interest_summary/results/raw_test4548_metrics.json",
+    "interest_common4385": "../9_sft_with_interest_summary/results/interest_common4385_metrics.json",
+    "raw_common4385": "../9_sft_with_interest_summary/results/raw_common4385_metrics.json",
+    "train_metrics": "../9_sft_with_interest_summary/outputs/qwen3_interest_sft/train_metrics.json",
+    "dataset_summary": "../9_sft_with_interest_summary/data/dataset_summary_with_interest.json"
+  },
+  "metrics": {
+    "test4548": {
+      "raw": {
+        "HR@1": 0.12774846086191732,
+        "HR@10": 0.1644678979771328,
+        "NDCG@10": 0.147131348123096
+      },
+      "interest": {
+        "HR@1": 0.12554969217238346,
+        "HR@10": 0.161169744942832,
+        "NDCG@10": 0.14449789728037915
+      },
+      "delta_interest_minus_raw": {
+        "HR@1": -0.0021987686895338643,
+        "HR@10": -0.0032981530343007825,
+        "NDCG@10": -0.00263345084271685
+      }
+    },
+    "common4385": {
+      "raw": {
+        "HR@1": 0.13112884834663627,
+        "HR@10": 0.1676168757126568,
+        "NDCG@10": 0.15057569306816346
+      },
+      "interest": {
+        "HR@1": 0.12839224629418472,
+        "HR@10": 0.1646522234891676,
+        "NDCG@10": 0.14772902282897757
+      },
+      "delta_interest_minus_raw": {
+        "HR@1": -0.0027366020524515478,
+        "HR@10": -0.0029646522234891837,
+        "NDCG@10": -0.002846670239185889
+      }
+    }
+  },
+  "training": {
+    "train_loss": 3.2033625771554464,
+    "eval_loss": 3.21713924407959,
+    "train_runtime_sec": 4377.4167,
+    "train_steps_per_second": 0.477,
+    "optimizer": "adamw_torch_fused",
+    "attn_implementation": "sdpa"
+  },
+  "data_summary": {
+    "num_users_after_filtering": 4548,
+    "test_common_4385_size": 4385,
+    "summary_model": "gpt-4o-mini",
+    "summary_generation_ok_count": 15778,
+    "summary_generation_error_count": 0
+  },
+  "conclusion": "在9_这轮中，把interest summary从SFT阶段引入（并在train/val/test都注入）未带来提升；raw输入在4548和4385两个口径都优于interest输入。"
+}

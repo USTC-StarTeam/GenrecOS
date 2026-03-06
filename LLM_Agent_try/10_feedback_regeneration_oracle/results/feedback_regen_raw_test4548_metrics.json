@@ -1,0 +1,84 @@
+{
+  "experiment": "10_feedback_regeneration_oracle",
+  "dataset_name": "raw_test4548",
+  "num_samples": 4548,
+  "checkpoint_path": "/zhdd/home/kfwang/20250813Reproduct_Onerec/Fuxi-OneRec-new/temp_LLM_Agent_try/10_feedback_regeneration_oracle/../9_sft_with_interest_summary/outputs/qwen3_interest_sft/best_model",
+  "dataset_path": "/zhdd/home/kfwang/20250813Reproduct_Onerec/Fuxi-OneRec-new/temp_LLM_Agent_try/10_feedback_regeneration_oracle/data/eval_raw_test4548_feedback.jsonl",
+  "feedback_trigger_top_k": 5,
+  "max_feedback_rounds": 3,
+  "baseline_round0_metrics": {
+    "HR@1": 0.13060686015831136,
+    "NDCG@1": 0.13060686015831136,
+    "HR@5": 0.15897097625329815,
+    "NDCG@5": 0.14651244409109046,
+    "HR@10": 0.16380826737027265,
+    "NDCG@10": 0.1480925230416988,
+    "HR@20": 0.1695250659630607,
+    "NDCG@20": 0.14955648886507145,
+    "exact_title_match": 0.15699208443271767
+  },
+  "final_after_feedback_metrics": {
+    "HR@1": 0.1312664907651715,
+    "NDCG@1": 0.1312664907651715,
+    "HR@5": 0.1616094986807388,
+    "NDCG@5": 0.14822131061212546,
+    "HR@10": 0.16468777484608618,
+    "NDCG@10": 0.1492299187774395,
+    "HR@20": 0.1690853122251539,
+    "NDCG@20": 0.15033884673382417,
+    "exact_title_match": 0.1565523306948109
+  },
+  "delta_final_minus_baseline": {
+    "HR@1": 0.0006596306068601399,
+    "NDCG@1": 0.0006596306068601399,
+    "HR@5": 0.0026385224274406427,
+    "NDCG@5": 0.0017088665210349963,
+    "HR@10": 0.0008795074758135291,
+    "NDCG@10": 0.0011373957357407039,
+    "HR@20": -0.0004397537379067784,
+    "NDCG@20": 0.00078235786875272,
+    "exact_title_match": -0.0004397537379067784
+  },
+  "feedback_diagnostics": {
+    "feedback_trigger_count": 3825,
+    "feedback_trigger_rate": 0.8410290237467019,
+    "avg_generation_round_index": 2.519788918205805,
+    "avg_generation_calls_per_sample": 3.519788918205805,
+    "final_round_distribution": {
+      "0": 723,
+      "1": 6,
+      "2": 3,
+      "3": 3816
+    },
+    "round_stats": [
+      {
+        "round": 0,
+        "entered": 4548,
+        "resolved_hit_top5": 723,
+        "forced_stop_max_round": 0,
+        "remaining": 3825
+      },
+      {
+        "round": 1,
+        "entered": 3825,
+        "resolved_hit_top5": 6,
+        "forced_stop_max_round": 0,
+        "remaining": 3819
+      },
+      {
+        "round": 2,
+        "entered": 3819,
+        "resolved_hit_top5": 3,
+        "forced_stop_max_round": 0,
+        "remaining": 3816
+      },
+      {
+        "round": 3,
+        "entered": 3816,
+        "resolved_hit_top5": 3,
+        "forced_stop_max_round": 3813,
+        "remaining": 0
+      }
+    ]
+  }
+}

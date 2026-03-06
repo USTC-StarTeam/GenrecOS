@@ -1,0 +1,70 @@
+paths:
+  raw_data_path: "../../Data/Amazons/data/All_Beauty.jsonl"
+  meta_data_path: "../../Data/Amazons/data/meta_All_Beauty.jsonl"
+  item_titles_path: "../use_Qwen3-1-7B_to_generate_title/item_titles_unique.json"
+  base_model_path: "../../LLM4RecPart/models/Qwen3-1-7B"
+  sasrec_test_path: "../vanilla_sasrec/processed_data/test.json"
+  item_mapping_path: "../vanilla_sasrec/processed_data/item_mapping.json"
+  data_dir: "data"
+  cache_dir: "cache"
+  output_dir: "outputs/qwen3_interest_sft"
+  logging_dir: "logs/qwen3_interest_sft"
+  results_dir: "results"
+  jobs_dir: "jobs"
+
+data:
+  min_item_freq: 5
+  min_seq_length: 3
+  max_history: 20
+  max_review_len: 180
+  summary_review_char_limit: 1800
+  summary_meta_char_limit: 600
+
+interest_summary:
+  api_base_url: "https://xiaoai.plus/v1/chat/completions"
+  api_key: "sk-3RhYZJeoe7JbWasBj1MMyL16ABFIunf3obpJFb61YoC0wMPz"
+  model: "gpt-4o-mini"
+  temperature: 0.2
+  max_tokens: 180
+  timeout_seconds: 90
+  concurrency: 24
+  max_retries: 6
+  retry_base_seconds: 1.5
+  cache_file: "interest_summary_cache.json"
+  refresh_invalid_cache: true
+
+training:
+  seed: 42
+  max_length: 1536
+  preprocess_num_proc: 4
+  per_device_train_batch_size: 4
+  per_device_eval_batch_size: 4
+  gradient_accumulation_steps: 4
+  num_train_epochs: 5
+  learning_rate: 1.0e-5
+  weight_decay: 0.01
+  warmup_ratio: 0.05
+  lr_scheduler_type: "cosine"
+  logging_steps: 10
+  eval_steps: 100
+  save_steps: 100
+  save_total_limit: 2
+  dataloader_num_workers: 6
+  gradient_checkpointing: true
+  bf16: true
+  fp16: false
+  tf32: true
+  optimizer: "adamw_torch_fused"
+  attn_implementation: "sdpa"
+  auto_find_batch_size: false
+  early_stopping_patience: 4
+  resume_from_checkpoint: null
+
+evaluation:
+  checkpoint_path: "outputs/qwen3_interest_sft/best_model"
+  batch_size: 8
+  embedding_batch_size: 64
+  title_max_length: 64
+  max_new_tokens: 24
+  num_beams: 1
+  k_values: [1, 5, 10, 20]

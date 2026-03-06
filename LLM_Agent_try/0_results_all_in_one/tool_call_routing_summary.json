@@ -1,0 +1,96 @@
+{
+  "method_family": "tool_call_routing_with_seqscore",
+  "test_set": "common_4385_aligned",
+  "tool_token": "[tool:seqscore]",
+  "notes": [
+    "teacher label rule: tool_label = (llm_top1_wrong and sasrec_top1_correct)",
+    "official metrics use validation-selected alpha and test-time generated tool token routing",
+    "this method did not beat strong SFT or SFT+SASRec fixed fusion"
+  ],
+  "tracks": {
+    "pre_sft": {
+      "teacher": {
+        "model": "base_qwen",
+        "train_tool_positive_rate": 0.9269831730769231,
+        "val_tool_positive_rate": 0.10393518518518519,
+        "test_tool_positive_rate": 0.09737742303306728,
+        "test_llm_metrics": {
+          "HR@1": 0.0,
+          "HR@10": 0.0,
+          "NDCG@10": 0.0
+        },
+        "test_sasrec_metrics": {
+          "HR@1": 0.09760547429323196,
+          "HR@10": 0.13888254761695862,
+          "NDCG@10": 0.11842148005962372
+        }
+      },
+      "evaluation": {
+        "generated_tool_rate": 0.9988597631454468,
+        "teacher_tool_rate": 0.09737741947174072,
+        "route_agreement": 0.09851767122745514,
+        "route_precision_vs_teacher": 0.09748858447488584,
+        "route_recall_vs_teacher": 1.0,
+        "semantic_only": {
+          "HR@1": 0.10034207254648209,
+          "HR@10": 0.127251997590065,
+          "NDCG@10": 0.11432267725467682
+        },
+        "used_fixed_alpha": 0.25,
+        "used_fixed_metrics": {
+          "HR@1": 0.11220068484544754,
+          "HR@10": 0.14367160201072693,
+          "NDCG@10": 0.1300826370716095
+        },
+        "used_routed_alpha": 0.25,
+        "used_routed_metrics": {
+          "HR@1": 0.11220068484544754,
+          "HR@10": 0.14367160201072693,
+          "NDCG@10": 0.1300826370716095
+        }
+      }
+    },
+    "post_sft": {
+      "teacher": {
+        "model": "best_full_sft",
+        "train_tool_positive_rate": 0.8605769230769231,
+        "val_tool_positive_rate": 0.030787037037037036,
+        "test_tool_positive_rate": 0.020752565564424175,
+        "test_llm_metrics": {
+          "HR@1": 0.12793613970279694,
+          "HR@10": 0.16898517310619354,
+          "NDCG@10": 0.14970095455646515
+        },
+        "test_sasrec_metrics": {
+          "HR@1": 0.09760547429323196,
+          "HR@10": 0.13888254761695862,
+          "NDCG@10": 0.11842148005962372
+        }
+      },
+      "evaluation": {
+        "generated_tool_rate": 0.8417331576347351,
+        "teacher_tool_rate": 0.020752565935254097,
+        "route_agreement": 0.14572405815124512,
+        "route_precision_vs_teacher": 0.004876727174207532,
+        "route_recall_vs_teacher": 0.1978021978021978,
+        "semantic_only": {
+          "HR@1": 0.12519954144954681,
+          "HR@10": 0.1550741195678711,
+          "NDCG@10": 0.14058277010917664
+        },
+        "used_fixed_alpha": 0.73,
+        "used_fixed_metrics": {
+          "HR@1": 0.10490307956933975,
+          "HR@10": 0.17012542486190796,
+          "NDCG@10": 0.14072687923908234
+        },
+        "used_routed_alpha": 0.74,
+        "used_routed_metrics": {
+          "HR@1": 0.12542758882045746,
+          "HR@10": 0.16374002397060394,
+          "NDCG@10": 0.1452329456806183
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "experiment": "10_feedback_regeneration_oracle",
+  "results": {
+    "feedback_regen_title_sft_common4385": {
+      "dataset_name": "raw_common4385",
+      "num_samples": 4385,
+      "baseline": {
+        "HR@1": 0.13090079817559863,
+        "HR@10": 0.1676168757126568,
+        "NDCG@10": 0.15040902188733246
+      },
+      "final": {
+        "HR@1": 0.13112884834663627,
+        "HR@10": 0.16579247434435576,
+        "NDCG@10": 0.150075935270695
+      },
+      "delta_final_minus_baseline": {
+        "HR@1": 0.00022805017103763592,
+        "HR@10": -0.0018244013683010318,
+        "NDCG@10": -0.0003330866166374735
+      },
+      "feedback_trigger_rate": 0.8376282782212087,
+      "avg_generation_calls_per_sample": 3.511060433295325
+    }
+  }
+}

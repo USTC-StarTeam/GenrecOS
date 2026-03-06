@@ -1,0 +1,31 @@
+paths:
+  item_titles_path: "../use_Qwen3-1-7B_to_generate_title/item_titles_unique.json"
+  checkpoint_path: "../4_finetune_to_upgrade_LLM/outputs/qwen3_title_sft/best_model"
+  source_test_raw_common4385: "../9_sft_with_interest_summary/data/test_raw_common_4385.jsonl"
+  data_dir: "data"
+  results_dir: "results"
+  logs_dir: "logs"
+  jobs_dir: "jobs"
+
+feedback:
+  trigger_top_k: 5
+  max_feedback_rounds: 3
+  feedback_message: "Your previous answer is incorrect because the target item is not in top-5 retrieved results. Please rethink and generate a different next product title. Output title only."
+
+evaluation:
+  batch_size: 24
+  embedding_batch_size: 128
+  title_max_length: 64
+  max_new_tokens: 24
+  num_beams: 1
+  k_values: [1, 5, 10, 20]
+  sample_trace_limit: 300
+  datasets:
+    - name: "raw_common4385"
+      source_key: "source_test_raw_common4385"
+      prepared_file: "eval_raw_common4385_feedback.jsonl"
+      output_prefix: "feedback_regen_title_sft_common4385"
+
+runtime:
+  allowed_gpus: "0,1,2,3"
+  poll_seconds: 20

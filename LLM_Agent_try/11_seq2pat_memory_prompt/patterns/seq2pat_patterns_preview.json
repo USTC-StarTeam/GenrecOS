@@ -1,0 +1,1455 @@
+{
+  "num_patterns": 332,
+  "top_patterns": [
+    {
+      "pattern_item_ids": [
+        "B073GBF82H",
+        "B07CSL21J8"
+      ],
+      "pattern_titles": [
+        "Retinol Serum 2.5% With",
+        "Lash Growth Serum"
+      ],
+      "support": 6,
+      "pattern_len": 2,
+      "score": 12.0,
+      "pattern_id": 0
+    },
+    {
+      "pattern_item_ids": [
+        "B01CDEJ1H8",
+        "B01CVQALFE"
+      ],
+      "pattern_titles": [
+        "[title22",
+        "Beard Oil - Tea"
+      ],
+      "support": 5,
+      "pattern_len": 2,
+      "score": 10.0,
+      "pattern_id": 1
+    },
+    {
+      "pattern_item_ids": [
+        "B085J24382",
+        "B085J354CL"
+      ],
+      "pattern_titles": [
+        "Mr. Pristine Beard Shampoo",
+        "Mr. Pristine Beard Conditioner"
+      ],
+      "support": 5,
+      "pattern_len": 2,
+      "score": 10.0,
+      "pattern_id": 2
+    },
+    {
+      "pattern_item_ids": [
+        "B08BS3WDPJ",
+        "B08GYJY8F2"
+      ],
+      "pattern_titles": [
+        "Karuna Oh, Glow On",
+        "Karuna 7 Days of"
+      ],
+      "support": 5,
+      "pattern_len": 2,
+      "score": 10.0,
+      "pattern_id": 3
+    },
+    {
+      "pattern_item_ids": [
+        "B073GBF82H",
+        "B07CSL21J8",
+        "B07F7MBMJ2"
+      ],
+      "pattern_titles": [
+        "Retinol Serum 2.5% With",
+        "Lash Growth Serum",
+        "Anti Aging Face Cream"
+      ],
+      "support": 4,
+      "pattern_len": 3,
+      "score": 12.0,
+      "pattern_id": 4
+    },
+    {
+      "pattern_item_ids": [
+        "B015A5DGG4",
+        "B0855L611L"
+      ],
+      "pattern_titles": [
+        "12ML Refillable Perfume Atomizer",
+        "Lesentia Tinted Moisturizer with"
+      ],
+      "support": 4,
+      "pattern_len": 2,
+      "score": 8.0,
+      "pattern_id": 5
+    },
+    {
+      "pattern_item_ids": [
+        "B01CVQALFE",
+        "B01CUPHRQM"
+      ],
+      "pattern_titles": [
+        "Beard Oil - Tea",
+        "Beard Oil - Rousing"
+      ],
+      "support": 4,
+      "pattern_len": 2,
+      "score": 8.0,
+      "pattern_id": 6
+    },
+    {
+      "pattern_item_ids": [
+        "B01CZNI0KG",
+        "B01DL9K0LK"
+      ],
+      "pattern_titles": [
+        "Professional 24 Piece All",
+        "Pure Arielle"
+      ],
+      "support": 4,
+      "pattern_len": 2,
+      "score": 8.0,
+      "pattern_id": 7
+    },
+    {
+      "pattern_item_ids": [
+        "B073GBF82H",
+        "B07F7MBMJ2"
+      ],
+      "pattern_titles": [
+        "Retinol Serum 2.5% With",
+        "Anti Aging Face Cream"
+      ],
+      "support": 4,
+      "pattern_len": 2,
+      "score": 8.0,
+      "pattern_id": 8
+    },
+    {
+      "pattern_item_ids": [
+        "B07CSL21J8",
+        "B07F7MBMJ2"
+      ],
+      "pattern_titles": [
+        "Lash Growth Serum",
+        "Anti Aging Face Cream"
+      ],
+      "support": 4,
+      "pattern_len": 2,
+      "score": 8.0,
+      "pattern_id": 9
+    },
+    {
+      "pattern_item_ids": [
+        "B07J1LYVHC",
+        "B07RM722DH"
+      ],
+      "pattern_titles": [
+        "ABOUT ME MediAnswer Collagen",
+        "Unlashed Mascara"
+      ],
+      "support": 4,
+      "pattern_len": 2,
+      "score": 8.0,
+      "pattern_id": 10
+    },
+    {
+      "pattern_item_ids": [
+        "B07NPCT6L5",
+        "B08NJ5BTWG"
+      ],
+      "pattern_titles": [
+        "Dr. Au Anti-Aging Face",
+        "FASCY LAB GREEN+ Korean"
+      ],
+      "support": 4,
+      "pattern_len": 2,
+      "score": 8.0,
+      "pattern_id": 11
+    },
+    {
+      "pattern_item_ids": [
+        "B07NPCT6L5",
+        "B08SQZ1B3W"
+      ],
+      "pattern_titles": [
+        "Dr. Au Anti-Aging Face",
+        "Murad Hydration Intense Recovery"
+      ],
+      "support": 4,
+      "pattern_len": 2,
+      "score": 8.0,
+      "pattern_id": 12
+    },
+    {
+      "pattern_item_ids": [
+        "B07PCSRSND",
+        "B07VSZYKCH"
+      ],
+      "pattern_titles": [
+        "Strixaderm Lash Advance Eyelash Conditioner",
+        "Purifying Face Oil for"
+      ],
+      "support": 4,
+      "pattern_len": 2,
+      "score": 8.0,
+      "pattern_id": 13
+    },
+    {
+      "pattern_item_ids": [
+        "B07PHWX88W",
+        "B07RM722DH"
+      ],
+      "pattern_titles": [
+        "SAMYANG ABOUTME Red Recipe",
+        "Unlashed Mascara"
+      ],
+      "support": 4,
+      "pattern_len": 2,
+      "score": 8.0,
+      "pattern_id": 14
+    },
+    {
+      "pattern_item_ids": [
+        "B07SW7D6ZR",
+        "B0844X21MJ"
+      ],
+      "pattern_titles": [
+        "Kale Firm & Smooth",
+        "Beast Blue Ultra Cooling"
+      ],
+      "support": 4,
+      "pattern_len": 2,
+      "score": 8.0,
+      "pattern_id": 15
+    },
+    {
+      "pattern_item_ids": [
+        "B07ZS3DKL5",
+        "B07MN1KJ15"
+      ],
+      "pattern_titles": [
+        "Higher Education Skincare: Goal",
+        "MBA Renewing Retinol Serum,"
+      ],
+      "support": 4,
+      "pattern_len": 2,
+      "score": 8.0,
+      "pattern_id": 16
+    },
+    {
+      "pattern_item_ids": [
+        "B083LHHQYF",
+        "B07VGBBNTH"
+      ],
+      "pattern_titles": [
+        "Sugar Lip Scrub",
+        "Taya Beauty Inner Core"
+      ],
+      "support": 4,
+      "pattern_len": 2,
+      "score": 8.0,
+      "pattern_id": 17
+    },
+    {
+      "pattern_item_ids": [
+        "B085NYYLQ8",
+        "B08H4SYXR4"
+      ],
+      "pattern_titles": [
+        "Favorites Set",
+        "Hydrating Trio"
+      ],
+      "support": 4,
+      "pattern_len": 2,
+      "score": 8.0,
+      "pattern_id": 18
+    },
+    {
+      "pattern_item_ids": [
+        "B085QDWHQJ",
+        "B08DHZW3LK"
+      ],
+      "pattern_titles": [
+        "Biutee Poly Nail Gel",
+        "Glitter Poly Nail Gel"
+      ],
+      "support": 4,
+      "pattern_len": 2,
+      "score": 8.0,
+      "pattern_id": 19
+    },
+    {
+      "pattern_item_ids": [
+        "B086VYKNDF",
+        "B08879N2W3"
+      ],
+      "pattern_titles": [
+        "Aloe Vera Gel 100%",
+        "Sdara Aloe Vera"
+      ],
+      "support": 4,
+      "pattern_len": 2,
+      "score": 8.0,
+      "pattern_id": 20
+    },
+    {
+      "pattern_item_ids": [
+        "B086W18W1W",
+        "B08L6GXY2S"
+      ],
+      "pattern_titles": [
+        "Biutee Starry Sky Nail",
+        "UV LED Nail"
+      ],
+      "support": 4,
+      "pattern_len": 2,
+      "score": 8.0,
+      "pattern_id": 21
+    },
+    {
+      "pattern_item_ids": [
+        "B087F14JSH",
+        "B08BYKQS9S"
+      ],
+      "pattern_titles": [
+        "Natwag Makeup Remover Pads,18",
+        "Amtidy Solid Color Vintage"
+      ],
+      "support": 4,
+      "pattern_len": 2,
+      "score": 8.0,
+      "pattern_id": 22
+    },
+    {
+      "pattern_item_ids": [
+        "B088LPYXNQ",
+        "B08LZ6W8RF"
+      ],
+      "pattern_titles": [
+        "20pcs Nail Tips Clips",
+        "CONBOLA Make Up Organizer"
+      ],
+      "support": 4,
+      "pattern_len": 2,
+      "score": 8.0,
+      "pattern_id": 23
+    },
+    {
+      "pattern_item_ids": [
+        "B08DHZW3LK",
+        "B088TXBCB5"
+      ],
+      "pattern_titles": [
+        "Glitter Poly Nail Gel",
+        "Poly Nail Gel"
+      ],
+      "support": 4,
+      "pattern_len": 2,
+      "score": 8.0,
+      "pattern_id": 24
+    },
+    {
+      "pattern_item_ids": [
+        "B08DK5D9J5",
+        "B08F4ZDVZQ"
+      ],
+      "pattern_titles": [
+        "Glitter Crystal Eyeshadow",
+        "TOUCH IN SOL Best"
+      ],
+      "support": 4,
+      "pattern_len": 2,
+      "score": 8.0,
+      "pattern_id": 25
+    },
+    {
+      "pattern_item_ids": [
+        "B08G4Y4SFV",
+        "B08GKVYS1Y"
+      ],
+      "pattern_titles": [
+        "Biutee Nail Stamping Plates",
+        "JIADEL Gel Nail Polish"
+      ],
+      "support": 4,
+      "pattern_len": 2,
+      "score": 8.0,
+      "pattern_id": 26
+    },
+    {
+      "pattern_item_ids": [
+        "B08HZ5Y8RY",
+        "B08GKVYS1Y"
+      ],
+      "pattern_titles": [
+        "CIMIY Gel Nail Polish",
+        "JIADEL Gel Nail Polish"
+      ],
+      "support": 4,
+      "pattern_len": 2,
+      "score": 8.0,
+      "pattern_id": 27
+    },
+    {
+      "pattern_item_ids": [
+        "B08K2V6WGH",
+        "B095C1WF44"
+      ],
+      "pattern_titles": [
+        "UNNY CLUB Cover Glow",
+        "Women Ultra Smooth Razor"
+      ],
+      "support": 4,
+      "pattern_len": 2,
+      "score": 8.0,
+      "pattern_id": 28
+    },
+    {
+      "pattern_item_ids": [
+        "B08L5KN7X4",
+        "B08L5KN7X4"
+      ],
+      "pattern_titles": [
+        "Meeteasy Dental Cleaner",
+        "Meeteasy Dental Cleaner"
+      ],
+      "support": 4,
+      "pattern_len": 2,
+      "score": 8.0,
+      "pattern_id": 29
+    },
+    {
+      "pattern_item_ids": [
+        "B08L6GXY2S",
+        "B08CVTNQP1"
+      ],
+      "pattern_titles": [
+        "UV LED Nail",
+        "Townley Girl"
+      ],
+      "support": 4,
+      "pattern_len": 2,
+      "score": 8.0,
+      "pattern_id": 30
+    },
+    {
+      "pattern_item_ids": [
+        "B08L6GXY2S",
+        "B08HZ5Y8RY"
+      ],
+      "pattern_titles": [
+        "UV LED Nail",
+        "CIMIY Gel Nail Polish"
+      ],
+      "support": 4,
+      "pattern_len": 2,
+      "score": 8.0,
+      "pattern_id": 31
+    },
+    {
+      "pattern_item_ids": [
+        "B08MPP4X5L",
+        "B08T7GPT1D"
+      ],
+      "pattern_titles": [
+        "2 Pack Soy Candles",
+        "Florona Hibiscus Air Freshener"
+      ],
+      "support": 4,
+      "pattern_len": 2,
+      "score": 8.0,
+      "pattern_id": 32
+    },
+    {
+      "pattern_item_ids": [
+        "B08VKQY815",
+        "B08WF29DM9"
+      ],
+      "pattern_titles": [
+        "Sparkling Oxygen Mask, Skin",
+        "TULA Probiotic Skin Care"
+      ],
+      "support": 4,
+      "pattern_len": 2,
+      "score": 8.0,
+      "pattern_id": 33
+    },
+    {
+      "pattern_item_ids": [
+        "B07W1WJZFG",
+        "B08VKQY815",
+        "B08WF29DM9",
+        "B08VQY1Z1S"
+      ],
+      "pattern_titles": [
+        "Simply Dana Cellular De-Stressing",
+        "Sparkling Oxygen Mask, Skin",
+        "TULA Probiotic Skin Care",
+        "BABOR Power Serum Ampoules"
+      ],
+      "support": 3,
+      "pattern_len": 4,
+      "score": 12.0,
+      "pattern_id": 34
+    },
+    {
+      "pattern_item_ids": [
+        "B00011JN5G",
+        "B00011JN5G",
+        "B00011JN5G"
+      ],
+      "pattern_titles": [
+        "American International Industries Clean",
+        "American International Industries Clean",
+        "American International Industries Clean"
+      ],
+      "support": 3,
+      "pattern_len": 3,
+      "score": 9.0,
+      "pattern_id": 35
+    },
+    {
+      "pattern_item_ids": [
+        "B07J1LYVHC",
+        "B07PHWX88W",
+        "B07RM722DH"
+      ],
+      "pattern_titles": [
+        "ABOUT ME MediAnswer Collagen",
+        "SAMYANG ABOUTME Red Recipe",
+        "Unlashed Mascara"
+      ],
+      "support": 3,
+      "pattern_len": 3,
+      "score": 9.0,
+      "pattern_id": 36
+    },
+    {
+      "pattern_item_ids": [
+        "B07NPCT6L5",
+        "B08L3J4FB9",
+        "B08NJ5BTWG"
+      ],
+      "pattern_titles": [
+        "Dr. Au Anti-Aging Face",
+        "Cicaluronic Cleansing Balm",
+        "FASCY LAB GREEN+ Korean"
+      ],
+      "support": 3,
+      "pattern_len": 3,
+      "score": 9.0,
+      "pattern_id": 37
+    },
+    {
+      "pattern_item_ids": [
+        "B07NPCT6L5",
+        "B08NJ5BTWG",
+        "B07RBSLNFR"
+      ],
+      "pattern_titles": [
+        "Dr. Au Anti-Aging Face",
+        "FASCY LAB GREEN+ Korean",
+        "OGANA CELL Peptide Concentrating"
+      ],
+      "support": 3,
+      "pattern_len": 3,
+      "score": 9.0,
+      "pattern_id": 38
+    },
+    {
+      "pattern_item_ids": [
+        "B07NPCT6L5",
+        "B08SQZ1B3W",
+        "B08NJ5BTWG"
+      ],
+      "pattern_titles": [
+        "Dr. Au Anti-Aging Face",
+        "Murad Hydration Intense Recovery",
+        "FASCY LAB GREEN+ Korean"
+      ],
+      "support": 3,
+      "pattern_len": 3,
+      "score": 9.0,
+      "pattern_id": 39
+    },
+    {
+      "pattern_item_ids": [
+        "B07W1WJZFG",
+        "B08VKQY815",
+        "B08VQY1Z1S"
+      ],
+      "pattern_titles": [
+        "Simply Dana Cellular De-Stressing",
+        "Sparkling Oxygen Mask, Skin",
+        "BABOR Power Serum Ampoules"
+      ],
+      "support": 3,
+      "pattern_len": 3,
+      "score": 9.0,
+      "pattern_id": 40
+    },
+    {
+      "pattern_item_ids": [
+        "B07W1WJZFG",
+        "B08VKQY815",
+        "B08WF29DM9"
+      ],
+      "pattern_titles": [
+        "Simply Dana Cellular De-Stressing",
+        "Sparkling Oxygen Mask, Skin",
+        "TULA Probiotic Skin Care"
+      ],
+      "support": 3,
+      "pattern_len": 3,
+      "score": 9.0,
+      "pattern_id": 41
+    },
+    {
+      "pattern_item_ids": [
+        "B07W1WJZFG",
+        "B08WF29DM9",
+        "B08VQY1Z1S"
+      ],
+      "pattern_titles": [
+        "Simply Dana Cellular De-Stressing",
+        "TULA Probiotic Skin Care",
+        "BABOR Power Serum Ampoules"
+      ],
+      "support": 3,
+      "pattern_len": 3,
+      "score": 9.0,
+      "pattern_id": 42
+    },
+    {
+      "pattern_item_ids": [
+        "B07X4J45PS",
+        "B07J1LYVHC",
+        "B07PHWX88W"
+      ],
+      "pattern_titles": [
+        "Cosmetic Travel Containers, Leakproof",
+        "ABOUT ME MediAnswer Collagen",
+        "SAMYANG ABOUTME Red Recipe"
+      ],
+      "support": 3,
+      "pattern_len": 3,
+      "score": 9.0,
+      "pattern_id": 43
+    },
+    {
+      "pattern_item_ids": [
+        "B07Z3NRMBS",
+        "B07X8W7GJZ",
+        "B07RM722DH"
+      ],
+      "pattern_titles": [
+        "Tangerine Lip Balm",
+        "360 Lazy Susan Makeup",
+        "Unlashed Mascara"
+      ],
+      "support": 3,
+      "pattern_len": 3,
+      "score": 9.0,
+      "pattern_id": 44
+    },
+    {
+      "pattern_item_ids": [
+        "B07Z4CVTRP",
+        "B07RM722DH",
+        "B087D7MVHB"
+      ],
+      "pattern_titles": [
+        "Cleancult Soap Dispenser with",
+        "Unlashed Mascara",
+        "2-Pack Puretize 16.9 Oz"
+      ],
+      "support": 3,
+      "pattern_len": 3,
+      "score": 9.0,
+      "pattern_id": 45
+    },
+    {
+      "pattern_item_ids": [
+        "B083LHHQYF",
+        "B07NPWK167",
+        "B082VKPJV5"
+      ],
+      "pattern_titles": [
+        "Sugar Lip Scrub",
+        "13.5 fl. Oz. Goat",
+        "Workman's Friend Ultimate Hand"
+      ],
+      "support": 3,
+      "pattern_len": 3,
+      "score": 9.0,
+      "pattern_id": 46
+    },
+    {
+      "pattern_item_ids": [
+        "B089D16BWJ",
+        "B08PVH18Z6",
+        "B07T4LKC4D"
+      ],
+      "pattern_titles": [
+        "Premium black caviar facial",
+        "Hyaluronic Acid Mask",
+        "WIS Acne Skin Pleiotropic"
+      ],
+      "support": 3,
+      "pattern_len": 3,
+      "score": 9.0,
+      "pattern_id": 47
+    },
+    {
+      "pattern_item_ids": [
+        "B08C37KWRR",
+        "B073ZR1XLQ",
+        "B07NPCT6L5"
+      ],
+      "pattern_titles": [
+        "1513 by LA LA",
+        "EASYDEW Repair Control Renewal",
+        "Dr. Au Anti-Aging Face"
+      ],
+      "support": 3,
+      "pattern_len": 3,
+      "score": 9.0,
+      "pattern_id": 48
+    },
+    {
+      "pattern_item_ids": [
+        "B08DKFV9SR",
+        "B08PLFZB89",
+        "B0998BD871"
+      ],
+      "pattern_titles": [
+        "Jumbo Braiding Hair",
+        "Glued Spray Wax",
+        "O.M.CHIC Mannequin Head"
+      ],
+      "support": 3,
+      "pattern_len": 3,
+      "score": 9.0,
+      "pattern_id": 49
+    },
+    {
+      "pattern_item_ids": [
+        "B08NTD1NM1",
+        "B08MT8L5ZL",
+        "B093GX6XVV"
+      ],
+      "pattern_titles": [
+        "Magnetic Eyelashes with Eyeliner,",
+        "UV LED Nail",
+        "Magnetic Eyelashes"
+      ],
+      "support": 3,
+      "pattern_len": 3,
+      "score": 9.0,
+      "pattern_id": 50
+    },
+    {
+      "pattern_item_ids": [
+        "B08NTD1NM1",
+        "B08W2HG4BD",
+        "B093GX6XVV"
+      ],
+      "pattern_titles": [
+        "Magnetic Eyelashes with Eyeliner,",
+        "isavera Anti-Cellulite Cream with",
+        "Magnetic Eyelashes"
+      ],
+      "support": 3,
+      "pattern_len": 3,
+      "score": 9.0,
+      "pattern_id": 51
+    },
+    {
+      "pattern_item_ids": [
+        "B08SQZ1B3W",
+        "B08VKQY815",
+        "B08WF29DM9"
+      ],
+      "pattern_titles": [
+        "Murad Hydration Intense Recovery",
+        "Sparkling Oxygen Mask, Skin",
+        "TULA Probiotic Skin Care"
+      ],
+      "support": 3,
+      "pattern_len": 3,
+      "score": 9.0,
+      "pattern_id": 52
+    },
+    {
+      "pattern_item_ids": [
+        "B08VKQY815",
+        "B08WF29DM9",
+        "B08VQY1Z1S"
+      ],
+      "pattern_titles": [
+        "Sparkling Oxygen Mask, Skin",
+        "TULA Probiotic Skin Care",
+        "BABOR Power Serum Ampoules"
+      ],
+      "support": 3,
+      "pattern_len": 3,
+      "score": 9.0,
+      "pattern_id": 53
+    },
+    {
+      "pattern_item_ids": [
+        "B0977LVHF8",
+        "B08K2V6WGH",
+        "B095C1WF44"
+      ],
+      "pattern_titles": [
+        "Yerma Primer",
+        "UNNY CLUB Cover Glow",
+        "Women Ultra Smooth Razor"
+      ],
+      "support": 3,
+      "pattern_len": 3,
+      "score": 9.0,
+      "pattern_id": 54
+    },
+    {
+      "pattern_item_ids": [
+        "B0994HWXVV",
+        "B08K2V6WGH",
+        "B095C1WF44"
+      ],
+      "pattern_titles": [
+        "Eyebrow Stamp and Eyebrow",
+        "UNNY CLUB Cover Glow",
+        "Women Ultra Smooth Razor"
+      ],
+      "support": 3,
+      "pattern_len": 3,
+      "score": 9.0,
+      "pattern_id": 55
+    },
+    {
+      "pattern_item_ids": [
+        "B09D8D6KWQ",
+        "B09LXDDCMR",
+        "B09M7WMGQH"
+      ],
+      "pattern_titles": [
+        "613 Frontal Wig Brazilian",
+        "Brazilian Virgin Hair Body",
+        "VTAOZI Lace Front Wigs"
+      ],
+      "support": 3,
+      "pattern_len": 3,
+      "score": 9.0,
+      "pattern_id": 56
+    },
+    {
+      "pattern_item_ids": [
+        "B00011JN5G",
+        "B00011JN5G"
+      ],
+      "pattern_titles": [
+        "American International Industries Clean",
+        "American International Industries Clean"
+      ],
+      "support": 3,
+      "pattern_len": 2,
+      "score": 6.0,
+      "pattern_id": 57
+    },
+    {
+      "pattern_item_ids": [
+        "B0019WZHXI",
+        "B0019WZHXI"
+      ],
+      "pattern_titles": [
+        "Wahl Professional Adjustable",
+        "Wahl Professional Adjustable"
+      ],
+      "support": 3,
+      "pattern_len": 2,
+      "score": 6.0,
+      "pattern_id": 58
+    },
+    {
+      "pattern_item_ids": [
+        "B005BZQHEC",
+        "B005BZQHEC"
+      ],
+      "pattern_titles": [
+        "Gauge Gear Ear Stretching",
+        "Gauge Gear Ear Stretching"
+      ],
+      "support": 3,
+      "pattern_len": 2,
+      "score": 6.0,
+      "pattern_id": 59
+    },
+    {
+      "pattern_item_ids": [
+        "B00CQ16CT4",
+        "B00CQ16CT4"
+      ],
+      "pattern_titles": [
+        "Tojwi Colorful Stainless Steel",
+        "Tojwi Colorful Stainless Steel"
+      ],
+      "support": 3,
+      "pattern_len": 2,
+      "score": 6.0,
+      "pattern_id": 60
+    },
+    {
+      "pattern_item_ids": [
+        "B00KCTER3U",
+        "B00OPEASFO"
+      ],
+      "pattern_titles": [
+        "Retinol Face Moisturizer Cream",
+        "Retinol Cream"
+      ],
+      "support": 3,
+      "pattern_len": 2,
+      "score": 6.0,
+      "pattern_id": 61
+    },
+    {
+      "pattern_item_ids": [
+        "B00OS9YWJY",
+        "B00VXEQ0WO"
+      ],
+      "pattern_titles": [
+        "Pure Hyaluronic Acid Serum",
+        "Retinol 2.5% Cream From"
+      ],
+      "support": 3,
+      "pattern_len": 2,
+      "score": 6.0,
+      "pattern_id": 62
+    },
+    {
+      "pattern_item_ids": [
+        "B00TKJET7W",
+        "B00TKJRZN2"
+      ],
+      "pattern_titles": [
+        "[title1]",
+        "Nunutrients Gel Cleanser with"
+      ],
+      "support": 3,
+      "pattern_len": 2,
+      "score": 6.0,
+      "pattern_id": 63
+    },
+    {
+      "pattern_item_ids": [
+        "B011EXDBAM",
+        "B01CDEJ1H8"
+      ],
+      "pattern_titles": [
+        "Beard Oil and Conditioner",
+        "[title22"
+      ],
+      "support": 3,
+      "pattern_len": 2,
+      "score": 6.0,
+      "pattern_id": 64
+    },
+    {
+      "pattern_item_ids": [
+        "B015A5DGG4",
+        "B07VSZYKCH"
+      ],
+      "pattern_titles": [
+        "12ML Refillable Perfume Atomizer",
+        "Purifying Face Oil for"
+      ],
+      "support": 3,
+      "pattern_len": 2,
+      "score": 6.0,
+      "pattern_id": 65
+    },
+    {
+      "pattern_item_ids": [
+        "B015A5DGG4",
+        "B08HQSK576"
+      ],
+      "pattern_titles": [
+        "12ML Refillable Perfume Atomizer",
+        "Hetianmei® Pink Rhinestone Headbands"
+      ],
+      "support": 3,
+      "pattern_len": 2,
+      "score": 6.0,
+      "pattern_id": 66
+    },
+    {
+      "pattern_item_ids": [
+        "B01M24DUXH",
+        "B08QKXY1KN"
+      ],
+      "pattern_titles": [
+        "Spanature Olive Hand &",
+        "Shimmer Correction"
+      ],
+      "support": 3,
+      "pattern_len": 2,
+      "score": 6.0,
+      "pattern_id": 67
+    },
+    {
+      "pattern_item_ids": [
+        "B01M24DUXH",
+        "B096S4RQNH"
+      ],
+      "pattern_titles": [
+        "Spanature Olive Hand &",
+        "Lemon Towelettes"
+      ],
+      "support": 3,
+      "pattern_len": 2,
+      "score": 6.0,
+      "pattern_id": 68
+    },
+    {
+      "pattern_item_ids": [
+        "B0722HKRHH",
+        "B0722HKRHH"
+      ],
+      "pattern_titles": [
+        "SANTEE 3 Pcs Color",
+        "SANTEE 3 Pcs Color"
+      ],
+      "support": 3,
+      "pattern_len": 2,
+      "score": 6.0,
+      "pattern_id": 69
+    },
+    {
+      "pattern_item_ids": [
+        "B073ZR1XLQ",
+        "B01N7A5AGF"
+      ],
+      "pattern_titles": [
+        "EASYDEW Repair Control Renewal",
+        "Easydew EX Repair Control"
+      ],
+      "support": 3,
+      "pattern_len": 2,
+      "score": 6.0,
+      "pattern_id": 70
+    },
+    {
+      "pattern_item_ids": [
+        "B073ZR1XLQ",
+        "B07NPCT6L5"
+      ],
+      "pattern_titles": [
+        "EASYDEW Repair Control Renewal",
+        "Dr. Au Anti-Aging Face"
+      ],
+      "support": 3,
+      "pattern_len": 2,
+      "score": 6.0,
+      "pattern_id": 71
+    },
+    {
+      "pattern_item_ids": [
+        "B073ZR1XLQ",
+        "B08KWN77LW"
+      ],
+      "pattern_titles": [
+        "EASYDEW Repair Control Renewal",
+        "GENSKIN Generation Skin Hydrating"
+      ],
+      "support": 3,
+      "pattern_len": 2,
+      "score": 6.0,
+      "pattern_id": 72
+    },
+    {
+      "pattern_item_ids": [
+        "B07C533XCW",
+        "B07C533XCW"
+      ],
+      "pattern_titles": [
+        "Segbeauty empty bottle 160083",
+        "Segbeauty empty bottle 160083"
+      ],
+      "support": 3,
+      "pattern_len": 2,
+      "score": 6.0,
+      "pattern_id": 73
+    },
+    {
+      "pattern_item_ids": [
+        "B07D5FBFQ4",
+        "B08DK74M1P"
+      ],
+      "pattern_titles": [
+        "Zeitun Natural Anti Cellulite",
+        "Busy Co. Biodegradable Hydrating"
+      ],
+      "support": 3,
+      "pattern_len": 2,
+      "score": 6.0,
+      "pattern_id": 74
+    },
+    {
+      "pattern_item_ids": [
+        "B07D5FBFQ4",
+        "B08L3W279N"
+      ],
+      "pattern_titles": [
+        "Zeitun Natural Anti Cellulite",
+        "SAISZE Jaw Exerciser, Facial"
+      ],
+      "support": 3,
+      "pattern_len": 2,
+      "score": 6.0,
+      "pattern_id": 75
+    },
+    {
+      "pattern_item_ids": [
+        "B07DFNPVSF",
+        "B081MQD52C"
+      ],
+      "pattern_titles": [
+        "Dr. Denese SkinScience Essential",
+        "Revitalizing N.M.F Intensive Hydrating"
+      ],
+      "support": 3,
+      "pattern_len": 2,
+      "score": 6.0,
+      "pattern_id": 76
+    },
+    {
+      "pattern_item_ids": [
+        "B07DFNPVSF",
+        "B08BS3WDPJ"
+      ],
+      "pattern_titles": [
+        "Dr. Denese SkinScience Essential",
+        "Karuna Oh, Glow On"
+      ],
+      "support": 3,
+      "pattern_len": 2,
+      "score": 6.0,
+      "pattern_id": 77
+    },
+    {
+      "pattern_item_ids": [
+        "B07DFNPVSF",
+        "B08C37KWRR"
+      ],
+      "pattern_titles": [
+        "Dr. Denese SkinScience Essential",
+        "1513 by LA LA"
+      ],
+      "support": 3,
+      "pattern_len": 2,
+      "score": 6.0,
+      "pattern_id": 78
+    },
+    {
+      "pattern_item_ids": [
+        "B07DFNPVSF",
+        "B08C71WBLC"
+      ],
+      "pattern_titles": [
+        "Dr. Denese SkinScience Essential",
+        "Moisturizing Facial Emulsion for"
+      ],
+      "support": 3,
+      "pattern_len": 2,
+      "score": 6.0,
+      "pattern_id": 79
+    },
+    {
+      "pattern_item_ids": [
+        "B07FP2C8N8",
+        "B08BZ1RHPS"
+      ],
+      "pattern_titles": [
+        "Emilia Hypoallergenic Bath Oil",
+        "MD Complete Bright &"
+      ],
+      "support": 3,
+      "pattern_len": 2,
+      "score": 6.0,
+      "pattern_id": 80
+    },
+    {
+      "pattern_item_ids": [
+        "B07FZ5HZLM",
+        "B07J2QZBTP"
+      ],
+      "pattern_titles": [
+        "QuickBooks Pro",
+        "C.O. Bigelow No. 007"
+      ],
+      "support": 3,
+      "pattern_len": 2,
+      "score": 6.0,
+      "pattern_id": 81
+    },
+    {
+      "pattern_item_ids": [
+        "B07HMTLNWH",
+        "B082FWK886"
+      ],
+      "pattern_titles": [
+        "Soft Nature Lashes",
+        "Newcally Eyelashes 25MM Long"
+      ],
+      "support": 3,
+      "pattern_len": 2,
+      "score": 6.0,
+      "pattern_id": 82
+    },
+    {
+      "pattern_item_ids": [
+        "B07HR754WV",
+        "B088LWRYJC"
+      ],
+      "pattern_titles": [
+        "NeWisdom 72 PCS Toddler",
+        "NATWAG Reusable Update Makeup"
+      ],
+      "support": 3,
+      "pattern_len": 2,
+      "score": 6.0,
+      "pattern_id": 83
+    },
+    {
+      "pattern_item_ids": [
+        "B07J1LYVHC",
+        "B07PHWX88W"
+      ],
+      "pattern_titles": [
+        "ABOUT ME MediAnswer Collagen",
+        "SAMYANG ABOUTME Red Recipe"
+      ],
+      "support": 3,
+      "pattern_len": 2,
+      "score": 6.0,
+      "pattern_id": 84
+    },
+    {
+      "pattern_item_ids": [
+        "B07J1LYVHC",
+        "B0837K9W6P"
+      ],
+      "pattern_titles": [
+        "ABOUT ME MediAnswer Collagen",
+        "9 Pack Headbands Set"
+      ],
+      "support": 3,
+      "pattern_len": 2,
+      "score": 6.0,
+      "pattern_id": 85
+    },
+    {
+      "pattern_item_ids": [
+        "B07J1LYVHC",
+        "B08575Y9V3"
+      ],
+      "pattern_titles": [
+        "ABOUT ME MediAnswer Collagen",
+        "Creme Coating Mask"
+      ],
+      "support": 3,
+      "pattern_len": 2,
+      "score": 6.0,
+      "pattern_id": 86
+    },
+    {
+      "pattern_item_ids": [
+        "B07M9D3WYW",
+        "B07MMW5654"
+      ],
+      "pattern_titles": [
+        "Study Buddy Clay Mask",
+        "Polishing Scrub"
+      ],
+      "support": 3,
+      "pattern_len": 2,
+      "score": 6.0,
+      "pattern_id": 87
+    },
+    {
+      "pattern_item_ids": [
+        "B07M9D3WYW",
+        "B07MN1KJ15"
+      ],
+      "pattern_titles": [
+        "Study Buddy Clay Mask",
+        "MBA Renewing Retinol Serum,"
+      ],
+      "support": 3,
+      "pattern_len": 2,
+      "score": 6.0,
+      "pattern_id": 88
+    },
+    {
+      "pattern_item_ids": [
+        "B07MMW5654",
+        "B07MN1KJ15"
+      ],
+      "pattern_titles": [
+        "Polishing Scrub",
+        "MBA Renewing Retinol Serum,"
+      ],
+      "support": 3,
+      "pattern_len": 2,
+      "score": 6.0,
+      "pattern_id": 89
+    },
+    {
+      "pattern_item_ids": [
+        "B07MMW5654",
+        "B08BFH35VX"
+      ],
+      "pattern_titles": [
+        "Polishing Scrub",
+        "SELF/ish Men's Face Scrub"
+      ],
+      "support": 3,
+      "pattern_len": 2,
+      "score": 6.0,
+      "pattern_id": 90
+    },
+    {
+      "pattern_item_ids": [
+        "B07MN1KJ15",
+        "B07DFNPVSF"
+      ],
+      "pattern_titles": [
+        "MBA Renewing Retinol Serum,",
+        "Dr. Denese SkinScience Essential"
+      ],
+      "support": 3,
+      "pattern_len": 2,
+      "score": 6.0,
+      "pattern_id": 91
+    },
+    {
+      "pattern_item_ids": [
+        "B07MZT83KK",
+        "B08NJ5BTWG"
+      ],
+      "pattern_titles": [
+        "EASYDEW Starter Soft Conditioning",
+        "FASCY LAB GREEN+ Korean"
+      ],
+      "support": 3,
+      "pattern_len": 2,
+      "score": 6.0,
+      "pattern_id": 92
+    },
+    {
+      "pattern_item_ids": [
+        "B07NPCT6L5",
+        "B07RBSLNFR"
+      ],
+      "pattern_titles": [
+        "Dr. Au Anti-Aging Face",
+        "OGANA CELL Peptide Concentrating"
+      ],
+      "support": 3,
+      "pattern_len": 2,
+      "score": 6.0,
+      "pattern_id": 93
+    },
+    {
+      "pattern_item_ids": [
+        "B07NPCT6L5",
+        "B07W1WJZFG"
+      ],
+      "pattern_titles": [
+        "Dr. Au Anti-Aging Face",
+        "Simply Dana Cellular De-Stressing"
+      ],
+      "support": 3,
+      "pattern_len": 2,
+      "score": 6.0,
+      "pattern_id": 94
+    },
+    {
+      "pattern_item_ids": [
+        "B07NPCT6L5",
+        "B07YS9W97B"
+      ],
+      "pattern_titles": [
+        "Dr. Au Anti-Aging Face",
+        "EASYDEW Starter Moist Whip"
+      ],
+      "support": 3,
+      "pattern_len": 2,
+      "score": 6.0,
+      "pattern_id": 95
+    },
+    {
+      "pattern_item_ids": [
+        "B07NPCT6L5",
+        "B08KWN77LW"
+      ],
+      "pattern_titles": [
+        "Dr. Au Anti-Aging Face",
+        "GENSKIN Generation Skin Hydrating"
+      ],
+      "support": 3,
+      "pattern_len": 2,
+      "score": 6.0,
+      "pattern_id": 96
+    },
+    {
+      "pattern_item_ids": [
+        "B07NPCT6L5",
+        "B08L3J4FB9"
+      ],
+      "pattern_titles": [
+        "Dr. Au Anti-Aging Face",
+        "Cicaluronic Cleansing Balm"
+      ],
+      "support": 3,
+      "pattern_len": 2,
+      "score": 6.0,
+      "pattern_id": 97
+    },
+    {
+      "pattern_item_ids": [
+        "B07NPWK167",
+        "B07RM722DH"
+      ],
+      "pattern_titles": [
+        "13.5 fl. Oz. Goat",
+        "Unlashed Mascara"
+      ],
+      "support": 3,
+      "pattern_len": 2,
+      "score": 6.0,
+      "pattern_id": 98
+    },
+    {
+      "pattern_item_ids": [
+        "B07NPWK167",
+        "B07TNSGHVX"
+      ],
+      "pattern_titles": [
+        "13.5 fl. Oz. Goat",
+        "Brittanie's Thyme Hyaluronic Acid"
+      ],
+      "support": 3,
+      "pattern_len": 2,
+      "score": 6.0,
+      "pattern_id": 99
+    }
+  ]
+}

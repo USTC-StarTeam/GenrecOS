@@ -1,0 +1,11 @@
+{
+  "num_train": 6682,
+  "num_val": 4548,
+  "num_test": 4548,
+  "num_users": 4548,
+  "num_items": 6350,
+  "min_seq_length": 3,
+  "min_item_freq": 5,
+  "max_history_len": 20,
+  "max_review_len": 150
+}

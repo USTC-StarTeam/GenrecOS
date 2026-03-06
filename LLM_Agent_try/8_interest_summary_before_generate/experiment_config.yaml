@@ -1,0 +1,36 @@
+paths:
+  raw_test_source: "../4_finetune_to_upgrade_LLM/data/test.jsonl"
+  item_titles_path: "../use_Qwen3-1-7B_to_generate_title/item_titles_unique.json"
+  base_model_path: "../../LLM4RecPart/models/Qwen3-1-7B"
+  strong_init_model_path: "../4_finetune_to_upgrade_LLM/outputs/qwen3_title_sft/best_model"
+  sasrec_test_path: "../vanilla_sasrec/processed_data/test.json"
+  item_mapping_path: "../vanilla_sasrec/processed_data/item_mapping.json"
+  data_dir: "data"
+  cache_dir: "cache"
+  results_dir: "results"
+  logs_dir: "logs"
+  jobs_dir: "jobs"
+
+interest_summary:
+  api_base_url: "https://xiaoai.plus/v1/chat/completions"
+  api_key: "sk-3RhYZJeoe7JbWasBj1MMyL16ABFIunf3obpJFb61YoC0wMPz"
+  model: "gpt-5-mini"
+  fallback_model: "gpt-4o-mini"
+  temperature: 0.2
+  max_tokens: 120
+  timeout_seconds: 60
+  concurrency: 20
+  max_retries: 6
+  retry_base_seconds: 1.5
+  max_history_items: 20
+  review_char_limit: 180
+  refresh_invalid_cache: true
+  cache_file: "interest_summary_cache.json"
+
+evaluation:
+  batch_size: 8
+  embedding_batch_size: 64
+  title_max_length: 64
+  max_new_tokens: 24
+  num_beams: 1
+  k_values: [1, 5, 10, 20]

@@ -1,0 +1,82 @@
+{
+  "experiment": "10_feedback_regeneration_oracle",
+  "dataset_name": "raw_common4385",
+  "num_samples": 32,
+  "checkpoint_path": "/zhdd/home/kfwang/20250813Reproduct_Onerec/Fuxi-OneRec-new/temp_LLM_Agent_try/10_feedback_regeneration_oracle/../9_sft_with_interest_summary/outputs/qwen3_interest_sft/best_model",
+  "dataset_path": "/zhdd/home/kfwang/20250813Reproduct_Onerec/Fuxi-OneRec-new/temp_LLM_Agent_try/10_feedback_regeneration_oracle/data/eval_raw_common4385_feedback.jsonl",
+  "feedback_trigger_top_k": 5,
+  "max_feedback_rounds": 3,
+  "baseline_round0_metrics": {
+    "HR@1": 0.0,
+    "NDCG@1": 0.0,
+    "HR@5": 0.0,
+    "NDCG@5": 0.0,
+    "HR@10": 0.0,
+    "NDCG@10": 0.0,
+    "HR@20": 0.0,
+    "NDCG@20": 0.0,
+    "exact_title_match": 0.0
+  },
+  "final_after_feedback_metrics": {
+    "HR@1": 0.0,
+    "NDCG@1": 0.0,
+    "HR@5": 0.03125,
+    "NDCG@5": 0.019716554799108048,
+    "HR@10": 0.03125,
+    "NDCG@10": 0.019716554799108048,
+    "HR@20": 0.03125,
+    "NDCG@20": 0.019716554799108048,
+    "exact_title_match": 0.0
+  },
+  "delta_final_minus_baseline": {
+    "HR@1": 0.0,
+    "NDCG@1": 0.0,
+    "HR@5": 0.03125,
+    "NDCG@5": 0.019716554799108048,
+    "HR@10": 0.03125,
+    "NDCG@10": 0.019716554799108048,
+    "HR@20": 0.03125,
+    "NDCG@20": 0.019716554799108048,
+    "exact_title_match": 0.0
+  },
+  "feedback_diagnostics": {
+    "feedback_trigger_count": 32,
+    "feedback_trigger_rate": 1.0,
+    "avg_generation_round_index": 2.9375,
+    "avg_generation_calls_per_sample": 3.9375,
+    "final_round_distribution": {
+      "1": 1,
+      "3": 31
+    },
+    "round_stats": [
+      {
+        "round": 0,
+        "entered": 32,
+        "resolved_hit_top5": 0,
+        "forced_stop_max_round": 0,
+        "remaining": 32
+      },
+      {
+        "round": 1,
+        "entered": 32,
+        "resolved_hit_top5": 1,
+        "forced_stop_max_round": 0,
+        "remaining": 31
+      },
+      {
+        "round": 2,
+        "entered": 31,
+        "resolved_hit_top5": 0,
+        "forced_stop_max_round": 0,
+        "remaining": 31
+      },
+      {
+        "round": 3,
+        "entered": 31,
+        "resolved_hit_top5": 0,
+        "forced_stop_max_round": 31,
+        "remaining": 0
+      }
+    ]
+  }
+}

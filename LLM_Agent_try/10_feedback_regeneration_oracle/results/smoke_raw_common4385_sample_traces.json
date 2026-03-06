@@ -1,0 +1,4322 @@
+[
+  {
+    "user_id": "AFSKPY37N3C43SOI5IEXEK5JSIYA",
+    "target_item_id": "B08P2DZB4X",
+    "target_title": "NIRA Skincare Laser &",
+    "final_round": 3,
+    "final_predicted_title": "Keratin Secrets",
+    "attempts": [
+      {
+        "round": 0,
+        "predicted_title": "Keratin Secrets",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B07SLFWZKN",
+            "title": "Keratin Secrets",
+            "score": 0.999912
+          },
+          {
+            "item_id": "B008FSC872",
+            "title": "Keratin Express",
+            "score": 0.988436
+          },
+          {
+            "item_id": "B00NFUEBW0",
+            "title": "Keratin Smooth Serum",
+            "score": 0.984249
+          },
+          {
+            "item_id": "B01IAFHD4W",
+            "title": "Keratin Hairspray",
+            "score": 0.978439
+          },
+          {
+            "item_id": "B009DS50Z0",
+            "title": "Salerm Keratin Shot Serum",
+            "score": 0.970631
+          }
+        ]
+      },
+      {
+        "round": 1,
+        "predicted_title": "Keratin Secrets",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B07SLFWZKN",
+            "title": "Keratin Secrets",
+            "score": 0.999963
+          },
+          {
+            "item_id": "B008FSC872",
+            "title": "Keratin Express",
+            "score": 0.988603
+          },
+          {
+            "item_id": "B00NFUEBW0",
+            "title": "Keratin Smooth Serum",
+            "score": 0.984134
+          },
+          {
+            "item_id": "B01IAFHD4W",
+            "title": "Keratin Hairspray",
+            "score": 0.978295
+          },
+          {
+            "item_id": "B009DS50Z0",
+            "title": "Salerm Keratin Shot Serum",
+            "score": 0.970546
+          }
+        ]
+      },
+      {
+        "round": 2,
+        "predicted_title": "Keratin Secrets",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B07SLFWZKN",
+            "title": "Keratin Secrets",
+            "score": 0.999963
+          },
+          {
+            "item_id": "B008FSC872",
+            "title": "Keratin Express",
+            "score": 0.988603
+          },
+          {
+            "item_id": "B00NFUEBW0",
+            "title": "Keratin Smooth Serum",
+            "score": 0.984134
+          },
+          {
+            "item_id": "B01IAFHD4W",
+            "title": "Keratin Hairspray",
+            "score": 0.978295
+          },
+          {
+            "item_id": "B009DS50Z0",
+            "title": "Salerm Keratin Shot Serum",
+            "score": 0.970546
+          }
+        ]
+      },
+      {
+        "round": 3,
+        "predicted_title": "Keratin Secrets",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B07SLFWZKN",
+            "title": "Keratin Secrets",
+            "score": 0.999963
+          },
+          {
+            "item_id": "B008FSC872",
+            "title": "Keratin Express",
+            "score": 0.988603
+          },
+          {
+            "item_id": "B00NFUEBW0",
+            "title": "Keratin Smooth Serum",
+            "score": 0.984134
+          },
+          {
+            "item_id": "B01IAFHD4W",
+            "title": "Keratin Hairspray",
+            "score": 0.978295
+          },
+          {
+            "item_id": "B009DS50Z0",
+            "title": "Salerm Keratin Shot Serum",
+            "score": 0.970546
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "user_id": "AHGAOIZVODNHYMNCBV4DECZH42UQ",
+    "target_item_id": "B082QX2HP6",
+    "target_title": "2 Pieces Hair Brush",
+    "final_round": 3,
+    "final_predicted_title": "LUXEDEY 100% Virgin",
+    "attempts": [
+      {
+        "round": 0,
+        "predicted_title": "LUXEDEY 100% Virgin",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B01NCXDC0D",
+            "title": "HANNE 300G Brazilian Virgin",
+            "score": 0.982802
+          },
+          {
+            "item_id": "B06X9L2H8Z",
+            "title": "HANNE 300G Brazilian Virgin",
+            "score": 0.982711
+          },
+          {
+            "item_id": "B095HHZMF5",
+            "title": "SATINIOR 16 Pieces Stretch",
+            "score": 0.982274
+          },
+          {
+            "item_id": "B089XYKNFP",
+            "title": "BONNIESTORE 7 Colors 4D",
+            "score": 0.982135
+          },
+          {
+            "item_id": "B08DCY6PYY",
+            "title": "SATINIOR 10 Pieces Button",
+            "score": 0.981793
+          }
+        ]
+      },
+      {
+        "round": 1,
+        "predicted_title": "LUXEDEY 100% Virgin",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B01NCXDC0D",
+            "title": "HANNE 300G Brazilian Virgin",
+            "score": 0.982523
+          },
+          {
+            "item_id": "B06X9L2H8Z",
+            "title": "HANNE 300G Brazilian Virgin",
+            "score": 0.982428
+          },
+          {
+            "item_id": "B095HHZMF5",
+            "title": "SATINIOR 16 Pieces Stretch",
+            "score": 0.981989
+          },
+          {
+            "item_id": "B089XYKNFP",
+            "title": "BONNIESTORE 7 Colors 4D",
+            "score": 0.981888
+          },
+          {
+            "item_id": "B08DCY6PYY",
+            "title": "SATINIOR 10 Pieces Button",
+            "score": 0.981521
+          }
+        ]
+      },
+      {
+        "round": 2,
+        "predicted_title": "LUXEDEY 100% Virgin",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B01NCXDC0D",
+            "title": "HANNE 300G Brazilian Virgin",
+            "score": 0.982523
+          },
+          {
+            "item_id": "B06X9L2H8Z",
+            "title": "HANNE 300G Brazilian Virgin",
+            "score": 0.982428
+          },
+          {
+            "item_id": "B095HHZMF5",
+            "title": "SATINIOR 16 Pieces Stretch",
+            "score": 0.981989
+          },
+          {
+            "item_id": "B089XYKNFP",
+            "title": "BONNIESTORE 7 Colors 4D",
+            "score": 0.981888
+          },
+          {
+            "item_id": "B08DCY6PYY",
+            "title": "SATINIOR 10 Pieces Button",
+            "score": 0.981521
+          }
+        ]
+      },
+      {
+        "round": 3,
+        "predicted_title": "LUXEDEY 100% Virgin",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B01NCXDC0D",
+            "title": "HANNE 300G Brazilian Virgin",
+            "score": 0.982523
+          },
+          {
+            "item_id": "B06X9L2H8Z",
+            "title": "HANNE 300G Brazilian Virgin",
+            "score": 0.982428
+          },
+          {
+            "item_id": "B095HHZMF5",
+            "title": "SATINIOR 16 Pieces Stretch",
+            "score": 0.981989
+          },
+          {
+            "item_id": "B089XYKNFP",
+            "title": "BONNIESTORE 7 Colors 4D",
+            "score": 0.981888
+          },
+          {
+            "item_id": "B08DCY6PYY",
+            "title": "SATINIOR 10 Pieces Button",
+            "score": 0.981521
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "user_id": "AFZUK3MTBIBEDQOPAK3OATUOUKLA",
+    "target_item_id": "B0BFR5WF1R",
+    "target_title": "Halo Hair Extensions Thick",
+    "final_round": 3,
+    "final_predicted_title": "Attempt 1 answer: \"1/8 inch Snap On\" Your previous answer is incorrect because the target item is not",
+    "attempts": [
+      {
+        "round": 0,
+        "predicted_title": "1/8 inch Snap On",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B00946HGLW",
+            "title": "1/8 inch Snap On",
+            "score": 0.999981
+          },
+          {
+            "item_id": "B07QNYKPC3",
+            "title": "1/2\" Thick Soft Foam",
+            "score": 0.984244
+          },
+          {
+            "item_id": "B011KSL4E6",
+            "title": "16 inch 90g Clip",
+            "score": 0.97732
+          },
+          {
+            "item_id": "B07T6F6XDD",
+            "title": "18inch 6 Packs/Lot Straight",
+            "score": 0.976933
+          },
+          {
+            "item_id": "B01N0OPNWF",
+            "title": "Pana 3/32\" Safety Bit",
+            "score": 0.976795
+          }
+        ]
+      },
+      {
+        "round": 1,
+        "predicted_title": "Attempt 1 answer: \"1/8 inch Snap On\" Your previous answer is incorrect because the target item is not",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B07D61C6LM",
+            "title": "The product is a 100% natural",
+            "score": 0.965388
+          },
+          {
+            "item_id": "B07ML364ZC",
+            "title": "Set of 12 Leopard",
+            "score": 0.965003
+          },
+          {
+            "item_id": "B07P7MFNWS",
+            "title": "Set of 12 Waterproof",
+            "score": 0.964938
+          },
+          {
+            "item_id": "B00K6COY68",
+            "title": "Set of 2pcs Simple",
+            "score": 0.96449
+          },
+          {
+            "item_id": "B08MV1FK5B",
+            "title": "with 2 Pieces Styling,",
+            "score": 0.964055
+          }
+        ]
+      },
+      {
+        "round": 2,
+        "predicted_title": "Attempt 1 answer: \"1/8 inch Snap On\" Your previous answer is incorrect because the target item is not",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B07D61C6LM",
+            "title": "The product is a 100% natural",
+            "score": 0.965388
+          },
+          {
+            "item_id": "B07ML364ZC",
+            "title": "Set of 12 Leopard",
+            "score": 0.965003
+          },
+          {
+            "item_id": "B07P7MFNWS",
+            "title": "Set of 12 Waterproof",
+            "score": 0.964938
+          },
+          {
+            "item_id": "B00K6COY68",
+            "title": "Set of 2pcs Simple",
+            "score": 0.96449
+          },
+          {
+            "item_id": "B08MV1FK5B",
+            "title": "with 2 Pieces Styling,",
+            "score": 0.964055
+          }
+        ]
+      },
+      {
+        "round": 3,
+        "predicted_title": "Attempt 1 answer: \"1/8 inch Snap On\" Your previous answer is incorrect because the target item is not",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B07D61C6LM",
+            "title": "The product is a 100% natural",
+            "score": 0.965388
+          },
+          {
+            "item_id": "B07ML364ZC",
+            "title": "Set of 12 Leopard",
+            "score": 0.965003
+          },
+          {
+            "item_id": "B07P7MFNWS",
+            "title": "Set of 12 Waterproof",
+            "score": 0.964938
+          },
+          {
+            "item_id": "B00K6COY68",
+            "title": "Set of 2pcs Simple",
+            "score": 0.96449
+          },
+          {
+            "item_id": "B08MV1FK5B",
+            "title": "with 2 Pieces Styling,",
+            "score": 0.964055
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "user_id": "AFA26DYXVLJYTYZ3KET77GE27N2A",
+    "target_item_id": "B08CXFDDV8",
+    "target_title": "Sailor Moon x Colourpop",
+    "final_round": 3,
+    "final_predicted_title": "Magnetic Eyelashes",
+    "attempts": [
+      {
+        "round": 0,
+        "predicted_title": "Magnetic Eyelashes",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B09PL113ZV",
+            "title": "Magnetic Eyelashes",
+            "score": 0.999972
+          },
+          {
+            "item_id": "B096VBHMHB",
+            "title": "Magnetic Eyelashes",
+            "score": 0.999972
+          },
+          {
+            "item_id": "B08C9SJMPG",
+            "title": "Magnetic Eyelashes",
+            "score": 0.999972
+          },
+          {
+            "item_id": "B093GX6XVV",
+            "title": "Magnetic Eyelashes",
+            "score": 0.999972
+          },
+          {
+            "item_id": "B07TZBG34L",
+            "title": "Magnetic Eyelashes",
+            "score": 0.999972
+          }
+        ]
+      },
+      {
+        "round": 1,
+        "predicted_title": "Magnetic Eyelashes",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B084Z5WGKD",
+            "title": "Magnetic Eyelashes",
+            "score": 0.999972
+          },
+          {
+            "item_id": "B084VLTZR6",
+            "title": "Magnetic Eyelashes",
+            "score": 0.999972
+          },
+          {
+            "item_id": "B07VGS56Z7",
+            "title": "Magnetic Eyelashes",
+            "score": 0.999972
+          },
+          {
+            "item_id": "B0817XRPFC",
+            "title": "Magnetic Eyelashes",
+            "score": 0.999972
+          },
+          {
+            "item_id": "B07PZJDX62",
+            "title": "Magnetic Eyelashes",
+            "score": 0.999972
+          }
+        ]
+      },
+      {
+        "round": 2,
+        "predicted_title": "Magnetic Eyelashes",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B084Z5WGKD",
+            "title": "Magnetic Eyelashes",
+            "score": 0.999972
+          },
+          {
+            "item_id": "B084VLTZR6",
+            "title": "Magnetic Eyelashes",
+            "score": 0.999972
+          },
+          {
+            "item_id": "B07VGS56Z7",
+            "title": "Magnetic Eyelashes",
+            "score": 0.999972
+          },
+          {
+            "item_id": "B0817XRPFC",
+            "title": "Magnetic Eyelashes",
+            "score": 0.999972
+          },
+          {
+            "item_id": "B07PZJDX62",
+            "title": "Magnetic Eyelashes",
+            "score": 0.999972
+          }
+        ]
+      },
+      {
+        "round": 3,
+        "predicted_title": "Magnetic Eyelashes",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B084Z5WGKD",
+            "title": "Magnetic Eyelashes",
+            "score": 0.999972
+          },
+          {
+            "item_id": "B084VLTZR6",
+            "title": "Magnetic Eyelashes",
+            "score": 0.999972
+          },
+          {
+            "item_id": "B07VGS56Z7",
+            "title": "Magnetic Eyelashes",
+            "score": 0.999972
+          },
+          {
+            "item_id": "B0817XRPFC",
+            "title": "Magnetic Eyelashes",
+            "score": 0.999972
+          },
+          {
+            "item_id": "B07PZJDX62",
+            "title": "Magnetic Eyelashes",
+            "score": 0.999972
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "user_id": "AG7WKTZINOFIXMZJYIPKIB7PV7NQ",
+    "target_item_id": "B088838886",
+    "target_title": "4pcs Button Headbands Set",
+    "final_round": 3,
+    "final_predicted_title": "Skque New Wavy",
+    "attempts": [
+      {
+        "round": 0,
+        "predicted_title": "Skque New Wavy",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B0093EQX6Y",
+            "title": "Skque New Wavy",
+            "score": 0.999982
+          },
+          {
+            "item_id": "B00CHUR9IC",
+            "title": "Skque New Wavy",
+            "score": 0.999976
+          },
+          {
+            "item_id": "B08WWPJLPL",
+            "title": "Swiking Wigs",
+            "score": 0.978118
+          },
+          {
+            "item_id": "B09KV73TGN",
+            "title": "Nnzes Dark Brown Wavy",
+            "score": 0.976968
+          },
+          {
+            "item_id": "B07X8LV2LV",
+            "title": "TopWigy Long Purple Wig",
+            "score": 0.975276
+          }
+        ]
+      },
+      {
+        "round": 1,
+        "predicted_title": "Skque New Wavy",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B0093EQX6Y",
+            "title": "Skque New Wavy",
+            "score": 0.999979
+          },
+          {
+            "item_id": "B00CHUR9IC",
+            "title": "Skque New Wavy",
+            "score": 0.999972
+          },
+          {
+            "item_id": "B08WWPJLPL",
+            "title": "Swiking Wigs",
+            "score": 0.978021
+          },
+          {
+            "item_id": "B09KV73TGN",
+            "title": "Nnzes Dark Brown Wavy",
+            "score": 0.976398
+          },
+          {
+            "item_id": "B078V3FMQV",
+            "title": "UQinZ Bob Short Wigs",
+            "score": 0.975061
+          }
+        ]
+      },
+      {
+        "round": 2,
+        "predicted_title": "Skque New Wavy",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B0093EQX6Y",
+            "title": "Skque New Wavy",
+            "score": 0.999979
+          },
+          {
+            "item_id": "B00CHUR9IC",
+            "title": "Skque New Wavy",
+            "score": 0.999972
+          },
+          {
+            "item_id": "B08WWPJLPL",
+            "title": "Swiking Wigs",
+            "score": 0.978021
+          },
+          {
+            "item_id": "B09KV73TGN",
+            "title": "Nnzes Dark Brown Wavy",
+            "score": 0.976398
+          },
+          {
+            "item_id": "B078V3FMQV",
+            "title": "UQinZ Bob Short Wigs",
+            "score": 0.975061
+          }
+        ]
+      },
+      {
+        "round": 3,
+        "predicted_title": "Skque New Wavy",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B0093EQX6Y",
+            "title": "Skque New Wavy",
+            "score": 0.999979
+          },
+          {
+            "item_id": "B00CHUR9IC",
+            "title": "Skque New Wavy",
+            "score": 0.999972
+          },
+          {
+            "item_id": "B08WWPJLPL",
+            "title": "Swiking Wigs",
+            "score": 0.978021
+          },
+          {
+            "item_id": "B09KV73TGN",
+            "title": "Nnzes Dark Brown Wavy",
+            "score": 0.976398
+          },
+          {
+            "item_id": "B078V3FMQV",
+            "title": "UQinZ Bob Short Wigs",
+            "score": 0.975061
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "user_id": "AFXF3EGQTQDXMRLDWFU7UBFQZB7Q",
+    "target_item_id": "B0B8F6MWFJ",
+    "target_title": "Folie for Women EDP",
+    "final_round": 3,
+    "final_predicted_title": "TOMMY HILFIGER Men's Short",
+    "attempts": [
+      {
+        "round": 0,
+        "predicted_title": "6Pcs Silk Hair Scrunchies,",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B09ZKWV5MK",
+            "title": "6Pcs Silk Hair Scrunchies,",
+            "score": 0.999985
+          },
+          {
+            "item_id": "B07RJB65G1",
+            "title": "20PCS Scrunchies Velvet Hair",
+            "score": 0.986888
+          },
+          {
+            "item_id": "B07X1VSC9V",
+            "title": "75 Pcs Hair Scrunchies",
+            "score": 0.98243
+          },
+          {
+            "item_id": "B07KPZ235V",
+            "title": "6 Pcs Hair Scrunchies",
+            "score": 0.981276
+          },
+          {
+            "item_id": "B07ZKHXW88",
+            "title": "20pcs Hair Scrunchies Chiffon,Satin",
+            "score": 0.979914
+          }
+        ]
+      },
+      {
+        "round": 1,
+        "predicted_title": "TOMMY HILFIGER Men's Short",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B081QWH8JJ",
+            "title": "MOSCHINO TOY BOY by",
+            "score": 0.923988
+          },
+          {
+            "item_id": "B089XCWF4H",
+            "title": "CHARLOTTE TILBURY Luxury Palette",
+            "score": 0.92096
+          },
+          {
+            "item_id": "B01J9RBY8Q",
+            "title": "LOUISE MAELYS Oval Wooden",
+            "score": 0.918321
+          },
+          {
+            "item_id": "B06XTFQN7N",
+            "title": "BEARD SMOCK Pop-Up Beard",
+            "score": 0.916702
+          },
+          {
+            "item_id": "B081G86V1K",
+            "title": "BILLIE BEAN Luxury Bath",
+            "score": 0.915888
+          }
+        ]
+      },
+      {
+        "round": 2,
+        "predicted_title": "TOMMY HILFIGER Men's Short Attempt 3 answer: \"TOMMY HILFIGER",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B081QWH8JJ",
+            "title": "MOSCHINO TOY BOY by",
+            "score": 0.945652
+          },
+          {
+            "item_id": "B07HGZ5Q96",
+            "title": "KRISTOFER BUCKLE Cashmere Slip®",
+            "score": 0.94206
+          },
+          {
+            "item_id": "B089XCWF4H",
+            "title": "CHARLOTTE TILBURY Luxury Palette",
+            "score": 0.940575
+          },
+          {
+            "item_id": "B07JQHQHQ5",
+            "title": "GLAMOUR DOLLS ESSENTIALS MASCARA,",
+            "score": 0.939687
+          },
+          {
+            "item_id": "B01A7ZT1IY",
+            "title": "FUNRUN JEWELRY Vintage Elephant",
+            "score": 0.93765
+          }
+        ]
+      },
+      {
+        "round": 3,
+        "predicted_title": "TOMMY HILFIGER Men's Short",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B081QWH8JJ",
+            "title": "MOSCHINO TOY BOY by",
+            "score": 0.923988
+          },
+          {
+            "item_id": "B089XCWF4H",
+            "title": "CHARLOTTE TILBURY Luxury Palette",
+            "score": 0.92096
+          },
+          {
+            "item_id": "B01J9RBY8Q",
+            "title": "LOUISE MAELYS Oval Wooden",
+            "score": 0.918321
+          },
+          {
+            "item_id": "B06XTFQN7N",
+            "title": "BEARD SMOCK Pop-Up Beard",
+            "score": 0.916702
+          },
+          {
+            "item_id": "B081G86V1K",
+            "title": "BILLIE BEAN Luxury Bath",
+            "score": 0.915888
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "user_id": "AGLQQCIS5V6EGUCS5SSNHWZHQM6Q",
+    "target_item_id": "B07Z5C1KGR",
+    "target_title": "Bloomy Essentials Top 3",
+    "final_round": 3,
+    "final_predicted_title": "LUXE Pure 100% Argan Oil",
+    "attempts": [
+      {
+        "round": 0,
+        "predicted_title": "LUXE Pure 100% Argan Oil",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B08M5MQP59",
+            "title": "O'JIVA Pure 24k Gold",
+            "score": 0.977264
+          },
+          {
+            "item_id": "B08GCJZW9V",
+            "title": "KLAVUU Pure Pearlsation pH",
+            "score": 0.976783
+          },
+          {
+            "item_id": "B0753DXWBH",
+            "title": "OFFERNOVA Organic Castor Oil,",
+            "score": 0.975089
+          },
+          {
+            "item_id": "B00H1L4RAU",
+            "title": "Eayon Hair® 100% Virgin",
+            "score": 0.974473
+          },
+          {
+            "item_id": "B00O2FGBJS",
+            "title": "Argan Magic 100% Pure",
+            "score": 0.974087
+          }
+        ]
+      },
+      {
+        "round": 1,
+        "predicted_title": "LUXE Pure 100% Argan Oil",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B08M5MQP59",
+            "title": "O'JIVA Pure 24k Gold",
+            "score": 0.977042
+          },
+          {
+            "item_id": "B08GCJZW9V",
+            "title": "KLAVUU Pure Pearlsation pH",
+            "score": 0.976538
+          },
+          {
+            "item_id": "B0753DXWBH",
+            "title": "OFFERNOVA Organic Castor Oil,",
+            "score": 0.974942
+          },
+          {
+            "item_id": "B00H1L4RAU",
+            "title": "Eayon Hair® 100% Virgin",
+            "score": 0.974344
+          },
+          {
+            "item_id": "B00O2FGBJS",
+            "title": "Argan Magic 100% Pure",
+            "score": 0.973973
+          }
+        ]
+      },
+      {
+        "round": 2,
+        "predicted_title": "LUXE Pure 100% Argan Oil",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B08M5MQP59",
+            "title": "O'JIVA Pure 24k Gold",
+            "score": 0.977042
+          },
+          {
+            "item_id": "B08GCJZW9V",
+            "title": "KLAVUU Pure Pearlsation pH",
+            "score": 0.976538
+          },
+          {
+            "item_id": "B0753DXWBH",
+            "title": "OFFERNOVA Organic Castor Oil,",
+            "score": 0.974942
+          },
+          {
+            "item_id": "B00H1L4RAU",
+            "title": "Eayon Hair® 100% Virgin",
+            "score": 0.974344
+          },
+          {
+            "item_id": "B00O2FGBJS",
+            "title": "Argan Magic 100% Pure",
+            "score": 0.973973
+          }
+        ]
+      },
+      {
+        "round": 3,
+        "predicted_title": "LUXE Pure 100% Argan Oil",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B08M5MQP59",
+            "title": "O'JIVA Pure 24k Gold",
+            "score": 0.977042
+          },
+          {
+            "item_id": "B08GCJZW9V",
+            "title": "KLAVUU Pure Pearlsation pH",
+            "score": 0.976538
+          },
+          {
+            "item_id": "B0753DXWBH",
+            "title": "OFFERNOVA Organic Castor Oil,",
+            "score": 0.974942
+          },
+          {
+            "item_id": "B00H1L4RAU",
+            "title": "Eayon Hair® 100% Virgin",
+            "score": 0.974344
+          },
+          {
+            "item_id": "B00O2FGBJS",
+            "title": "Argan Magic 100% Pure",
+            "score": 0.973973
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "user_id": "AFWVN52MRBWOTIK7UGXBWGOY4HBA",
+    "target_item_id": "B08SBV6Z57",
+    "target_title": "2 Pack Foundation Full",
+    "final_round": 3,
+    "final_predicted_title": "Magnetic Eyelashes, Eyelashes, Eyelash Extensions, Eyelash Extensions, Eyelash Extensions",
+    "attempts": [
+      {
+        "round": 0,
+        "predicted_title": "Magnetic Eyelashes",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B09PL113ZV",
+            "title": "Magnetic Eyelashes",
+            "score": 0.999972
+          },
+          {
+            "item_id": "B096VBHMHB",
+            "title": "Magnetic Eyelashes",
+            "score": 0.999972
+          },
+          {
+            "item_id": "B08C9SJMPG",
+            "title": "Magnetic Eyelashes",
+            "score": 0.999972
+          },
+          {
+            "item_id": "B093GX6XVV",
+            "title": "Magnetic Eyelashes",
+            "score": 0.999972
+          },
+          {
+            "item_id": "B07TZBG34L",
+            "title": "Magnetic Eyelashes",
+            "score": 0.999972
+          }
+        ]
+      },
+      {
+        "round": 1,
+        "predicted_title": "Magnetic Eyelashes, Eyelashes, Eyelash Extensions, Eyelash Extensions, Eyelash Extensions",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B083B9PXHT",
+            "title": "Magnetic Eyelashes, Magnetic Eyeliner",
+            "score": 0.982395
+          },
+          {
+            "item_id": "B0821WMTP2",
+            "title": "Magnetic Eyelashes With Eyeliner,",
+            "score": 0.980769
+          },
+          {
+            "item_id": "B08LYX2CLS",
+            "title": "Magnetic Eyelashes with Eyeliner,",
+            "score": 0.980175
+          },
+          {
+            "item_id": "B08NTD1NM1",
+            "title": "Magnetic Eyelashes with Eyeliner,",
+            "score": 0.980138
+          },
+          {
+            "item_id": "B07Z1GFBR5",
+            "title": "Magnetic Eyelashes with Eyeliner,",
+            "score": 0.980108
+          }
+        ]
+      },
+      {
+        "round": 2,
+        "predicted_title": "Magnetic Eyelashes, Eyelashes, Eyelash Extensions, Eyelash Extensions, Eyelash Extensions",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B083B9PXHT",
+            "title": "Magnetic Eyelashes, Magnetic Eyeliner",
+            "score": 0.982395
+          },
+          {
+            "item_id": "B0821WMTP2",
+            "title": "Magnetic Eyelashes With Eyeliner,",
+            "score": 0.980769
+          },
+          {
+            "item_id": "B08LYX2CLS",
+            "title": "Magnetic Eyelashes with Eyeliner,",
+            "score": 0.980175
+          },
+          {
+            "item_id": "B08NTD1NM1",
+            "title": "Magnetic Eyelashes with Eyeliner,",
+            "score": 0.980138
+          },
+          {
+            "item_id": "B07Z1GFBR5",
+            "title": "Magnetic Eyelashes with Eyeliner,",
+            "score": 0.980108
+          }
+        ]
+      },
+      {
+        "round": 3,
+        "predicted_title": "Magnetic Eyelashes, Eyelashes, Eyelash Extensions, Eyelash Extensions, Eyelash Extensions",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B083B9PXHT",
+            "title": "Magnetic Eyelashes, Magnetic Eyeliner",
+            "score": 0.982395
+          },
+          {
+            "item_id": "B0821WMTP2",
+            "title": "Magnetic Eyelashes With Eyeliner,",
+            "score": 0.980769
+          },
+          {
+            "item_id": "B08LYX2CLS",
+            "title": "Magnetic Eyelashes with Eyeliner,",
+            "score": 0.980175
+          },
+          {
+            "item_id": "B08NTD1NM1",
+            "title": "Magnetic Eyelashes with Eyeliner,",
+            "score": 0.980138
+          },
+          {
+            "item_id": "B07Z1GFBR5",
+            "title": "Magnetic Eyelashes with Eyeliner,",
+            "score": 0.980108
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "user_id": "AFQQQ5LGNSQUEBGDCYBAZZE5T3DA",
+    "target_item_id": "B07N53XT2T",
+    "target_title": "Klavuu Nourishing Care Lip",
+    "final_round": 3,
+    "final_predicted_title": "Sweat Cosmetics Glow On",
+    "attempts": [
+      {
+        "round": 0,
+        "predicted_title": "Sweat Cosmetics Glow On",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B07K1LGWYB",
+            "title": "Sweat Cosmetics Gleam On",
+            "score": 0.994783
+          },
+          {
+            "item_id": "B08FXPD3X7",
+            "title": "Goldenstarsport Thermogenic Sweat Cream",
+            "score": 0.969001
+          },
+          {
+            "item_id": "B07Q581NXM",
+            "title": "Trophy Wife Cosmetics Lipstick",
+            "score": 0.967766
+          },
+          {
+            "item_id": "B07Q42ZVHV",
+            "title": "Trophy Wife Cosmetics Lipstick",
+            "score": 0.967766
+          },
+          {
+            "item_id": "B07Q6BJKCW",
+            "title": "Trophy Wife Cosmetics Lipstick",
+            "score": 0.967766
+          }
+        ]
+      },
+      {
+        "round": 1,
+        "predicted_title": "Sweat Cosmetics Glow On",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B07K1LGWYB",
+            "title": "Sweat Cosmetics Gleam On",
+            "score": 0.99481
+          },
+          {
+            "item_id": "B08FXPD3X7",
+            "title": "Goldenstarsport Thermogenic Sweat Cream",
+            "score": 0.969156
+          },
+          {
+            "item_id": "B07Q581NXM",
+            "title": "Trophy Wife Cosmetics Lipstick",
+            "score": 0.967881
+          },
+          {
+            "item_id": "B07Q42ZVHV",
+            "title": "Trophy Wife Cosmetics Lipstick",
+            "score": 0.967881
+          },
+          {
+            "item_id": "B07Q6BJKCW",
+            "title": "Trophy Wife Cosmetics Lipstick",
+            "score": 0.967881
+          }
+        ]
+      },
+      {
+        "round": 2,
+        "predicted_title": "Sweat Cosmetics Glow On",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B07K1LGWYB",
+            "title": "Sweat Cosmetics Gleam On",
+            "score": 0.99481
+          },
+          {
+            "item_id": "B08FXPD3X7",
+            "title": "Goldenstarsport Thermogenic Sweat Cream",
+            "score": 0.969156
+          },
+          {
+            "item_id": "B07Q581NXM",
+            "title": "Trophy Wife Cosmetics Lipstick",
+            "score": 0.967881
+          },
+          {
+            "item_id": "B07Q42ZVHV",
+            "title": "Trophy Wife Cosmetics Lipstick",
+            "score": 0.967881
+          },
+          {
+            "item_id": "B07Q6BJKCW",
+            "title": "Trophy Wife Cosmetics Lipstick",
+            "score": 0.967881
+          }
+        ]
+      },
+      {
+        "round": 3,
+        "predicted_title": "Sweat Cosmetics Glow On",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B07K1LGWYB",
+            "title": "Sweat Cosmetics Gleam On",
+            "score": 0.99481
+          },
+          {
+            "item_id": "B08FXPD3X7",
+            "title": "Goldenstarsport Thermogenic Sweat Cream",
+            "score": 0.969156
+          },
+          {
+            "item_id": "B07Q581NXM",
+            "title": "Trophy Wife Cosmetics Lipstick",
+            "score": 0.967881
+          },
+          {
+            "item_id": "B07Q42ZVHV",
+            "title": "Trophy Wife Cosmetics Lipstick",
+            "score": 0.967881
+          },
+          {
+            "item_id": "B07Q6BJKCW",
+            "title": "Trophy Wife Cosmetics Lipstick",
+            "score": 0.967881
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "user_id": "AFTLUVGQWKW6XSQ5TB6UER5Q263A",
+    "target_item_id": "B0924GT395",
+    "target_title": "OSRSR Cryo Sticks,Unbreakable Stainless",
+    "final_round": 3,
+    "final_predicted_title": "COSYOO Hair Clips, Headbands,",
+    "attempts": [
+      {
+        "round": 0,
+        "predicted_title": "COSYOO Hair Clips,",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B07PB8SK4G",
+            "title": "COSYMAY Short Women Wig",
+            "score": 0.988153
+          },
+          {
+            "item_id": "B074DSDVKL",
+            "title": "SSANAI Hair Setter -",
+            "score": 0.987624
+          },
+          {
+            "item_id": "B08RZ1T6TQ",
+            "title": "COSYLAND Bath Pillow",
+            "score": 0.987257
+          },
+          {
+            "item_id": "B08924SR6Z",
+            "title": "LORYP Makeup Brush Sets",
+            "score": 0.984573
+          },
+          {
+            "item_id": "B08812TBXG",
+            "title": "MEICOLY Highlight Stick Double",
+            "score": 0.984414
+          }
+        ]
+      },
+      {
+        "round": 1,
+        "predicted_title": "COSYOO Hair Clips, Headbands,",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B0791X6SFT",
+            "title": "SLEEK Hair Tie Bracelet",
+            "score": 0.983205
+          },
+          {
+            "item_id": "B0791ZCWKT",
+            "title": "SAVI SLEEK Hair Tie Bracelet",
+            "score": 0.980858
+          },
+          {
+            "item_id": "B08GQQ2MW3",
+            "title": "GLAMFIELDS Professional Hair Clips,",
+            "score": 0.979568
+          },
+          {
+            "item_id": "B09BN5TYK5",
+            "title": "COSYOO Fashion Boho Headbands",
+            "score": 0.978676
+          },
+          {
+            "item_id": "B08GWWN5NN",
+            "title": "ZILING Headband Wig Human",
+            "score": 0.978351
+          }
+        ]
+      },
+      {
+        "round": 2,
+        "predicted_title": "COSYOO Hair Clips, Headbands,",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B0791X6SFT",
+            "title": "SLEEK Hair Tie Bracelet",
+            "score": 0.983205
+          },
+          {
+            "item_id": "B0791ZCWKT",
+            "title": "SAVI SLEEK Hair Tie Bracelet",
+            "score": 0.980858
+          },
+          {
+            "item_id": "B08GQQ2MW3",
+            "title": "GLAMFIELDS Professional Hair Clips,",
+            "score": 0.979568
+          },
+          {
+            "item_id": "B09BN5TYK5",
+            "title": "COSYOO Fashion Boho Headbands",
+            "score": 0.978676
+          },
+          {
+            "item_id": "B08GWWN5NN",
+            "title": "ZILING Headband Wig Human",
+            "score": 0.978351
+          }
+        ]
+      },
+      {
+        "round": 3,
+        "predicted_title": "COSYOO Hair Clips, Headbands,",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B0791X6SFT",
+            "title": "SLEEK Hair Tie Bracelet",
+            "score": 0.983205
+          },
+          {
+            "item_id": "B0791ZCWKT",
+            "title": "SAVI SLEEK Hair Tie Bracelet",
+            "score": 0.980858
+          },
+          {
+            "item_id": "B08GQQ2MW3",
+            "title": "GLAMFIELDS Professional Hair Clips,",
+            "score": 0.979568
+          },
+          {
+            "item_id": "B09BN5TYK5",
+            "title": "COSYOO Fashion Boho Headbands",
+            "score": 0.978676
+          },
+          {
+            "item_id": "B08GWWN5NN",
+            "title": "ZILING Headband Wig Human",
+            "score": 0.978351
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "user_id": "AFV22L7AEKI2LW6HMLRLUKNYVBGQ",
+    "target_item_id": "B08L5XMLFZ",
+    "target_title": "Emirde Collapsible Foot",
+    "final_round": 3,
+    "final_predicted_title": "Lipstick",
+    "attempts": [
+      {
+        "round": 0,
+        "predicted_title": "Lipstick",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B087383WB9",
+            "title": "Lip Gloss",
+            "score": 0.990189
+          },
+          {
+            "item_id": "B00DJBTRQ0",
+            "title": "Lip Gloss",
+            "score": 0.990024
+          },
+          {
+            "item_id": "B07CJ7GXMX",
+            "title": "Lip Brush",
+            "score": 0.989073
+          },
+          {
+            "item_id": "B06XGGHYTZ",
+            "title": "Lip Brush",
+            "score": 0.989073
+          },
+          {
+            "item_id": "B07CKJ4JFL",
+            "title": "Lip Brush",
+            "score": 0.988914
+          }
+        ]
+      },
+      {
+        "round": 1,
+        "predicted_title": "Lipstick",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B087383WB9",
+            "title": "Lip Gloss",
+            "score": 0.989991
+          },
+          {
+            "item_id": "B00DJBTRQ0",
+            "title": "Lip Gloss",
+            "score": 0.989825
+          },
+          {
+            "item_id": "B07CJ7GXMX",
+            "title": "Lip Brush",
+            "score": 0.988879
+          },
+          {
+            "item_id": "B06XGGHYTZ",
+            "title": "Lip Brush",
+            "score": 0.988879
+          },
+          {
+            "item_id": "B07CKJ4JFL",
+            "title": "Lip Brush",
+            "score": 0.988723
+          }
+        ]
+      },
+      {
+        "round": 2,
+        "predicted_title": "Lipstick",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B087383WB9",
+            "title": "Lip Gloss",
+            "score": 0.989991
+          },
+          {
+            "item_id": "B00DJBTRQ0",
+            "title": "Lip Gloss",
+            "score": 0.989825
+          },
+          {
+            "item_id": "B07CJ7GXMX",
+            "title": "Lip Brush",
+            "score": 0.988879
+          },
+          {
+            "item_id": "B06XGGHYTZ",
+            "title": "Lip Brush",
+            "score": 0.988879
+          },
+          {
+            "item_id": "B07CKJ4JFL",
+            "title": "Lip Brush",
+            "score": 0.988723
+          }
+        ]
+      },
+      {
+        "round": 3,
+        "predicted_title": "Lipstick",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B087383WB9",
+            "title": "Lip Gloss",
+            "score": 0.989991
+          },
+          {
+            "item_id": "B00DJBTRQ0",
+            "title": "Lip Gloss",
+            "score": 0.989825
+          },
+          {
+            "item_id": "B07CJ7GXMX",
+            "title": "Lip Brush",
+            "score": 0.988879
+          },
+          {
+            "item_id": "B06XGGHYTZ",
+            "title": "Lip Brush",
+            "score": 0.988879
+          },
+          {
+            "item_id": "B07CKJ4JFL",
+            "title": "Lip Brush",
+            "score": 0.988723
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "user_id": "AGMZO7NPGHYPLCOCLMQEDGKNCHVA",
+    "target_item_id": "B0BL2Q5PYZ",
+    "target_title": "1PCS Sparkling Crystal Stone",
+    "final_round": 3,
+    "final_predicted_title": "Klavuu Nourishing Care Lip",
+    "attempts": [
+      {
+        "round": 0,
+        "predicted_title": "Klavuu Nourishing Care Lip",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B07N53XT2T",
+            "title": "Klavuu Nourishing Care Lip",
+            "score": 0.999963
+          },
+          {
+            "item_id": "B08FHY5DFB",
+            "title": "Eakroo Moisturize Lip Gloss",
+            "score": 0.972694
+          },
+          {
+            "item_id": "B07VRD5BQK",
+            "title": "YNN Kakadu Plum Moisturizer",
+            "score": 0.966324
+          },
+          {
+            "item_id": "B08HLXVJXB",
+            "title": "Lanrena Monokuma Hair Clips",
+            "score": 0.966243
+          },
+          {
+            "item_id": "B08DXLRTSB",
+            "title": "Laloirelle Luminous Face Oil",
+            "score": 0.966216
+          }
+        ]
+      },
+      {
+        "round": 1,
+        "predicted_title": "Klavuu Nourishing Care Lip",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B07N53XT2T",
+            "title": "Klavuu Nourishing Care Lip",
+            "score": 0.999947
+          },
+          {
+            "item_id": "B08FHY5DFB",
+            "title": "Eakroo Moisturize Lip Gloss",
+            "score": 0.972823
+          },
+          {
+            "item_id": "B07VRD5BQK",
+            "title": "YNN Kakadu Plum Moisturizer",
+            "score": 0.966494
+          },
+          {
+            "item_id": "B08DXLRTSB",
+            "title": "Laloirelle Luminous Face Oil",
+            "score": 0.96643
+          },
+          {
+            "item_id": "B08HLXVJXB",
+            "title": "Lanrena Monokuma Hair Clips",
+            "score": 0.966229
+          }
+        ]
+      },
+      {
+        "round": 2,
+        "predicted_title": "Klavuu Nourishing Care Lip",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B07N53XT2T",
+            "title": "Klavuu Nourishing Care Lip",
+            "score": 0.999947
+          },
+          {
+            "item_id": "B08FHY5DFB",
+            "title": "Eakroo Moisturize Lip Gloss",
+            "score": 0.972823
+          },
+          {
+            "item_id": "B07VRD5BQK",
+            "title": "YNN Kakadu Plum Moisturizer",
+            "score": 0.966494
+          },
+          {
+            "item_id": "B08DXLRTSB",
+            "title": "Laloirelle Luminous Face Oil",
+            "score": 0.96643
+          },
+          {
+            "item_id": "B08HLXVJXB",
+            "title": "Lanrena Monokuma Hair Clips",
+            "score": 0.966229
+          }
+        ]
+      },
+      {
+        "round": 3,
+        "predicted_title": "Klavuu Nourishing Care Lip",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B07N53XT2T",
+            "title": "Klavuu Nourishing Care Lip",
+            "score": 0.999947
+          },
+          {
+            "item_id": "B08FHY5DFB",
+            "title": "Eakroo Moisturize Lip Gloss",
+            "score": 0.972823
+          },
+          {
+            "item_id": "B07VRD5BQK",
+            "title": "YNN Kakadu Plum Moisturizer",
+            "score": 0.966494
+          },
+          {
+            "item_id": "B08DXLRTSB",
+            "title": "Laloirelle Luminous Face Oil",
+            "score": 0.96643
+          },
+          {
+            "item_id": "B08HLXVJXB",
+            "title": "Lanrena Monokuma Hair Clips",
+            "score": 0.966229
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "user_id": "AFHRPCWEWPAAA2ZVLDTJHDIFR3VA",
+    "target_item_id": "B08MRRNL18",
+    "target_title": "Lenghthening Mascara by Almay,Volume",
+    "final_round": 3,
+    "final_predicted_title": "Eyeshadow Palette,",
+    "attempts": [
+      {
+        "round": 0,
+        "predicted_title": "i-Color",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B07JHW6VWB",
+            "title": "i-Color",
+            "score": 0.999993
+          },
+          {
+            "item_id": "B07F8D9C41",
+            "title": "i-Color",
+            "score": 0.999992
+          },
+          {
+            "item_id": "B006PTW5J4",
+            "title": "i-Color Liner",
+            "score": 0.978557
+          },
+          {
+            "item_id": "B07YS9ZYX7",
+            "title": "AcVATEEN",
+            "score": 0.970188
+          },
+          {
+            "item_id": "B06XWWQXGR",
+            "title": "T-Outliner",
+            "score": 0.969658
+          }
+        ]
+      },
+      {
+        "round": 1,
+        "predicted_title": "i-Color Eyeshadow Palette",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B00V9NIR5C",
+            "title": "i-Divine Eyeshadow Palette",
+            "score": 0.983343
+          },
+          {
+            "item_id": "B09L7D762N",
+            "title": "Colourpop ColourPop Eyeshadow Palette",
+            "score": 0.982187
+          },
+          {
+            "item_id": "B09L7DT69X",
+            "title": "Colourpop Eyeshadow Palette (THE",
+            "score": 0.980664
+          },
+          {
+            "item_id": "B073GZ2BL5",
+            "title": "14 Color Eyeshadow Palette",
+            "score": 0.98054
+          },
+          {
+            "item_id": "B08999621C",
+            "title": "Pro 88 Colors Eyeshadow",
+            "score": 0.978944
+          }
+        ]
+      },
+      {
+        "round": 2,
+        "predicted_title": "Eyeshadow Palette,",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B07QPZRQCR",
+            "title": "Eyeshadow Palette",
+            "score": 0.990071
+          },
+          {
+            "item_id": "B084C5CQ5G",
+            "title": "Eyeshadow Palette",
+            "score": 0.98923
+          },
+          {
+            "item_id": "B07ZT1DW4Y",
+            "title": "Eyeshadow Palette",
+            "score": 0.98923
+          },
+          {
+            "item_id": "B07HQJ5W4R",
+            "title": "Eyeshadow Palette",
+            "score": 0.989229
+          },
+          {
+            "item_id": "B009IGKSWW",
+            "title": "Eyeshadow Palette",
+            "score": 0.989049
+          }
+        ]
+      },
+      {
+        "round": 3,
+        "predicted_title": "Eyeshadow Palette,",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B07QPZRQCR",
+            "title": "Eyeshadow Palette",
+            "score": 0.990071
+          },
+          {
+            "item_id": "B084C5CQ5G",
+            "title": "Eyeshadow Palette",
+            "score": 0.98923
+          },
+          {
+            "item_id": "B07ZT1DW4Y",
+            "title": "Eyeshadow Palette",
+            "score": 0.98923
+          },
+          {
+            "item_id": "B07HQJ5W4R",
+            "title": "Eyeshadow Palette",
+            "score": 0.989229
+          },
+          {
+            "item_id": "B009IGKSWW",
+            "title": "Eyeshadow Palette",
+            "score": 0.989049
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "user_id": "AFGDRVPCP742YM5MMLFIKZCGNNRQ",
+    "target_item_id": "B08RRSPNWV",
+    "target_title": "BeautyStat Cosmetics Universal Moisture",
+    "final_round": 3,
+    "final_predicted_title": "Yachyee Hair Removal Device",
+    "attempts": [
+      {
+        "round": 0,
+        "predicted_title": "Yachyee Hair Removal Device",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B09GVHT2D3",
+            "title": "Yachyee Hair Removal Device",
+            "score": 0.999981
+          },
+          {
+            "item_id": "B089KBGTVM",
+            "title": "Sunoiy Hair Clippers for",
+            "score": 0.981821
+          },
+          {
+            "item_id": "B00UL8RJ1Y",
+            "title": "Mookiraer Hair Accessories Lovely",
+            "score": 0.981196
+          },
+          {
+            "item_id": "B07PS9P916",
+            "title": "Andlane Hair Bun Maker",
+            "score": 0.980885
+          },
+          {
+            "item_id": "B07BH5MJV9",
+            "title": "Big Kizzy Hair Extensions",
+            "score": 0.980779
+          }
+        ]
+      },
+      {
+        "round": 1,
+        "predicted_title": "Yachyee Hair Removal Device",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B09GVHT2D3",
+            "title": "Yachyee Hair Removal Device",
+            "score": 0.99994
+          },
+          {
+            "item_id": "B089KBGTVM",
+            "title": "Sunoiy Hair Clippers for",
+            "score": 0.981574
+          },
+          {
+            "item_id": "B07BH5MJV9",
+            "title": "Big Kizzy Hair Extensions",
+            "score": 0.981173
+          },
+          {
+            "item_id": "B00UL8RJ1Y",
+            "title": "Mookiraer Hair Accessories Lovely",
+            "score": 0.981042
+          },
+          {
+            "item_id": "B07PS9P916",
+            "title": "Andlane Hair Bun Maker",
+            "score": 0.980886
+          }
+        ]
+      },
+      {
+        "round": 2,
+        "predicted_title": "Yachyee Hair Removal Device",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B09GVHT2D3",
+            "title": "Yachyee Hair Removal Device",
+            "score": 0.99994
+          },
+          {
+            "item_id": "B089KBGTVM",
+            "title": "Sunoiy Hair Clippers for",
+            "score": 0.981574
+          },
+          {
+            "item_id": "B07BH5MJV9",
+            "title": "Big Kizzy Hair Extensions",
+            "score": 0.981173
+          },
+          {
+            "item_id": "B00UL8RJ1Y",
+            "title": "Mookiraer Hair Accessories Lovely",
+            "score": 0.981042
+          },
+          {
+            "item_id": "B07PS9P916",
+            "title": "Andlane Hair Bun Maker",
+            "score": 0.980886
+          }
+        ]
+      },
+      {
+        "round": 3,
+        "predicted_title": "Yachyee Hair Removal Device",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B09GVHT2D3",
+            "title": "Yachyee Hair Removal Device",
+            "score": 0.99994
+          },
+          {
+            "item_id": "B089KBGTVM",
+            "title": "Sunoiy Hair Clippers for",
+            "score": 0.981574
+          },
+          {
+            "item_id": "B07BH5MJV9",
+            "title": "Big Kizzy Hair Extensions",
+            "score": 0.981173
+          },
+          {
+            "item_id": "B00UL8RJ1Y",
+            "title": "Mookiraer Hair Accessories Lovely",
+            "score": 0.981042
+          },
+          {
+            "item_id": "B07PS9P916",
+            "title": "Andlane Hair Bun Maker",
+            "score": 0.980886
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "user_id": "AFUSWNVA72MMWHGYWJ652SYX2JJQ",
+    "target_item_id": "B09NFQ69KT",
+    "target_title": "ZUK Lipstick",
+    "final_round": 3,
+    "final_predicted_title": "Organic Bamboo Cotton Ear",
+    "attempts": [
+      {
+        "round": 0,
+        "predicted_title": "Organic Bamboo Cotton Ear",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B07KG1TWP5",
+            "title": "Organic Bamboo Cotton Ear",
+            "score": 0.99998
+          },
+          {
+            "item_id": "B08M44T31C",
+            "title": "Organic Hair Spray by",
+            "score": 0.942519
+          },
+          {
+            "item_id": "B07849GCNG",
+            "title": "Organic Hair Spray by",
+            "score": 0.942358
+          },
+          {
+            "item_id": "B017I3PBBY",
+            "title": "Organic Beard Oil by",
+            "score": 0.942066
+          },
+          {
+            "item_id": "B014EUKL6O",
+            "title": "Organic Face Wash By",
+            "score": 0.941948
+          }
+        ]
+      },
+      {
+        "round": 1,
+        "predicted_title": "Organic Bamboo Cotton Ear",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B07KG1TWP5",
+            "title": "Organic Bamboo Cotton Ear",
+            "score": 0.999972
+          },
+          {
+            "item_id": "B08M44T31C",
+            "title": "Organic Hair Spray by",
+            "score": 0.942417
+          },
+          {
+            "item_id": "B07849GCNG",
+            "title": "Organic Hair Spray by",
+            "score": 0.942256
+          },
+          {
+            "item_id": "B014EUKL6O",
+            "title": "Organic Face Wash By",
+            "score": 0.941976
+          },
+          {
+            "item_id": "B017I3PBBY",
+            "title": "Organic Beard Oil by",
+            "score": 0.941966
+          }
+        ]
+      },
+      {
+        "round": 2,
+        "predicted_title": "Organic Bamboo Cotton Ear",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B07KG1TWP5",
+            "title": "Organic Bamboo Cotton Ear",
+            "score": 0.999972
+          },
+          {
+            "item_id": "B08M44T31C",
+            "title": "Organic Hair Spray by",
+            "score": 0.942417
+          },
+          {
+            "item_id": "B07849GCNG",
+            "title": "Organic Hair Spray by",
+            "score": 0.942256
+          },
+          {
+            "item_id": "B014EUKL6O",
+            "title": "Organic Face Wash By",
+            "score": 0.941976
+          },
+          {
+            "item_id": "B017I3PBBY",
+            "title": "Organic Beard Oil by",
+            "score": 0.941966
+          }
+        ]
+      },
+      {
+        "round": 3,
+        "predicted_title": "Organic Bamboo Cotton Ear",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B07KG1TWP5",
+            "title": "Organic Bamboo Cotton Ear",
+            "score": 0.999972
+          },
+          {
+            "item_id": "B08M44T31C",
+            "title": "Organic Hair Spray by",
+            "score": 0.942417
+          },
+          {
+            "item_id": "B07849GCNG",
+            "title": "Organic Hair Spray by",
+            "score": 0.942256
+          },
+          {
+            "item_id": "B014EUKL6O",
+            "title": "Organic Face Wash By",
+            "score": 0.941976
+          },
+          {
+            "item_id": "B017I3PBBY",
+            "title": "Organic Beard Oil by",
+            "score": 0.941966
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "user_id": "AFWRGOGF4AI2IHRX7KZ2IYL63RXA",
+    "target_item_id": "B01MTQ5C17",
+    "target_title": "Honest For Men Black",
+    "final_round": 1,
+    "final_predicted_title": "Honest For Men Mint",
+    "attempts": [
+      {
+        "round": 0,
+        "predicted_title": "[title22",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B01CDEJ1H8",
+            "title": "[title22",
+            "score": 0.999987
+          },
+          {
+            "item_id": "B01C8Y3KCA",
+            "title": "[title21",
+            "score": 0.999769
+          },
+          {
+            "item_id": "B01F5ZY6DG",
+            "title": "[title23",
+            "score": 0.999762
+          },
+          {
+            "item_id": "B01CHCUEL8",
+            "title": "[title27",
+            "score": 0.999713
+          },
+          {
+            "item_id": "B01CHCUD4G",
+            "title": "[title26",
+            "score": 0.999662
+          }
+        ]
+      },
+      {
+        "round": 1,
+        "predicted_title": "Honest For Men Mint",
+        "hit_in_top5": true,
+        "top_5": [
+          {
+            "item_id": "B01MYPDMEU",
+            "title": "Honest For Men Mint",
+            "score": 0.999982
+          },
+          {
+            "item_id": "B01MTQ5C17",
+            "title": "Honest For Men Black",
+            "score": 0.995314
+          },
+          {
+            "item_id": "B00RI8D63K",
+            "title": "Mesmerize for Men",
+            "score": 0.981056
+          },
+          {
+            "item_id": "B0B85L2JTC",
+            "title": "Crave Extreme For Men",
+            "score": 0.980836
+          },
+          {
+            "item_id": "B07P68V69Z",
+            "title": "Ownest Women Long Lasting",
+            "score": 0.978952
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "user_id": "AGS47C3SO62X375JL7RWNBKCFXXA",
+    "target_item_id": "B00SGCP90A",
+    "target_title": "John Frieda Brilliant Brunette",
+    "final_round": 3,
+    "final_predicted_title": "Bath Bombs",
+    "attempts": [
+      {
+        "round": 0,
+        "predicted_title": "Bath Bombs",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B08HK5WX81",
+            "title": "Bath Bombs",
+            "score": 0.999918
+          },
+          {
+            "item_id": "B08GNZ9VZZ",
+            "title": "Bath Bombs",
+            "score": 0.999892
+          },
+          {
+            "item_id": "B07MV66QZD",
+            "title": "Bath Bombs",
+            "score": 0.999892
+          },
+          {
+            "item_id": "B01MSMH8FC",
+            "title": "Bath Bombs - Hand",
+            "score": 0.978161
+          },
+          {
+            "item_id": "B079Z292G8",
+            "title": "Bath Bombs For Kids",
+            "score": 0.975336
+          }
+        ]
+      },
+      {
+        "round": 1,
+        "predicted_title": "Bath Bombs",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B08HK5WX81",
+            "title": "Bath Bombs",
+            "score": 0.999918
+          },
+          {
+            "item_id": "B08GNZ9VZZ",
+            "title": "Bath Bombs",
+            "score": 0.999892
+          },
+          {
+            "item_id": "B07MV66QZD",
+            "title": "Bath Bombs",
+            "score": 0.999892
+          },
+          {
+            "item_id": "B01MSMH8FC",
+            "title": "Bath Bombs - Hand",
+            "score": 0.978161
+          },
+          {
+            "item_id": "B079Z292G8",
+            "title": "Bath Bombs For Kids",
+            "score": 0.975336
+          }
+        ]
+      },
+      {
+        "round": 2,
+        "predicted_title": "Bath Bombs",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B08HK5WX81",
+            "title": "Bath Bombs",
+            "score": 0.999915
+          },
+          {
+            "item_id": "B08GNZ9VZZ",
+            "title": "Bath Bombs",
+            "score": 0.999895
+          },
+          {
+            "item_id": "B07MV66QZD",
+            "title": "Bath Bombs",
+            "score": 0.999895
+          },
+          {
+            "item_id": "B01MSMH8FC",
+            "title": "Bath Bombs - Hand",
+            "score": 0.97852
+          },
+          {
+            "item_id": "B079Z292G8",
+            "title": "Bath Bombs For Kids",
+            "score": 0.975819
+          }
+        ]
+      },
+      {
+        "round": 3,
+        "predicted_title": "Bath Bombs",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B08HK5WX81",
+            "title": "Bath Bombs",
+            "score": 0.999915
+          },
+          {
+            "item_id": "B08GNZ9VZZ",
+            "title": "Bath Bombs",
+            "score": 0.999895
+          },
+          {
+            "item_id": "B07MV66QZD",
+            "title": "Bath Bombs",
+            "score": 0.999895
+          },
+          {
+            "item_id": "B01MSMH8FC",
+            "title": "Bath Bombs - Hand",
+            "score": 0.97852
+          },
+          {
+            "item_id": "B079Z292G8",
+            "title": "Bath Bombs For Kids",
+            "score": 0.975819
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "user_id": "AHPOHKN4PU4W3V5PGFL7AGTAD2AA",
+    "target_item_id": "B07KQ32Z8C",
+    "target_title": "APIVITA Queen Bee Holistic",
+    "final_round": 3,
+    "final_predicted_title": "Gel Nail Polish Set,",
+    "attempts": [
+      {
+        "round": 0,
+        "predicted_title": "Gel Nail Polish Set,",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B08CVCLVS2",
+            "title": "Gel Nail Polish Set,",
+            "score": 0.999983
+          },
+          {
+            "item_id": "B0876VC4KM",
+            "title": "Gel Nail Polish Set,",
+            "score": 0.999982
+          },
+          {
+            "item_id": "B09BZB4GG5",
+            "title": "Gel Nail Polish Kit,",
+            "score": 0.999111
+          },
+          {
+            "item_id": "B07BNFNM46",
+            "title": "Gel Nail Polish Set,4",
+            "score": 0.996397
+          },
+          {
+            "item_id": "B094JJJFHG",
+            "title": "Gel Nail Polish Kit",
+            "score": 0.994325
+          }
+        ]
+      },
+      {
+        "round": 1,
+        "predicted_title": "Gel Nail Polish Set,",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B08CVCLVS2",
+            "title": "Gel Nail Polish Set,",
+            "score": 0.999983
+          },
+          {
+            "item_id": "B0876VC4KM",
+            "title": "Gel Nail Polish Set,",
+            "score": 0.999982
+          },
+          {
+            "item_id": "B09BZB4GG5",
+            "title": "Gel Nail Polish Kit,",
+            "score": 0.999111
+          },
+          {
+            "item_id": "B07BNFNM46",
+            "title": "Gel Nail Polish Set,4",
+            "score": 0.996397
+          },
+          {
+            "item_id": "B094JJJFHG",
+            "title": "Gel Nail Polish Kit",
+            "score": 0.994325
+          }
+        ]
+      },
+      {
+        "round": 2,
+        "predicted_title": "Gel Nail Polish Set,",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B0876VC4KM",
+            "title": "Gel Nail Polish Set,",
+            "score": 0.999988
+          },
+          {
+            "item_id": "B08CVCLVS2",
+            "title": "Gel Nail Polish Set,",
+            "score": 0.999987
+          },
+          {
+            "item_id": "B09BZB4GG5",
+            "title": "Gel Nail Polish Kit,",
+            "score": 0.999095
+          },
+          {
+            "item_id": "B07BNFNM46",
+            "title": "Gel Nail Polish Set,4",
+            "score": 0.996369
+          },
+          {
+            "item_id": "B094JJJFHG",
+            "title": "Gel Nail Polish Kit",
+            "score": 0.994367
+          }
+        ]
+      },
+      {
+        "round": 3,
+        "predicted_title": "Gel Nail Polish Set,",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B0876VC4KM",
+            "title": "Gel Nail Polish Set,",
+            "score": 0.999988
+          },
+          {
+            "item_id": "B08CVCLVS2",
+            "title": "Gel Nail Polish Set,",
+            "score": 0.999987
+          },
+          {
+            "item_id": "B09BZB4GG5",
+            "title": "Gel Nail Polish Kit,",
+            "score": 0.999095
+          },
+          {
+            "item_id": "B07BNFNM46",
+            "title": "Gel Nail Polish Set,4",
+            "score": 0.996369
+          },
+          {
+            "item_id": "B094JJJFHG",
+            "title": "Gel Nail Polish Kit",
+            "score": 0.994367
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "user_id": "AF2BLE54TEMGZ546U763ZHZRXC4A",
+    "target_item_id": "B08K2WH8LK",
+    "target_title": "UNNY CLUB Cover Glow",
+    "final_round": 3,
+    "final_predicted_title": "LUXELOO 100% Pure Argan, Argan Oil, Hair",
+    "attempts": [
+      {
+        "round": 0,
+        "predicted_title": "LUXELOO 100% Pure Argan",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B010USX5S0",
+            "title": "SENREAL 100% Natural Beautiful",
+            "score": 0.985535
+          },
+          {
+            "item_id": "B095HHZMF5",
+            "title": "SATINIOR 16 Pieces Stretch",
+            "score": 0.983629
+          },
+          {
+            "item_id": "B08DCY6PYY",
+            "title": "SATINIOR 10 Pieces Button",
+            "score": 0.983141
+          },
+          {
+            "item_id": "B089XYKNFP",
+            "title": "BONNIESTORE 7 Colors 4D",
+            "score": 0.983107
+          },
+          {
+            "item_id": "B01NCXDC0D",
+            "title": "HANNE 300G Brazilian Virgin",
+            "score": 0.982983
+          }
+        ]
+      },
+      {
+        "round": 1,
+        "predicted_title": "LUXELOO 100% Pure Argan",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B010USX5S0",
+            "title": "SENREAL 100% Natural Beautiful",
+            "score": 0.985535
+          },
+          {
+            "item_id": "B095HHZMF5",
+            "title": "SATINIOR 16 Pieces Stretch",
+            "score": 0.983629
+          },
+          {
+            "item_id": "B08DCY6PYY",
+            "title": "SATINIOR 10 Pieces Button",
+            "score": 0.983141
+          },
+          {
+            "item_id": "B089XYKNFP",
+            "title": "BONNIESTORE 7 Colors 4D",
+            "score": 0.983107
+          },
+          {
+            "item_id": "B01NCXDC0D",
+            "title": "HANNE 300G Brazilian Virgin",
+            "score": 0.982983
+          }
+        ]
+      },
+      {
+        "round": 2,
+        "predicted_title": "LUXELOO 100% Pure Argan, Argan Oil, Hair",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B0753DXWBH",
+            "title": "OFFERNOVA Organic Castor Oil,",
+            "score": 0.977832
+          },
+          {
+            "item_id": "B0BLTBH4KF",
+            "title": "PENEBELLA Eye Cream, Natural",
+            "score": 0.975426
+          },
+          {
+            "item_id": "B00AWD0DU2",
+            "title": "FREUDEWOOD™ Handmade 100% Red",
+            "score": 0.974728
+          },
+          {
+            "item_id": "B08GCJZW9V",
+            "title": "KLAVUU Pure Pearlsation pH",
+            "score": 0.974608
+          },
+          {
+            "item_id": "B08M5MQP59",
+            "title": "O'JIVA Pure 24k Gold",
+            "score": 0.974347
+          }
+        ]
+      },
+      {
+        "round": 3,
+        "predicted_title": "LUXELOO 100% Pure Argan, Argan Oil, Hair",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B0753DXWBH",
+            "title": "OFFERNOVA Organic Castor Oil,",
+            "score": 0.977832
+          },
+          {
+            "item_id": "B0BLTBH4KF",
+            "title": "PENEBELLA Eye Cream, Natural",
+            "score": 0.975426
+          },
+          {
+            "item_id": "B00AWD0DU2",
+            "title": "FREUDEWOOD™ Handmade 100% Red",
+            "score": 0.974728
+          },
+          {
+            "item_id": "B08GCJZW9V",
+            "title": "KLAVUU Pure Pearlsation pH",
+            "score": 0.974608
+          },
+          {
+            "item_id": "B08M5MQP59",
+            "title": "O'JIVA Pure 24k Gold",
+            "score": 0.974347
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "user_id": "AFAAITODQWTP5HUV2E7QDRXRHERA",
+    "target_item_id": "B08S2LYN64",
+    "target_title": "Long Black Wavy Wig",
+    "final_round": 3,
+    "final_predicted_title": "Bath Towels for",
+    "attempts": [
+      {
+        "round": 0,
+        "predicted_title": "Bath Towels for",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B092JHXJB9",
+            "title": "Bath Pillow for",
+            "score": 0.980559
+          },
+          {
+            "item_id": "B088ZVSLYP",
+            "title": "Bath Pillow for",
+            "score": 0.980559
+          },
+          {
+            "item_id": "B097TGX1J6",
+            "title": "Bath Tub Pillow",
+            "score": 0.97405
+          },
+          {
+            "item_id": "B08PBR4ZP8",
+            "title": "Bath Pillows for Tub,",
+            "score": 0.973168
+          },
+          {
+            "item_id": "B07RHL64VV",
+            "title": "Bath Pillow for Tub,",
+            "score": 0.971997
+          }
+        ]
+      },
+      {
+        "round": 1,
+        "predicted_title": "Bath Towels for",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B092JHXJB9",
+            "title": "Bath Pillow for",
+            "score": 0.980559
+          },
+          {
+            "item_id": "B088ZVSLYP",
+            "title": "Bath Pillow for",
+            "score": 0.980559
+          },
+          {
+            "item_id": "B097TGX1J6",
+            "title": "Bath Tub Pillow",
+            "score": 0.97405
+          },
+          {
+            "item_id": "B08PBR4ZP8",
+            "title": "Bath Pillows for Tub,",
+            "score": 0.973168
+          },
+          {
+            "item_id": "B07RHL64VV",
+            "title": "Bath Pillow for Tub,",
+            "score": 0.971997
+          }
+        ]
+      },
+      {
+        "round": 2,
+        "predicted_title": "Bath Towels for",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B092JHXJB9",
+            "title": "Bath Pillow for",
+            "score": 0.980619
+          },
+          {
+            "item_id": "B088ZVSLYP",
+            "title": "Bath Pillow for",
+            "score": 0.980619
+          },
+          {
+            "item_id": "B097TGX1J6",
+            "title": "Bath Tub Pillow",
+            "score": 0.974045
+          },
+          {
+            "item_id": "B08PBR4ZP8",
+            "title": "Bath Pillows for Tub,",
+            "score": 0.973435
+          },
+          {
+            "item_id": "B07RHL64VV",
+            "title": "Bath Pillow for Tub,",
+            "score": 0.972267
+          }
+        ]
+      },
+      {
+        "round": 3,
+        "predicted_title": "Bath Towels for",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B092JHXJB9",
+            "title": "Bath Pillow for",
+            "score": 0.980619
+          },
+          {
+            "item_id": "B088ZVSLYP",
+            "title": "Bath Pillow for",
+            "score": 0.980619
+          },
+          {
+            "item_id": "B097TGX1J6",
+            "title": "Bath Tub Pillow",
+            "score": 0.974045
+          },
+          {
+            "item_id": "B08PBR4ZP8",
+            "title": "Bath Pillows for Tub,",
+            "score": 0.973435
+          },
+          {
+            "item_id": "B07RHL64VV",
+            "title": "Bath Pillow for Tub,",
+            "score": 0.972267
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "user_id": "AFHPJTBQYQHQXIFBAODXDAIGCGMQ",
+    "target_item_id": "B0B5Q9JK15",
+    "target_title": "Aonkia Human Hair Dreadlock",
+    "final_round": 3,
+    "final_predicted_title": "Magnetic Eyelashes",
+    "attempts": [
+      {
+        "round": 0,
+        "predicted_title": "Magnetic Eyelashes",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B08M427LZF",
+            "title": "Magnetic Eyelashes",
+            "score": 0.999969
+          },
+          {
+            "item_id": "B08DNCR582",
+            "title": "Magnetic Eyelashes",
+            "score": 0.999969
+          },
+          {
+            "item_id": "B07SG6VHM2",
+            "title": "Magnetic Eyelashes",
+            "score": 0.999969
+          },
+          {
+            "item_id": "B07BCBTXGC",
+            "title": "Magnetic Eyelashes",
+            "score": 0.999969
+          },
+          {
+            "item_id": "B088CQV89M",
+            "title": "Magnetic Eyelashes",
+            "score": 0.999967
+          }
+        ]
+      },
+      {
+        "round": 1,
+        "predicted_title": "Magnetic Eyelashes",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B08M427LZF",
+            "title": "Magnetic Eyelashes",
+            "score": 0.999969
+          },
+          {
+            "item_id": "B08DNCR582",
+            "title": "Magnetic Eyelashes",
+            "score": 0.999969
+          },
+          {
+            "item_id": "B07SG6VHM2",
+            "title": "Magnetic Eyelashes",
+            "score": 0.999969
+          },
+          {
+            "item_id": "B07BCBTXGC",
+            "title": "Magnetic Eyelashes",
+            "score": 0.999969
+          },
+          {
+            "item_id": "B088CQV89M",
+            "title": "Magnetic Eyelashes",
+            "score": 0.999967
+          }
+        ]
+      },
+      {
+        "round": 2,
+        "predicted_title": "Magnetic Eyelashes",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B093TDCWS8",
+            "title": "Magnetic Eyelashes",
+            "score": 0.999966
+          },
+          {
+            "item_id": "B093WB42CX",
+            "title": "Magnetic Eyelashes",
+            "score": 0.999966
+          },
+          {
+            "item_id": "B08F25HNGP",
+            "title": "Magnetic Eyelashes",
+            "score": 0.999966
+          },
+          {
+            "item_id": "B096VBHMHB",
+            "title": "Magnetic Eyelashes",
+            "score": 0.999964
+          },
+          {
+            "item_id": "B07TZBG34L",
+            "title": "Magnetic Eyelashes",
+            "score": 0.999964
+          }
+        ]
+      },
+      {
+        "round": 3,
+        "predicted_title": "Magnetic Eyelashes",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B093TDCWS8",
+            "title": "Magnetic Eyelashes",
+            "score": 0.999966
+          },
+          {
+            "item_id": "B093WB42CX",
+            "title": "Magnetic Eyelashes",
+            "score": 0.999966
+          },
+          {
+            "item_id": "B08F25HNGP",
+            "title": "Magnetic Eyelashes",
+            "score": 0.999966
+          },
+          {
+            "item_id": "B096VBHMHB",
+            "title": "Magnetic Eyelashes",
+            "score": 0.999964
+          },
+          {
+            "item_id": "B07TZBG34L",
+            "title": "Magnetic Eyelashes",
+            "score": 0.999964
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "user_id": "AGZMKHWSCB3UXDGFUPFRZSL4EAWQ",
+    "target_item_id": "B089RZ67T7",
+    "target_title": "Barber Hair Cutting",
+    "final_round": 3,
+    "final_predicted_title": "Coppertone Kids Clear Sunscreen",
+    "attempts": [
+      {
+        "round": 0,
+        "predicted_title": "Coppertone Kids Clear Sunscreen",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B084ZHP45Y",
+            "title": "Coppertone Kids Clear Sunscreen",
+            "score": 0.999916
+          },
+          {
+            "item_id": "B00F97J55K",
+            "title": "Coppertone Tattoo Guard Continuous",
+            "score": 0.977347
+          },
+          {
+            "item_id": "B01C93C5BC",
+            "title": "Coppertone Sport High Performance",
+            "score": 0.969391
+          },
+          {
+            "item_id": "B01BYKIA5Q",
+            "title": "Coppertone Sport Water Resistant",
+            "score": 0.962036
+          },
+          {
+            "item_id": "B00BLVT1L6",
+            "title": "Coppertone SPF 50 Tattoo",
+            "score": 0.95489
+          }
+        ]
+      },
+      {
+        "round": 1,
+        "predicted_title": "Coppertone Kids Clear Sunscreen",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B084ZHP45Y",
+            "title": "Coppertone Kids Clear Sunscreen",
+            "score": 0.999916
+          },
+          {
+            "item_id": "B00F97J55K",
+            "title": "Coppertone Tattoo Guard Continuous",
+            "score": 0.977347
+          },
+          {
+            "item_id": "B01C93C5BC",
+            "title": "Coppertone Sport High Performance",
+            "score": 0.969391
+          },
+          {
+            "item_id": "B01BYKIA5Q",
+            "title": "Coppertone Sport Water Resistant",
+            "score": 0.962036
+          },
+          {
+            "item_id": "B00BLVT1L6",
+            "title": "Coppertone SPF 50 Tattoo",
+            "score": 0.95489
+          }
+        ]
+      },
+      {
+        "round": 2,
+        "predicted_title": "Coppertone Kids Clear Sunscreen",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B084ZHP45Y",
+            "title": "Coppertone Kids Clear Sunscreen",
+            "score": 0.999873
+          },
+          {
+            "item_id": "B00F97J55K",
+            "title": "Coppertone Tattoo Guard Continuous",
+            "score": 0.976808
+          },
+          {
+            "item_id": "B01C93C5BC",
+            "title": "Coppertone Sport High Performance",
+            "score": 0.968562
+          },
+          {
+            "item_id": "B01BYKIA5Q",
+            "title": "Coppertone Sport Water Resistant",
+            "score": 0.961368
+          },
+          {
+            "item_id": "B00BLVT1L6",
+            "title": "Coppertone SPF 50 Tattoo",
+            "score": 0.954085
+          }
+        ]
+      },
+      {
+        "round": 3,
+        "predicted_title": "Coppertone Kids Clear Sunscreen",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B084ZHP45Y",
+            "title": "Coppertone Kids Clear Sunscreen",
+            "score": 0.999873
+          },
+          {
+            "item_id": "B00F97J55K",
+            "title": "Coppertone Tattoo Guard Continuous",
+            "score": 0.976808
+          },
+          {
+            "item_id": "B01C93C5BC",
+            "title": "Coppertone Sport High Performance",
+            "score": 0.968562
+          },
+          {
+            "item_id": "B01BYKIA5Q",
+            "title": "Coppertone Sport Water Resistant",
+            "score": 0.961368
+          },
+          {
+            "item_id": "B00BLVT1L6",
+            "title": "Coppertone SPF 50 Tattoo",
+            "score": 0.954085
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "user_id": "AF453YWNMOPDI5XRRVQOIF56NM4Q",
+    "target_item_id": "B0BL2Q5PYZ",
+    "target_title": "1PCS Sparkling Crystal Stone",
+    "final_round": 3,
+    "final_predicted_title": "L'ange Argan-Infused Round Brush",
+    "attempts": [
+      {
+        "round": 0,
+        "predicted_title": "L'ange Argan-Infused Round Brush",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B0B4VHNL46",
+            "title": "L’ange Argan-Infused Round Brush",
+            "score": 0.998493
+          },
+          {
+            "item_id": "B07RX25PSS",
+            "title": "L'ange Hair Brush",
+            "score": 0.979932
+          },
+          {
+            "item_id": "B0856P8V8Q",
+            "title": "L'ange Hair Le Compact",
+            "score": 0.977424
+          },
+          {
+            "item_id": "B07RNMZXNF",
+            "title": "L’ange Hair SIENA Thermal",
+            "score": 0.975242
+          },
+          {
+            "item_id": "B07RTZMXCF",
+            "title": "L’ange Hair SIENA Thermal",
+            "score": 0.975109
+          }
+        ]
+      },
+      {
+        "round": 1,
+        "predicted_title": "L'ange Argan-Infused Round Brush",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B0B4VHNL46",
+            "title": "L’ange Argan-Infused Round Brush",
+            "score": 0.998493
+          },
+          {
+            "item_id": "B07RX25PSS",
+            "title": "L'ange Hair Brush",
+            "score": 0.979932
+          },
+          {
+            "item_id": "B0856P8V8Q",
+            "title": "L'ange Hair Le Compact",
+            "score": 0.977424
+          },
+          {
+            "item_id": "B07RNMZXNF",
+            "title": "L’ange Hair SIENA Thermal",
+            "score": 0.975242
+          },
+          {
+            "item_id": "B07RTZMXCF",
+            "title": "L’ange Hair SIENA Thermal",
+            "score": 0.975109
+          }
+        ]
+      },
+      {
+        "round": 2,
+        "predicted_title": "L'ange Argan-Infused Round Brush",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B0B4VHNL46",
+            "title": "L’ange Argan-Infused Round Brush",
+            "score": 0.998443
+          },
+          {
+            "item_id": "B07RX25PSS",
+            "title": "L'ange Hair Brush",
+            "score": 0.979986
+          },
+          {
+            "item_id": "B0856P8V8Q",
+            "title": "L'ange Hair Le Compact",
+            "score": 0.977293
+          },
+          {
+            "item_id": "B07RNMZXNF",
+            "title": "L’ange Hair SIENA Thermal",
+            "score": 0.975417
+          },
+          {
+            "item_id": "B07RY4G99N",
+            "title": "L’ange Hair SIENA Thermal",
+            "score": 0.97529
+          }
+        ]
+      },
+      {
+        "round": 3,
+        "predicted_title": "L'ange Argan-Infused Round Brush",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B0B4VHNL46",
+            "title": "L’ange Argan-Infused Round Brush",
+            "score": 0.998443
+          },
+          {
+            "item_id": "B07RX25PSS",
+            "title": "L'ange Hair Brush",
+            "score": 0.979986
+          },
+          {
+            "item_id": "B0856P8V8Q",
+            "title": "L'ange Hair Le Compact",
+            "score": 0.977293
+          },
+          {
+            "item_id": "B07RNMZXNF",
+            "title": "L’ange Hair SIENA Thermal",
+            "score": 0.975417
+          },
+          {
+            "item_id": "B07RY4G99N",
+            "title": "L’ange Hair SIENA Thermal",
+            "score": 0.97529
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "user_id": "AE7YYSYFEWAYIUCAK4W33CHPP4JQ",
+    "target_item_id": "B08LG88SWS",
+    "target_title": "Bath Bombs Gift Basket",
+    "final_round": 3,
+    "final_predicted_title": "LUXE 100% Pure Argan Oil",
+    "attempts": [
+      {
+        "round": 0,
+        "predicted_title": "LUXE 100% Pure Argan Oil",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B06X9L2H8Z",
+            "title": "HANNE 300G Brazilian Virgin",
+            "score": 0.977862
+          },
+          {
+            "item_id": "B01NCXDC0D",
+            "title": "HANNE 300G Brazilian Virgin",
+            "score": 0.977849
+          },
+          {
+            "item_id": "B00AWD0DU2",
+            "title": "FREUDEWOOD™ Handmade 100% Red",
+            "score": 0.977054
+          },
+          {
+            "item_id": "B09KTVD37N",
+            "title": "URGINO 5D Nail Art",
+            "score": 0.976568
+          },
+          {
+            "item_id": "B06XT3LTR9",
+            "title": "SUYISUER 100% Natural Exfoliating",
+            "score": 0.976318
+          }
+        ]
+      },
+      {
+        "round": 1,
+        "predicted_title": "LUXE 100% Pure Argan Oil",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B06X9L2H8Z",
+            "title": "HANNE 300G Brazilian Virgin",
+            "score": 0.977862
+          },
+          {
+            "item_id": "B01NCXDC0D",
+            "title": "HANNE 300G Brazilian Virgin",
+            "score": 0.977849
+          },
+          {
+            "item_id": "B00AWD0DU2",
+            "title": "FREUDEWOOD™ Handmade 100% Red",
+            "score": 0.977054
+          },
+          {
+            "item_id": "B09KTVD37N",
+            "title": "URGINO 5D Nail Art",
+            "score": 0.976568
+          },
+          {
+            "item_id": "B06XT3LTR9",
+            "title": "SUYISUER 100% Natural Exfoliating",
+            "score": 0.976318
+          }
+        ]
+      },
+      {
+        "round": 2,
+        "predicted_title": "LUXE 100% Pure Argan Oil",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B06X9L2H8Z",
+            "title": "HANNE 300G Brazilian Virgin",
+            "score": 0.977951
+          },
+          {
+            "item_id": "B01NCXDC0D",
+            "title": "HANNE 300G Brazilian Virgin",
+            "score": 0.977938
+          },
+          {
+            "item_id": "B00AWD0DU2",
+            "title": "FREUDEWOOD™ Handmade 100% Red",
+            "score": 0.976976
+          },
+          {
+            "item_id": "B09KTVD37N",
+            "title": "URGINO 5D Nail Art",
+            "score": 0.976672
+          },
+          {
+            "item_id": "B06XT3LTR9",
+            "title": "SUYISUER 100% Natural Exfoliating",
+            "score": 0.976426
+          }
+        ]
+      },
+      {
+        "round": 3,
+        "predicted_title": "LUXE 100% Pure Argan Oil",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B06X9L2H8Z",
+            "title": "HANNE 300G Brazilian Virgin",
+            "score": 0.977951
+          },
+          {
+            "item_id": "B01NCXDC0D",
+            "title": "HANNE 300G Brazilian Virgin",
+            "score": 0.977938
+          },
+          {
+            "item_id": "B00AWD0DU2",
+            "title": "FREUDEWOOD™ Handmade 100% Red",
+            "score": 0.976976
+          },
+          {
+            "item_id": "B09KTVD37N",
+            "title": "URGINO 5D Nail Art",
+            "score": 0.976672
+          },
+          {
+            "item_id": "B06XT3LTR9",
+            "title": "SUYISUER 100% Natural Exfoliating",
+            "score": 0.976426
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "user_id": "AGVXN42IKSKKBNVFGKCMKIZEBNSQ",
+    "target_item_id": "B08ZNLBJ5B",
+    "target_title": "Aldqtz 3PCS Large Star",
+    "final_round": 3,
+    "final_predicted_title": "Magnetic Eyeliner",
+    "attempts": [
+      {
+        "round": 0,
+        "predicted_title": "Magnetic Eyeliner",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B07PPWWSCG",
+            "title": "Magnetic Eyeliner",
+            "score": 0.999968
+          },
+          {
+            "item_id": "B07NXTTR8N",
+            "title": "Magnetic Eyeliner",
+            "score": 0.999968
+          },
+          {
+            "item_id": "B08FFJ11CP",
+            "title": "Magnetic Eyeliner",
+            "score": 0.999962
+          },
+          {
+            "item_id": "B07WTZS8Q9",
+            "title": "Magnetic Eyeliner",
+            "score": 0.999962
+          },
+          {
+            "item_id": "B07WTYYQX8",
+            "title": "Magnetic Eyeliner",
+            "score": 0.999962
+          }
+        ]
+      },
+      {
+        "round": 1,
+        "predicted_title": "Magnetic Eyeliner",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B07WPBNBQF",
+            "title": "Magnetic Eyeliner",
+            "score": 0.99997
+          },
+          {
+            "item_id": "B084Z6T5FW",
+            "title": "Magnetic Eyeliner",
+            "score": 0.99997
+          },
+          {
+            "item_id": "B08FFJ11CP",
+            "title": "Magnetic Eyeliner",
+            "score": 0.999966
+          },
+          {
+            "item_id": "B07WTZS8Q9",
+            "title": "Magnetic Eyeliner",
+            "score": 0.999966
+          },
+          {
+            "item_id": "B07WRX9445",
+            "title": "Magnetic Eyeliner",
+            "score": 0.999966
+          }
+        ]
+      },
+      {
+        "round": 2,
+        "predicted_title": "Magnetic Eyeliner",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B088JWX1QF",
+            "title": "Magnetic Eyeliner",
+            "score": 0.999966
+          },
+          {
+            "item_id": "B08FFJ11CP",
+            "title": "Magnetic Eyeliner",
+            "score": 0.999959
+          },
+          {
+            "item_id": "B07WTYYQX8",
+            "title": "Magnetic Eyeliner",
+            "score": 0.999959
+          },
+          {
+            "item_id": "B07WTZS8Q9",
+            "title": "Magnetic Eyeliner",
+            "score": 0.999959
+          },
+          {
+            "item_id": "B07WRX9445",
+            "title": "Magnetic Eyeliner",
+            "score": 0.999959
+          }
+        ]
+      },
+      {
+        "round": 3,
+        "predicted_title": "Magnetic Eyeliner",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B088JWX1QF",
+            "title": "Magnetic Eyeliner",
+            "score": 0.999966
+          },
+          {
+            "item_id": "B08FFJ11CP",
+            "title": "Magnetic Eyeliner",
+            "score": 0.999959
+          },
+          {
+            "item_id": "B07WTYYQX8",
+            "title": "Magnetic Eyeliner",
+            "score": 0.999959
+          },
+          {
+            "item_id": "B07WTZS8Q9",
+            "title": "Magnetic Eyeliner",
+            "score": 0.999959
+          },
+          {
+            "item_id": "B07WRX9445",
+            "title": "Magnetic Eyeliner",
+            "score": 0.999959
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "user_id": "AE3X7PNUWXQU6FZQLQGIA6ZT45QA",
+    "target_item_id": "B091DF3MPN",
+    "target_title": "Mon Etoile de Beaute",
+    "final_round": 3,
+    "final_predicted_title": "GERSHION Gel Nail Polish",
+    "attempts": [
+      {
+        "round": 0,
+        "predicted_title": "GERSHION Gel Nail Polish",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B092VN9S19",
+            "title": "GERSHION Gel Nail Polish",
+            "score": 0.999953
+          },
+          {
+            "item_id": "B08RYS9BZ4",
+            "title": "GERSHION Gel Nail Polish",
+            "score": 0.999952
+          },
+          {
+            "item_id": "B08RYS6T51",
+            "title": "GERSHION Gel Nail Polish",
+            "score": 0.999952
+          },
+          {
+            "item_id": "B08RYR533M",
+            "title": "GERSHION Neon Gel Nail",
+            "score": 0.99402
+          },
+          {
+            "item_id": "B08S34N7WS",
+            "title": "GERSHION Nail Gel",
+            "score": 0.990893
+          }
+        ]
+      },
+      {
+        "round": 1,
+        "predicted_title": "GERSHION Gel Nail Polish",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B092VN9S19",
+            "title": "GERSHION Gel Nail Polish",
+            "score": 0.99997
+          },
+          {
+            "item_id": "B08RYS9BZ4",
+            "title": "GERSHION Gel Nail Polish",
+            "score": 0.999942
+          },
+          {
+            "item_id": "B08RYS6T51",
+            "title": "GERSHION Gel Nail Polish",
+            "score": 0.999942
+          },
+          {
+            "item_id": "B08RYR533M",
+            "title": "GERSHION Neon Gel Nail",
+            "score": 0.993948
+          },
+          {
+            "item_id": "B08S34N7WS",
+            "title": "GERSHION Nail Gel",
+            "score": 0.990775
+          }
+        ]
+      },
+      {
+        "round": 2,
+        "predicted_title": "GERSHION Gel Nail Polish",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B08RYS6T51",
+            "title": "GERSHION Gel Nail Polish",
+            "score": 0.999965
+          },
+          {
+            "item_id": "B08RYS9BZ4",
+            "title": "GERSHION Gel Nail Polish",
+            "score": 0.999965
+          },
+          {
+            "item_id": "B092VN9S19",
+            "title": "GERSHION Gel Nail Polish",
+            "score": 0.999958
+          },
+          {
+            "item_id": "B08RYR533M",
+            "title": "GERSHION Neon Gel Nail",
+            "score": 0.994114
+          },
+          {
+            "item_id": "B08S34N7WS",
+            "title": "GERSHION Nail Gel",
+            "score": 0.991168
+          }
+        ]
+      },
+      {
+        "round": 3,
+        "predicted_title": "GERSHION Gel Nail Polish",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B08RYS6T51",
+            "title": "GERSHION Gel Nail Polish",
+            "score": 0.999965
+          },
+          {
+            "item_id": "B08RYS9BZ4",
+            "title": "GERSHION Gel Nail Polish",
+            "score": 0.999965
+          },
+          {
+            "item_id": "B092VN9S19",
+            "title": "GERSHION Gel Nail Polish",
+            "score": 0.999958
+          },
+          {
+            "item_id": "B08RYR533M",
+            "title": "GERSHION Neon Gel Nail",
+            "score": 0.994114
+          },
+          {
+            "item_id": "B08S34N7WS",
+            "title": "GERSHION Nail Gel",
+            "score": 0.991168
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "user_id": "AGZZXSMMS4WRHHJRBUJZI4FZDHKQ",
+    "target_item_id": "B08CVTNQP1",
+    "target_title": "Townley Girl",
+    "final_round": 3,
+    "final_predicted_title": "12 Pcs Hair Clips",
+    "attempts": [
+      {
+        "round": 0,
+        "predicted_title": "12 Pcs Hair Clips",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B07Q8651VY",
+            "title": "13 Pcs Hair Clips",
+            "score": 0.993855
+          },
+          {
+            "item_id": "B08H226ZQJ",
+            "title": "12 Pcs Hair Root",
+            "score": 0.993703
+          },
+          {
+            "item_id": "B0833SF5MT",
+            "title": "30 Pcs Hair Clips",
+            "score": 0.992796
+          },
+          {
+            "item_id": "B08ND6VKHZ",
+            "title": "12 Pcs Hair Rollers",
+            "score": 0.992402
+          },
+          {
+            "item_id": "B0878V5VVC",
+            "title": "42 Pcs Hair Clips",
+            "score": 0.992022
+          }
+        ]
+      },
+      {
+        "round": 1,
+        "predicted_title": "12 Pcs Hair Clips",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B08H226ZQJ",
+            "title": "12 Pcs Hair Root",
+            "score": 0.993751
+          },
+          {
+            "item_id": "B07Q8651VY",
+            "title": "13 Pcs Hair Clips",
+            "score": 0.99375
+          },
+          {
+            "item_id": "B0833SF5MT",
+            "title": "30 Pcs Hair Clips",
+            "score": 0.99264
+          },
+          {
+            "item_id": "B08ND6VKHZ",
+            "title": "12 Pcs Hair Rollers",
+            "score": 0.992585
+          },
+          {
+            "item_id": "B0878V5VVC",
+            "title": "42 Pcs Hair Clips",
+            "score": 0.991933
+          }
+        ]
+      },
+      {
+        "round": 2,
+        "predicted_title": "12 Pcs Hair Clips",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B07Q8651VY",
+            "title": "13 Pcs Hair Clips",
+            "score": 0.993759
+          },
+          {
+            "item_id": "B08H226ZQJ",
+            "title": "12 Pcs Hair Root",
+            "score": 0.993741
+          },
+          {
+            "item_id": "B0833SF5MT",
+            "title": "30 Pcs Hair Clips",
+            "score": 0.992691
+          },
+          {
+            "item_id": "B08ND6VKHZ",
+            "title": "12 Pcs Hair Rollers",
+            "score": 0.992574
+          },
+          {
+            "item_id": "B0878V5VVC",
+            "title": "42 Pcs Hair Clips",
+            "score": 0.991967
+          }
+        ]
+      },
+      {
+        "round": 3,
+        "predicted_title": "12 Pcs Hair Clips",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B07Q8651VY",
+            "title": "13 Pcs Hair Clips",
+            "score": 0.993759
+          },
+          {
+            "item_id": "B08H226ZQJ",
+            "title": "12 Pcs Hair Root",
+            "score": 0.993741
+          },
+          {
+            "item_id": "B0833SF5MT",
+            "title": "30 Pcs Hair Clips",
+            "score": 0.992691
+          },
+          {
+            "item_id": "B08ND6VKHZ",
+            "title": "12 Pcs Hair Rollers",
+            "score": 0.992574
+          },
+          {
+            "item_id": "B0878V5VVC",
+            "title": "42 Pcs Hair Clips",
+            "score": 0.991967
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "user_id": "AGD25H7BIT2JUXSIOPYCYB23J3ZQ",
+    "target_item_id": "B08T5RVSD9",
+    "target_title": "Msmofei Make up Brushes",
+    "final_round": 3,
+    "final_predicted_title": "LUXELOO 100% Pure Moroccan",
+    "attempts": [
+      {
+        "round": 0,
+        "predicted_title": "LUXELOO 100% Pure Moroccan",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B010USX5S0",
+            "title": "SENREAL 100% Natural Beautiful",
+            "score": 0.986333
+          },
+          {
+            "item_id": "B089XYKNFP",
+            "title": "BONNIESTORE 7 Colors 4D",
+            "score": 0.984682
+          },
+          {
+            "item_id": "B095HHZMF5",
+            "title": "SATINIOR 16 Pieces Stretch",
+            "score": 0.984077
+          },
+          {
+            "item_id": "B08DCY6PYY",
+            "title": "SATINIOR 10 Pieces Button",
+            "score": 0.983937
+          },
+          {
+            "item_id": "B01NCXDC0D",
+            "title": "HANNE 300G Brazilian Virgin",
+            "score": 0.982766
+          }
+        ]
+      },
+      {
+        "round": 1,
+        "predicted_title": "LUXELOO 100% Pure Moroccan",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B010USX5S0",
+            "title": "SENREAL 100% Natural Beautiful",
+            "score": 0.986166
+          },
+          {
+            "item_id": "B089XYKNFP",
+            "title": "BONNIESTORE 7 Colors 4D",
+            "score": 0.984647
+          },
+          {
+            "item_id": "B095HHZMF5",
+            "title": "SATINIOR 16 Pieces Stretch",
+            "score": 0.983989
+          },
+          {
+            "item_id": "B08DCY6PYY",
+            "title": "SATINIOR 10 Pieces Button",
+            "score": 0.983822
+          },
+          {
+            "item_id": "B01NCXDC0D",
+            "title": "HANNE 300G Brazilian Virgin",
+            "score": 0.9827
+          }
+        ]
+      },
+      {
+        "round": 2,
+        "predicted_title": "LUXELOO 100% Pure Moroccan",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B010USX5S0",
+            "title": "SENREAL 100% Natural Beautiful",
+            "score": 0.98619
+          },
+          {
+            "item_id": "B089XYKNFP",
+            "title": "BONNIESTORE 7 Colors 4D",
+            "score": 0.984733
+          },
+          {
+            "item_id": "B095HHZMF5",
+            "title": "SATINIOR 16 Pieces Stretch",
+            "score": 0.98406
+          },
+          {
+            "item_id": "B08DCY6PYY",
+            "title": "SATINIOR 10 Pieces Button",
+            "score": 0.983897
+          },
+          {
+            "item_id": "B01NCXDC0D",
+            "title": "HANNE 300G Brazilian Virgin",
+            "score": 0.982702
+          }
+        ]
+      },
+      {
+        "round": 3,
+        "predicted_title": "LUXELOO 100% Pure Moroccan",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B010USX5S0",
+            "title": "SENREAL 100% Natural Beautiful",
+            "score": 0.98619
+          },
+          {
+            "item_id": "B089XYKNFP",
+            "title": "BONNIESTORE 7 Colors 4D",
+            "score": 0.984733
+          },
+          {
+            "item_id": "B095HHZMF5",
+            "title": "SATINIOR 16 Pieces Stretch",
+            "score": 0.98406
+          },
+          {
+            "item_id": "B08DCY6PYY",
+            "title": "SATINIOR 10 Pieces Button",
+            "score": 0.983897
+          },
+          {
+            "item_id": "B01NCXDC0D",
+            "title": "HANNE 300G Brazilian Virgin",
+            "score": 0.982702
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "user_id": "AFULZJNHK6KFYTA5PJPBNSRIR4HA",
+    "target_item_id": "B07M5HB65T",
+    "target_title": "Lash Ease Mascara",
+    "final_round": 3,
+    "final_predicted_title": "Bellefu Ionic Hair Straightener, Hair",
+    "attempts": [
+      {
+        "round": 0,
+        "predicted_title": "Bellefu Ionic Hair Straightener",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B07S5GYK14",
+            "title": "Belifu Ionic Hair Straightener",
+            "score": 0.976954
+          },
+          {
+            "item_id": "B07WVVXZG9",
+            "title": "Safenorth Ionic Beard Straightener",
+            "score": 0.966135
+          },
+          {
+            "item_id": "B01C8404OC",
+            "title": "Bestidy Hair Straightener Brush",
+            "score": 0.965759
+          },
+          {
+            "item_id": "B01B2PC02W",
+            "title": "Eqoba Ceramic Hair Straightener",
+            "score": 0.965347
+          },
+          {
+            "item_id": "B07V67T38G",
+            "title": "Arkam Ionic Hair Straightener",
+            "score": 0.96526
+          }
+        ]
+      },
+      {
+        "round": 1,
+        "predicted_title": "Bellefu Ionic Hair Straightener",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B07S5GYK14",
+            "title": "Belifu Ionic Hair Straightener",
+            "score": 0.976264
+          },
+          {
+            "item_id": "B07WVVXZG9",
+            "title": "Safenorth Ionic Beard Straightener",
+            "score": 0.965649
+          },
+          {
+            "item_id": "B01C8404OC",
+            "title": "Bestidy Hair Straightener Brush",
+            "score": 0.964979
+          },
+          {
+            "item_id": "B01B2PC02W",
+            "title": "Eqoba Ceramic Hair Straightener",
+            "score": 0.964636
+          },
+          {
+            "item_id": "B07V67T38G",
+            "title": "Arkam Ionic Hair Straightener",
+            "score": 0.964381
+          }
+        ]
+      },
+      {
+        "round": 2,
+        "predicted_title": "Bellefu Ionic Hair Straightener, Hair",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B07ZT6R25S",
+            "title": "Wazor Hair Straightener, Flat",
+            "score": 0.975773
+          },
+          {
+            "item_id": "B07S5GYK14",
+            "title": "Belifu Ionic Hair Straightener",
+            "score": 0.975767
+          },
+          {
+            "item_id": "B01C8404OC",
+            "title": "Bestidy Hair Straightener Brush",
+            "score": 0.972167
+          },
+          {
+            "item_id": "B018FZ15Z0",
+            "title": "NASV Hair Straightening Brush,",
+            "score": 0.971986
+          },
+          {
+            "item_id": "B08D6W125J",
+            "title": "Pro Hair Straightener &",
+            "score": 0.971623
+          }
+        ]
+      },
+      {
+        "round": 3,
+        "predicted_title": "Bellefu Ionic Hair Straightener, Hair",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B07ZT6R25S",
+            "title": "Wazor Hair Straightener, Flat",
+            "score": 0.975773
+          },
+          {
+            "item_id": "B07S5GYK14",
+            "title": "Belifu Ionic Hair Straightener",
+            "score": 0.975767
+          },
+          {
+            "item_id": "B01C8404OC",
+            "title": "Bestidy Hair Straightener Brush",
+            "score": 0.972167
+          },
+          {
+            "item_id": "B018FZ15Z0",
+            "title": "NASV Hair Straightening Brush,",
+            "score": 0.971986
+          },
+          {
+            "item_id": "B08D6W125J",
+            "title": "Pro Hair Straightener &",
+            "score": 0.971623
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "user_id": "AFTQN4MTJHHVFM4FEXY5KT76OY4A",
+    "target_item_id": "B09V2MR177",
+    "target_title": "Welcome to London Eyeshadow Palette",
+    "final_round": 3,
+    "final_predicted_title": "Lash Enhancing Serum",
+    "attempts": [
+      {
+        "round": 0,
+        "predicted_title": "Lash Enhancing Serum",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B08K9F83LK",
+            "title": "Lash & Brow Enhancer",
+            "score": 0.984273
+          },
+          {
+            "item_id": "B07CSL21J8",
+            "title": "Lash Growth Serum",
+            "score": 0.977585
+          },
+          {
+            "item_id": "B07KYWYWM5",
+            "title": "Lash Growth Serum",
+            "score": 0.977159
+          },
+          {
+            "item_id": "B086Q5TL92",
+            "title": "Lash & Brow Serum",
+            "score": 0.975467
+          },
+          {
+            "item_id": "B0B3LG9C8B",
+            "title": "Lash & Brow Color Kit",
+            "score": 0.971776
+          }
+        ]
+      },
+      {
+        "round": 1,
+        "predicted_title": "Lash Enhancing Serum",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B08K9F83LK",
+            "title": "Lash & Brow Enhancer",
+            "score": 0.984396
+          },
+          {
+            "item_id": "B07CSL21J8",
+            "title": "Lash Growth Serum",
+            "score": 0.9777
+          },
+          {
+            "item_id": "B07KYWYWM5",
+            "title": "Lash Growth Serum",
+            "score": 0.97726
+          },
+          {
+            "item_id": "B086Q5TL92",
+            "title": "Lash & Brow Serum",
+            "score": 0.975674
+          },
+          {
+            "item_id": "B0B3LG9C8B",
+            "title": "Lash & Brow Color Kit",
+            "score": 0.972107
+          }
+        ]
+      },
+      {
+        "round": 2,
+        "predicted_title": "Lash Enhancing Serum",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B08K9F83LK",
+            "title": "Lash & Brow Enhancer",
+            "score": 0.984349
+          },
+          {
+            "item_id": "B07CSL21J8",
+            "title": "Lash Growth Serum",
+            "score": 0.977506
+          },
+          {
+            "item_id": "B07KYWYWM5",
+            "title": "Lash Growth Serum",
+            "score": 0.977074
+          },
+          {
+            "item_id": "B086Q5TL92",
+            "title": "Lash & Brow Serum",
+            "score": 0.975587
+          },
+          {
+            "item_id": "B0B3LG9C8B",
+            "title": "Lash & Brow Color Kit",
+            "score": 0.971921
+          }
+        ]
+      },
+      {
+        "round": 3,
+        "predicted_title": "Lash Enhancing Serum",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B08K9F83LK",
+            "title": "Lash & Brow Enhancer",
+            "score": 0.984349
+          },
+          {
+            "item_id": "B07CSL21J8",
+            "title": "Lash Growth Serum",
+            "score": 0.977506
+          },
+          {
+            "item_id": "B07KYWYWM5",
+            "title": "Lash Growth Serum",
+            "score": 0.977074
+          },
+          {
+            "item_id": "B086Q5TL92",
+            "title": "Lash & Brow Serum",
+            "score": 0.975587
+          },
+          {
+            "item_id": "B0B3LG9C8B",
+            "title": "Lash & Brow Color Kit",
+            "score": 0.971921
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "user_id": "AG5FGCIM6PBJX3JNDRKQMITZTIMA",
+    "target_item_id": "B08837W489",
+    "target_title": "10Pcs Nail Files and",
+    "final_round": 3,
+    "final_predicted_title": "Attempt 1 answer: \"Water Flosser Cordless Teeth\" Your previous answer is incorrect because the target item is",
+    "attempts": [
+      {
+        "round": 0,
+        "predicted_title": "Water Flosser Cordless Teeth",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B09FK4WRFD",
+            "title": "Water Flosser Cordless Teeth",
+            "score": 0.999953
+          },
+          {
+            "item_id": "B07LCHCD6Q",
+            "title": "Water Flosser Cordless Teeth",
+            "score": 0.999953
+          },
+          {
+            "item_id": "B085CCYRSN",
+            "title": "Water Flosser Cordless Teeth",
+            "score": 0.999941
+          },
+          {
+            "item_id": "B0943GJDP6",
+            "title": "Water Flosser Cordless Dental",
+            "score": 0.996123
+          },
+          {
+            "item_id": "B01IQEAO52",
+            "title": "Water Flosser Cordless Oral",
+            "score": 0.994366
+          }
+        ]
+      },
+      {
+        "round": 1,
+        "predicted_title": "Attempt 1 answer: \"Water Flosser Cordless Teeth\" Your previous answer is incorrect because the target item is",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B018E022YY",
+            "title": "5 in 1 Curling",
+            "score": 0.953671
+          },
+          {
+            "item_id": "B087J1WB1H",
+            "title": "Set of 10 Cuticle",
+            "score": 0.95329
+          },
+          {
+            "item_id": "B08MV1FK5B",
+            "title": "with 2 Pieces Styling,",
+            "score": 0.953166
+          },
+          {
+            "item_id": "B08R5V2P3H",
+            "title": "6 in 1 Curling",
+            "score": 0.952759
+          },
+          {
+            "item_id": "B07P7MFNWS",
+            "title": "Set of 12 Waterproof",
+            "score": 0.952569
+          }
+        ]
+      },
+      {
+        "round": 2,
+        "predicted_title": "Attempt 1 answer: \"Water Flosser Cordless Teeth\" Your previous answer is incorrect because the target item is",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B018E022YY",
+            "title": "5 in 1 Curling",
+            "score": 0.954092
+          },
+          {
+            "item_id": "B08MV1FK5B",
+            "title": "with 2 Pieces Styling,",
+            "score": 0.953703
+          },
+          {
+            "item_id": "B087J1WB1H",
+            "title": "Set of 10 Cuticle",
+            "score": 0.953589
+          },
+          {
+            "item_id": "B08R5V2P3H",
+            "title": "6 in 1 Curling",
+            "score": 0.953204
+          },
+          {
+            "item_id": "B07P7MFNWS",
+            "title": "Set of 12 Waterproof",
+            "score": 0.952869
+          }
+        ]
+      },
+      {
+        "round": 3,
+        "predicted_title": "Attempt 1 answer: \"Water Flosser Cordless Teeth\" Your previous answer is incorrect because the target item is",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B018E022YY",
+            "title": "5 in 1 Curling",
+            "score": 0.954092
+          },
+          {
+            "item_id": "B08MV1FK5B",
+            "title": "with 2 Pieces Styling,",
+            "score": 0.953703
+          },
+          {
+            "item_id": "B087J1WB1H",
+            "title": "Set of 10 Cuticle",
+            "score": 0.953589
+          },
+          {
+            "item_id": "B08R5V2P3H",
+            "title": "6 in 1 Curling",
+            "score": 0.953204
+          },
+          {
+            "item_id": "B07P7MFNWS",
+            "title": "Set of 12 Waterproof",
+            "score": 0.952869
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "user_id": "AEZP6Z2C5AVQDZAJECQYZWQRNG3Q",
+    "target_item_id": "B07L9H27SH",
+    "target_title": "Argan Magic Color Protection",
+    "final_round": 3,
+    "final_predicted_title": "COSMOS 100% Pure Argan",
+    "attempts": [
+      {
+        "round": 0,
+        "predicted_title": "COSMOS 100% Pure Argan",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B013DFGWAK",
+            "title": "COSMOS 7 Pcs Men's",
+            "score": 0.988775
+          },
+          {
+            "item_id": "B083122WRC",
+            "title": "COSYMAY 20 inch Human",
+            "score": 0.987478
+          },
+          {
+            "item_id": "B00FXIUM2A",
+            "title": "SODIAL 100% Polyester Eye",
+            "score": 0.986158
+          },
+          {
+            "item_id": "B0899WF8ZJ",
+            "title": "SILPECWEE 8 Sheets Solid",
+            "score": 0.98592
+          },
+          {
+            "item_id": "B01N4EQSNC",
+            "title": "QTHAIR 10A Brazilian Body",
+            "score": 0.985328
+          }
+        ]
+      },
+      {
+        "round": 1,
+        "predicted_title": "COSMOS 100% Pure Argan",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B013DFGWAK",
+            "title": "COSMOS 7 Pcs Men's",
+            "score": 0.988842
+          },
+          {
+            "item_id": "B083122WRC",
+            "title": "COSYMAY 20 inch Human",
+            "score": 0.987688
+          },
+          {
+            "item_id": "B00FXIUM2A",
+            "title": "SODIAL 100% Polyester Eye",
+            "score": 0.986275
+          },
+          {
+            "item_id": "B0899WF8ZJ",
+            "title": "SILPECWEE 8 Sheets Solid",
+            "score": 0.98601
+          },
+          {
+            "item_id": "B08FM96JXL",
+            "title": "SILPECWEE 8 Sheets Nail",
+            "score": 0.985415
+          }
+        ]
+      },
+      {
+        "round": 2,
+        "predicted_title": "COSMOS 100% Pure Argan,",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B013DFGWAK",
+            "title": "COSMOS 7 Pcs Men's",
+            "score": 0.986648
+          },
+          {
+            "item_id": "B00FXIUM2A",
+            "title": "SODIAL 100% Polyester Eye",
+            "score": 0.984696
+          },
+          {
+            "item_id": "B083122WRC",
+            "title": "COSYMAY 20 inch Human",
+            "score": 0.984096
+          },
+          {
+            "item_id": "B00VBJVGP2",
+            "title": "MAKARTT 500pcs Natural Color",
+            "score": 0.984077
+          },
+          {
+            "item_id": "B073P5J2P7",
+            "title": "MISKOS 12 Color Bright",
+            "score": 0.983754
+          }
+        ]
+      },
+      {
+        "round": 3,
+        "predicted_title": "COSMOS 100% Pure Argan",
+        "hit_in_top5": false,
+        "top_5": [
+          {
+            "item_id": "B013DFGWAK",
+            "title": "COSMOS 7 Pcs Men's",
+            "score": 0.98885
+          },
+          {
+            "item_id": "B083122WRC",
+            "title": "COSYMAY 20 inch Human",
+            "score": 0.987473
+          },
+          {
+            "item_id": "B00FXIUM2A",
+            "title": "SODIAL 100% Polyester Eye",
+            "score": 0.986139
+          },
+          {
+            "item_id": "B0899WF8ZJ",
+            "title": "SILPECWEE 8 Sheets Solid",
+            "score": 0.985912
+          },
+          {
+            "item_id": "B08FM96JXL",
+            "title": "SILPECWEE 8 Sheets Nail",
+            "score": 0.985323
+          }
+        ]
+      }
+    ]
+  }
+]

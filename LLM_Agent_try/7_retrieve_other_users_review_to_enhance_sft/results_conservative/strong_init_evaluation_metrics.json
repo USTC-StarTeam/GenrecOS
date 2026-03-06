@@ -1,0 +1,14 @@
+{
+  "HR@1": 0.1284080914687775,
+  "NDCG@1": 0.1284080914687775,
+  "HR@5": 0.15765171503957784,
+  "NDCG@5": 0.14503961656370096,
+  "HR@10": 0.1627088830255057,
+  "NDCG@10": 0.146678491919851,
+  "HR@20": 0.1677660510114336,
+  "NDCG@20": 0.1479913965836178,
+  "exact_title_match": 0.1565523306948109,
+  "num_test_samples": 4548,
+  "track_name": "strong_init",
+  "checkpoint_path": "/zhdd/home/kfwang/20250813Reproduct_Onerec/Fuxi-OneRec-new/temp_LLM_Agent_try/7_retrieve_other_users_review_to_enhance_sft/outputs_conservative/strong_init/best_model"
+}

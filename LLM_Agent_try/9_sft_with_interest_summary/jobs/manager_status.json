@@ -1,0 +1,49 @@
+{
+  "timestamp": "2026-03-05 07:39:58",
+  "running": [],
+  "pending": [],
+  "finished": [
+    {
+      "name": "prepare_data_with_interest",
+      "gpu_id": null,
+      "exit_code": 0,
+      "log_path": "/zhdd/home/kfwang/20250813Reproduct_Onerec/Fuxi-OneRec-new/temp_LLM_Agent_try/9_sft_with_interest_summary/logs/prepare_data_with_interest.log"
+    },
+    {
+      "name": "train_sft_interest",
+      "gpu_id": 0,
+      "exit_code": 0,
+      "log_path": "/zhdd/home/kfwang/20250813Reproduct_Onerec/Fuxi-OneRec-new/temp_LLM_Agent_try/9_sft_with_interest_summary/logs/train_sft_interest.log"
+    },
+    {
+      "name": "eval_raw_test4548",
+      "gpu_id": 1,
+      "exit_code": 0,
+      "log_path": "/zhdd/home/kfwang/20250813Reproduct_Onerec/Fuxi-OneRec-new/temp_LLM_Agent_try/9_sft_with_interest_summary/logs/eval_raw_test4548.log"
+    },
+    {
+      "name": "eval_interest_common4385",
+      "gpu_id": 2,
+      "exit_code": 0,
+      "log_path": "/zhdd/home/kfwang/20250813Reproduct_Onerec/Fuxi-OneRec-new/temp_LLM_Agent_try/9_sft_with_interest_summary/logs/eval_interest_common4385.log"
+    },
+    {
+      "name": "eval_interest_test4548",
+      "gpu_id": 0,
+      "exit_code": 0,
+      "log_path": "/zhdd/home/kfwang/20250813Reproduct_Onerec/Fuxi-OneRec-new/temp_LLM_Agent_try/9_sft_with_interest_summary/logs/eval_interest_test4548.log"
+    },
+    {
+      "name": "eval_raw_common4385",
+      "gpu_id": 1,
+      "exit_code": 0,
+      "log_path": "/zhdd/home/kfwang/20250813Reproduct_Onerec/Fuxi-OneRec-new/temp_LLM_Agent_try/9_sft_with_interest_summary/logs/eval_raw_common4385.log"
+    },
+    {
+      "name": "summarize_results",
+      "gpu_id": null,
+      "exit_code": 0,
+      "log_path": "/zhdd/home/kfwang/20250813Reproduct_Onerec/Fuxi-OneRec-new/temp_LLM_Agent_try/9_sft_with_interest_summary/logs/summarize_results.log"
+    }
+  ]
+}

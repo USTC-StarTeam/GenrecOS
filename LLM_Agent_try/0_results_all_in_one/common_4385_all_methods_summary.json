@@ -1,0 +1,308 @@
+[
+  {
+    "method": "Corrected Full SFT",
+    "config": "recomputed",
+    "test_set": "common_4385_aligned",
+    "HR@1": 0.13090079817559863,
+    "HR@10": 0.1685290763968073,
+    "NDCG@10": 0.15122189391292995,
+    "notes": "same 4385 aligned subset"
+  },
+  {
+    "method": "Fixed Fusion",
+    "config": "alpha=0.55",
+    "test_set": "common_4385_aligned",
+    "HR@1": 0.1126567846692954,
+    "HR@10": 0.15621436713358966,
+    "NDCG@10": 0.1369859296620368,
+    "notes": null
+  },
+  {
+    "method": "LLM semantic retrieval",
+    "config": "context pipeline baseline",
+    "test_set": "common_4385_aligned",
+    "HR@1": 0.11242873444388639,
+    "HR@10": 0.14070695570692368,
+    "NDCG@10": 0.1270969610121802,
+    "notes": null
+  },
+  {
+    "method": "Score Fusion (legacy)",
+    "config": "alpha=0.7",
+    "test_set": "common_4385_aligned",
+    "HR@1": 0.10946408209806158,
+    "HR@10": 0.13249714937286203,
+    "NDCG@10": 0.12228811537710885,
+    "notes": null
+  },
+  {
+    "method": "Perplexity Adaptive",
+    "config": "alpha_0.7_sens_0.05",
+    "test_set": "common_4385_aligned",
+    "HR@1": 0.10946408209806158,
+    "HR@10": 0.1331812998859749,
+    "NDCG@10": 0.12248903509121808,
+    "notes": null
+  },
+  {
+    "method": "Dynamic Fusion",
+    "config": "context-adaptive",
+    "test_set": "common_4385_aligned",
+    "HR@1": 0.10923603210373099,
+    "HR@10": 0.15849486884396596,
+    "NDCG@10": 0.1364325336746642,
+    "notes": null
+  },
+  {
+    "method": "Perplexity Adaptive",
+    "config": "alpha_0.7_sens_0.1",
+    "test_set": "common_4385_aligned",
+    "HR@1": 0.10900798175598632,
+    "HR@10": 0.1329532497149373,
+    "NDCG@10": 0.12225195065685143,
+    "notes": null
+  },
+  {
+    "method": "Perplexity Adaptive",
+    "config": "alpha_0.7_sens_0.2",
+    "test_set": "common_4385_aligned",
+    "HR@1": 0.10900798175598632,
+    "HR@10": 0.13363740022805018,
+    "NDCG@10": 0.12249775568213007,
+    "notes": null
+  },
+  {
+    "method": "Score Fusion (legacy)",
+    "config": "alpha=0.5",
+    "test_set": "common_4385_aligned",
+    "HR@1": 0.10855188141391106,
+    "HR@10": 0.12383124287343215,
+    "NDCG@10": 0.11726842410353822,
+    "notes": null
+  },
+  {
+    "method": "Perplexity Adaptive",
+    "config": "alpha_0.5_sens_0.05",
+    "test_set": "common_4385_aligned",
+    "HR@1": 0.10832383124287344,
+    "HR@10": 0.12405929304446979,
+    "NDCG@10": 0.11735034034798131,
+    "notes": null
+  },
+  {
+    "method": "Perplexity Adaptive",
+    "config": "alpha_0.5_sens_0.1",
+    "test_set": "common_4385_aligned",
+    "HR@1": 0.10832383124287344,
+    "HR@10": 0.12428734321550741,
+    "NDCG@10": 0.11742306519455178,
+    "notes": null
+  },
+  {
+    "method": "Perplexity Adaptive",
+    "config": "alpha_0.5_sens_0.2",
+    "test_set": "common_4385_aligned",
+    "HR@1": 0.1080957810718358,
+    "HR@10": 0.12428734321550741,
+    "NDCG@10": 0.1173446124439207,
+    "notes": null
+  },
+  {
+    "method": "SASRec",
+    "config": "context pipeline baseline",
+    "test_set": "common_4385_aligned",
+    "HR@1": 0.09965792468907216,
+    "HR@10": 0.14002280498991806,
+    "NDCG@10": 0.12033477291685689,
+    "notes": null
+  },
+  {
+    "method": "Score Fusion (legacy)",
+    "config": "alpha=0.3",
+    "test_set": "common_4385_aligned",
+    "HR@1": 0.09874572405929305,
+    "HR@10": 0.11106043329532497,
+    "NDCG@10": 0.10558318694046044,
+    "notes": null
+  },
+  {
+    "method": "Early Gate",
+    "config": "shallow",
+    "test_set": "common_4385_aligned",
+    "HR@1": 0.0922439694404602,
+    "HR@10": 0.12989456951618195,
+    "NDCG@10": null,
+    "notes": "avg_gate=0.9991"
+  },
+  {
+    "method": "Early Gate",
+    "config": "deep",
+    "test_set": "common_4385_aligned",
+    "HR@1": 0.0922439694404602,
+    "HR@10": 0.12989456951618195,
+    "NDCG@10": null,
+    "notes": "avg_gate=0.9995"
+  },
+  {
+    "method": "Early Gate",
+    "config": "hybrid",
+    "test_set": "common_4385_aligned",
+    "HR@1": 0.0922439694404602,
+    "HR@10": 0.12989456951618195,
+    "NDCG@10": null,
+    "notes": "avg_gate=0.9994"
+  },
+  {
+    "method": "LLM zero-shot (original titles)",
+    "config": "recomputed",
+    "test_set": "common_4385_aligned",
+    "HR@1": 0.0572405929304447,
+    "HR@10": 0.08415051311288484,
+    "NDCG@10": 0.07014663656809335,
+    "notes": "candidate space uses available original metadata titles"
+  },
+  {
+    "method": "Prompt Augment",
+    "config": "k=20",
+    "test_set": "common_4385_aligned",
+    "HR@1": 0.0556442417331813,
+    "HR@10": 0.07730900798175598,
+    "NDCG@10": 0.06568951810790255,
+    "notes": null
+  },
+  {
+    "method": "Prompt Augment",
+    "config": "k=10",
+    "test_set": "common_4385_aligned",
+    "HR@1": 0.03489167616875713,
+    "HR@10": 0.05017103762827822,
+    "NDCG@10": 0.041743406611438924,
+    "notes": null
+  },
+  {
+    "method": "Prompt Augment",
+    "config": "k=5",
+    "test_set": "common_4385_aligned",
+    "HR@1": 0.023489167616875712,
+    "HR@10": 0.03169897377423033,
+    "NDCG@10": 0.02724233667892594,
+    "notes": null
+  },
+  {
+    "method": "Review Retrieval Augment",
+    "config": "7_default_base_init_common4385",
+    "test_set": "common_4385_aligned",
+    "HR@1": 0.12086659064994298,
+    "HR@10": 0.15438996579247435,
+    "NDCG@10": 0.13881972819113217,
+    "notes": "from 7_retrieve_other_users_review_to_enhance_sft/results/base_init_common4385_evaluation_metrics.json"
+  },
+  {
+    "method": "Review Retrieval Augment",
+    "config": "7_default_strong_init_common4385",
+    "test_set": "common_4385_aligned",
+    "HR@1": 0.1290763968072976,
+    "HR@10": 0.16145952109464082,
+    "NDCG@10": 0.14660760594538058,
+    "notes": "from 7_retrieve_other_users_review_to_enhance_sft/results/strong_init_common4385_evaluation_metrics.json"
+  },
+  {
+    "method": "Review Retrieval Augment",
+    "config": "7_conservative_base_init_common4385",
+    "test_set": "common_4385_aligned",
+    "HR@1": 0.130672748004561,
+    "HR@10": 0.1605473204104903,
+    "NDCG@10": 0.14682540711389974,
+    "notes": "from 7_retrieve_other_users_review_to_enhance_sft/results_conservative/base_init_common4385_evaluation_metrics.json"
+  },
+  {
+    "method": "Review Retrieval Augment",
+    "config": "7_conservative_strong_init_common4385",
+    "test_set": "common_4385_aligned",
+    "HR@1": 0.13135689851767388,
+    "HR@10": 0.16716077537058152,
+    "NDCG@10": 0.15031483972179918,
+    "notes": "from 7_retrieve_other_users_review_to_enhance_sft/results_conservative/strong_init_common4385_evaluation_metrics.json"
+  },
+  {
+    "method": "SFT Interest Summary In-Train (9_)",
+    "config": "9_raw_common4385",
+    "test_set": "common_4385_aligned",
+    "HR@1": 0.13112884834663627,
+    "HR@10": 0.1676168757126568,
+    "NDCG@10": 0.15057569306816346,
+    "notes": "from 9_sft_with_interest_summary/results/raw_common4385_metrics.json; same training/eval pipeline as 9_, without summary text in test prompt"
+  },
+  {
+    "method": "SFT Interest Summary In-Train (9_)",
+    "config": "9_interest_common4385",
+    "test_set": "common_4385_aligned",
+    "HR@1": 0.12839224629418472,
+    "HR@10": 0.1646522234891676,
+    "NDCG@10": 0.14772902282897757,
+    "notes": "from 9_sft_with_interest_summary/results/interest_common4385_metrics.json; summary text injected for train/val/test"
+  },
+  {
+    "method": "Feedback Regeneration Oracle (10_)",
+    "config": "10_title_sft_round0_baseline_common4385",
+    "test_set": "common_4385_aligned",
+    "HR@1": 0.13090079817559863,
+    "HR@10": 0.1676168757126568,
+    "NDCG@10": 0.15040902188733246,
+    "notes": "from 10_feedback_regeneration_oracle/results/feedback_regen_title_sft_common4385_metrics.json; checkpoint=4_finetune_to_upgrade_LLM/outputs/qwen3_title_sft/best_model; no feedback applied"
+  },
+  {
+    "method": "Feedback Regeneration Oracle (10_)",
+    "config": "10_title_sft_final_after_feedback_common4385",
+    "test_set": "common_4385_aligned",
+    "HR@1": 0.13112884834663627,
+    "HR@10": 0.16579247434435576,
+    "NDCG@10": 0.150075935270695,
+    "notes": "from 10_feedback_regeneration_oracle/results/feedback_regen_title_sft_common4385_metrics.json; oracle feedback trigger=top5 miss, max_feedback_rounds=3; delta_vs_round0: HR@1 +0.000228, HR@10 -0.001824, NDCG@10 -0.000333"
+  },
+  {
+    "method": "Interest Summary Prompt (8_)",
+    "config": "8_strong_init_raw_common4385",
+    "test_set": "common_4385_aligned",
+    "HR@1": 0.0011402508551881414,
+    "HR@10": 0.002508551881413911,
+    "NDCG@10": 0.0015505482846497381,
+    "notes": "from 8_interest_summary_before_generate/results/strong_raw_common4385_metrics.json (post-fix rerun)"
+  },
+  {
+    "method": "Interest Summary Prompt (8_)",
+    "config": "8_strong_init_interest_common4385",
+    "test_set": "common_4385_aligned",
+    "HR@1": 0.00022805017103762827,
+    "HR@10": 0.0018244013683010262,
+    "NDCG@10": 0.0008695060069791833,
+    "notes": "from 8_interest_summary_before_generate/results/strong_interest_common4385_metrics.json (post-fix rerun; gpt-5-mini empty-content fallback)"
+  },
+  {
+    "method": "Interest Summary Prompt (8_)",
+    "config": "8_base_init_raw_common4385",
+    "test_set": "common_4385_aligned",
+    "HR@1": 0.0,
+    "HR@10": 0.0006841505131128849,
+    "NDCG@10": 0.0002841827673566982,
+    "notes": "from 8_interest_summary_before_generate/results/base_raw_common4385_metrics.json (post-fix rerun)"
+  },
+  {
+    "method": "Interest Summary Prompt (8_)",
+    "config": "8_base_init_interest_common4385",
+    "test_set": "common_4385_aligned",
+    "HR@1": 0.0,
+    "HR@10": 0.00045610034207525655,
+    "NDCG@10": 0.00017944897267535125,
+    "notes": "from 8_interest_summary_before_generate/results/base_interest_common4385_metrics.json (post-fix rerun; gpt-5-mini empty-content fallback)"
+  },
+  {
+    "method": "Seq2Pat Pattern Memory Prompt (11_)",
+    "config": "11_pattern_common4385",
+    "test_set": "common_4385_aligned",
+    "HR@1": 0.1329532497149373,
+    "HR@10": 0.16510832383124288,
+    "NDCG@10": 0.14972322686575681,
+    "notes": "from 11_seq2pat_memory_prompt/results/pattern_common4385_metrics.json; memory=global seq2pat patterns + subsequence-only matching; also evaluated on test4548: HR@1=0.129947, HR@10=0.162049, NDCG@10=0.146752"
+  }
+]

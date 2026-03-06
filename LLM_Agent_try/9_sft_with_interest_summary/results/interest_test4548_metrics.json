@@ -1,0 +1,15 @@
+{
+  "HR@1": 0.12554969217238346,
+  "NDCG@1": 0.12554969217238346,
+  "HR@5": 0.15589270008795075,
+  "NDCG@5": 0.14279199898820663,
+  "HR@10": 0.161169744942832,
+  "NDCG@10": 0.14449789728037915,
+  "HR@20": 0.16732629727352683,
+  "NDCG@20": 0.14606896035754396,
+  "exact_title_match": 0.15281442392260333,
+  "num_test_samples": 4548,
+  "checkpoint_path": "/zhdd/home/kfwang/20250813Reproduct_Onerec/Fuxi-OneRec-new/temp_LLM_Agent_try/9_sft_with_interest_summary/outputs/qwen3_interest_sft/best_model",
+  "test_path": "/zhdd/home/kfwang/20250813Reproduct_Onerec/Fuxi-OneRec-new/temp_LLM_Agent_try/9_sft_with_interest_summary/data/test.jsonl",
+  "output_prefix": "interest_test4548"
+}

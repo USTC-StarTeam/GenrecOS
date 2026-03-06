@@ -1,0 +1,15 @@
+{
+  "HR@1": 0.1329532497149373,
+  "NDCG@1": 0.1329532497149373,
+  "HR@5": 0.16145952109464082,
+  "NDCG@5": 0.14855433433141726,
+  "HR@10": 0.16510832383124288,
+  "NDCG@10": 0.14972322686575681,
+  "HR@20": 0.1717217787913341,
+  "NDCG@20": 0.1513777043449116,
+  "exact_title_match": 0.16009122006841506,
+  "num_test_samples": 4385,
+  "checkpoint_path": "/zhdd/home/kfwang/20250813Reproduct_Onerec/Fuxi-OneRec-new/temp_LLM_Agent_try/11_seq2pat_memory_prompt/outputs/qwen3_pattern_sft/best_model",
+  "test_path": "/zhdd/home/kfwang/20250813Reproduct_Onerec/Fuxi-OneRec-new/temp_LLM_Agent_try/11_seq2pat_memory_prompt/data/test_common_4385.jsonl",
+  "output_prefix": "pattern_common4385"
+}

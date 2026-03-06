@@ -1,0 +1,115 @@
+{
+  "cache_tag": "smoke",
+  "run_name": "smoke_gate",
+  "config": {
+    "cache_tag": "smoke",
+    "device": "cuda:0",
+    "run_name": "smoke_gate",
+    "seed": 42,
+    "epochs": 2,
+    "patience": 1,
+    "train_batch_size": 4,
+    "eval_batch_size": 4,
+    "lr": 0.0005,
+    "weight_decay": 0.0001,
+    "label_smoothing": 0.02,
+    "dropout": 0.1,
+    "residual_scale": 0.2,
+    "poll_seconds": 30
+  },
+  "split_sizes": {
+    "train": 8,
+    "val": 8,
+    "test": 8
+  },
+  "baseline": {
+    "best_fixed_alpha": 0.15,
+    "fixed_fusion_val": {
+      "HR@1": 0.125,
+      "HR@5": 0.125,
+      "HR@10": 0.125,
+      "HR@20": 0.125,
+      "NDCG@10": 0.125
+    },
+    "fixed_fusion_test": {
+      "HR@1": 0.0,
+      "HR@5": 0.0,
+      "HR@10": 0.0,
+      "HR@20": 0.0,
+      "NDCG@10": 0.0
+    }
+  },
+  "dynamic_fusion": {
+    "val": {
+      "HR@1": 0.125,
+      "HR@5": 0.125,
+      "HR@10": 0.125,
+      "HR@20": 0.125,
+      "NDCG@10": 0.125
+    },
+    "test": {
+      "HR@1": 0.0,
+      "HR@5": 0.0,
+      "HR@10": 0.0,
+      "HR@20": 0.0,
+      "NDCG@10": 0.0
+    },
+    "val_coeff_mean": {
+      "coeff_0": 0.3763918876647949,
+      "coeff_1": 0.06909046322107315,
+      "coeff_2": 0.36985498666763306,
+      "coeff_3": -0.23798996210098267,
+      "coeff_4": 0.36189180612564087,
+      "coeff_5": 0.27593034505844116,
+      "coeff_6": 0.06124338135123253,
+      "coeff_7": 0.04773733764886856
+    },
+    "test_coeff_mean": {
+      "coeff_0": 0.38848891854286194,
+      "coeff_1": 0.005110442638397217,
+      "coeff_2": 0.33876073360443115,
+      "coeff_3": -0.24407964944839478,
+      "coeff_4": 0.35195985436439514,
+      "coeff_5": 0.18617038428783417,
+      "coeff_6": 0.05192801356315613,
+      "coeff_7": 0.09592341631650925
+    },
+    "history": [
+      {
+        "epoch": 1,
+        "train_loss": 10.056349277496338,
+        "train_hr1": 0.625,
+        "val_hr1": 0.125,
+        "val_hr10": 0.125,
+        "val_ndcg10": 0.125,
+        "lr": 0.0005,
+        "coeff_0": 0.3763918876647949,
+        "coeff_1": 0.06909046322107315,
+        "coeff_2": 0.36985498666763306,
+        "coeff_3": -0.23798996210098267,
+        "coeff_4": 0.36189180612564087,
+        "coeff_5": 0.27593034505844116,
+        "coeff_6": 0.06124338135123253,
+        "coeff_7": 0.04773733764886856
+      },
+      {
+        "epoch": 2,
+        "train_loss": 9.722411632537842,
+        "train_hr1": 0.875,
+        "val_hr1": 0.125,
+        "val_hr10": 0.125,
+        "val_ndcg10": 0.125,
+        "lr": 0.0005,
+        "coeff_0": 0.5945952534675598,
+        "coeff_1": 0.21192137897014618,
+        "coeff_2": 0.6059685945510864,
+        "coeff_3": -0.4056483507156372,
+        "coeff_4": 0.5188487768173218,
+        "coeff_5": 0.48548221588134766,
+        "coeff_6": 0.17173129320144653,
+        "coeff_7": 0.004217922687530518
+      }
+    ],
+    "model_path": "/zhdd/home/kfwang/20250813Reproduct_Onerec/Fuxi-OneRec-new/temp_LLM_Agent_try/5_sft_sasrec_fusion/results/smoke_gate_model.pt"
+  }
+}
